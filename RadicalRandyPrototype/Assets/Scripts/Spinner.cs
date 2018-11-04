@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Spinner : MonoBehaviour
 {
+    public Transform centre;
     Quaternion startingCamRot;
     public Vector3 RotationPerSecond;
     float inputTimer = 0;
@@ -26,6 +27,7 @@ public class Spinner : MonoBehaviour
 
         if (inputTimer >= 5f)
         {
+            transform.position = centre.transform.position;
             transform.Rotate(RotationPerSecond * Time.deltaTime);
 
         }
