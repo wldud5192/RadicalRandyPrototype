@@ -15,6 +15,6 @@ public class PlayerController : MonoBehaviour {
 		if (movement.magnitude > 0.0001f) {
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (movement), 0.15F);
 		}
-		transform.Translate (movement * -speed * Time.deltaTime, Space.World);
+		transform.Translate (movement * speed * Time.deltaTime, Space.World);
 	}
 }
