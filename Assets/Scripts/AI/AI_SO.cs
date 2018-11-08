@@ -12,4 +12,6 @@ public class AI_SO : ScriptableObject
 	public bool canRun;
 	public bool isLethal;
 	public float attackDistance;
+	public float searchTime;
+	public float searchDistance;
 }

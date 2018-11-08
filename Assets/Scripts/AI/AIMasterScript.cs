@@ -26,6 +26,8 @@ public class AIMasterScript : MonoBehaviour
 	NavMeshAgent navAgent;
 	Vector3 playersLastLocation;
 	float attackDistance;
+	float searchTime;
+	float searchDistance;
 
 	public Vector3 alertPosition;
 
@@ -118,10 +120,30 @@ public class AIMasterScript : MonoBehaviour
 		canRun = aiLogic.canRun;
 		isLethal = aiLogic.isLethal;
 		attackDistance = aiLogic.attackDistance;
+		searchTime = aiLogic.searchTime;
+		searchDistance = aiLogic.searchDistance;
 	}
 
 	private void OnCollisionEnter(Collision collision)
 	{
+		if(collision.transform.CompareTag("Player"))
+		{
+			isChasingPlayer = true;
+			playersLastLocation = collision.transform.position;
+			currentState = AIState.AI_Chasing;
+		}
 		
+		if(isChasingPlayer = true)
+		{
+			StartCoroutine(SearchForPlayer());
+		}
+	}
+
+	IEnumerator SearchForPlayer()
+	{
+		isChasingPlayer = false;
+		currentState = AIState.AI_Searching;
+		yield return new WaitForSeconds(searchTime);
+		currentState = AIState.AI_Patroling;
 	}
 }

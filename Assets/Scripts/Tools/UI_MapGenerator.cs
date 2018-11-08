@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.AI;
 
+
+/// <summary>
+/// Generates a map based on X and Y scale, sets and builds NavMesh and inputs Mapdata and scale.
+/// </summary>
 public class UI_MapGenerator : EditorWindow
 {
 	int MapRes_X;
@@ -46,8 +51,6 @@ public class UI_MapGenerator : EditorWindow
 		{
 			EditorGUILayout.LabelField("Object Scale");
 			objectScale = EditorGUILayout.FloatField(objectScale);
-
-			//int.TryParse(EditorGUILayout.TextArea(MapRes_Y), out MapRes_Y);
 		}
 		EditorGUILayout.EndHorizontal();
 
@@ -64,12 +67,13 @@ public class UI_MapGenerator : EditorWindow
 				GenerateMap();
 			}
 		}
-
-		//Todo Scriptable Object
 	}
 
 	void GenerateMap()
 	{
+		GameObject generatedMap = GameObject.Find("Grid Parent");
+		DestroyImmediate(generatedMap);
+
 		CubePosition = Vector3.zero;
 
 		CubeName = 1;
@@ -88,6 +92,10 @@ public class UI_MapGenerator : EditorWindow
 					wall.transform.position = CubePosition;
 					wall.name = CubeName.ToString();
 					wall.transform.parent = ParentCube.transform;
+					wall.isStatic = true;
+
+					//GameObjectUtility.SetStaticEditorFlags(wall.transform.GetChild(0).gameObject, StaticEditorFlags.NavigationStatic);
+					//GameObjectUtility.SetNavMeshArea(wall, 1);
 				}
 				else
 				{
@@ -95,6 +103,13 @@ public class UI_MapGenerator : EditorWindow
 					innerEnviornment.transform.position = CubePosition;
 					innerEnviornment.name = CubeName.ToString();
 					innerEnviornment.transform.parent = ParentCube.transform;
+					innerEnviornment.isStatic = true;
+
+					if (!innerEnviornment.transform.GetChild(0).gameObject.name.ToLower().Contains("wall"))
+					{
+						GameObjectUtility.SetStaticEditorFlags(innerEnviornment.transform.GetChild(0).gameObject, StaticEditorFlags.NavigationStatic);
+						GameObjectUtility.SetNavMeshArea(innerEnviornment.transform.GetChild(0).gameObject, 0);
+					}
 				}
 
 
@@ -104,7 +119,7 @@ public class UI_MapGenerator : EditorWindow
 			}
 
 			CubePosition = new Vector3(0, 0, CubePosition.z + objectScale);
-
 		}
+		UnityEditor.AI.NavMeshBuilder.BuildNavMesh();
 	}
 }
