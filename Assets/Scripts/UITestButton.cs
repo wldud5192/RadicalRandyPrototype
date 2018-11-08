@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UITestButton : MonoBehaviour {
+public class UITestButton : MonoBehaviour
+{
 
     public GameObject[] objArray;
     private int activateNext = 0;
@@ -17,14 +18,17 @@ public class UITestButton : MonoBehaviour {
     }
 
 
-    public void EnableObject ()
+    public void EnableObject()
     {
         Debug.Log(activateNext);
         if (activateNext <= objArray.Length)
         {
-               objArray[activateNext].SetActive(true);
-                activateNext++;
-        } else 
+            objArray[activateNext].SetActive(true);
+            activateNext++;
+            objArray[activateNext].GetComponent<AudioSource>().Play();
+
+        }
+        else
         {
             activateNext = 0;
             foreach (GameObject i in objArray)
@@ -35,3 +39,4 @@ public class UITestButton : MonoBehaviour {
         }
     }
 }
+    
