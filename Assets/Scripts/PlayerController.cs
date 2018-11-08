@@ -4,6 +4,8 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	public float speed;
+    public float doorDropPos;
+    public float doorSpeed;
     GameObject[] Unlocked;
 
     void FixedUpdate ()
@@ -27,11 +29,11 @@ public class PlayerController : MonoBehaviour {
             Unlocked = GameObject.FindGameObjectsWithTag("RedDoor");    //Puts all Doors of that colour into an array
             foreach (GameObject Unlocked in Unlocked)                 
             {
-                Vector3 BasePos = Unlocked.transform.position;          // BasePos is given the current position of each door
-                BasePos.y = -6f;                                        // BasePos is then lowered to be (presumably) below field
-                if (Unlocked.transform.position.y > BasePos.y)          // if the current position is above the basepos then the door is lowered
+                Vector3 basePos = Unlocked.transform.position;          // BasePos is given the current position of each door
+                basePos.y = doorDropPos;                                        // BasePos is then lowered to be (presumably) below field
+                if (Unlocked.transform.position.y > basePos.y)          // if the current position is above the basepos then the door is lowered
                 {
-                    Unlocked.transform.position = Vector3.MoveTowards(Unlocked.transform.position, BasePos, 0.5f);
+                    Unlocked.transform.position = Vector3.MoveTowards(Unlocked.transform.position, basePos, doorSpeed);
                 }
             }
         }
@@ -40,11 +42,11 @@ public class PlayerController : MonoBehaviour {
             Unlocked = GameObject.FindGameObjectsWithTag("BlueDoor");
             foreach (GameObject Unlocked in Unlocked)
             {
-                Vector3 BasePos = Unlocked.transform.position;
-                BasePos.y = -6f;
-                if (Unlocked.transform.position.y > BasePos.y)
+                Vector3 basePos = Unlocked.transform.position;
+                basePos.y = doorDropPos;
+                if (Unlocked.transform.position.y > basePos.y)
                 {
-                    Unlocked.transform.position = Vector3.MoveTowards(Unlocked.transform.position, BasePos, 0.5f);
+                    Unlocked.transform.position = Vector3.MoveTowards(Unlocked.transform.position, basePos, doorSpeed);
                 }
             }
         }
@@ -53,11 +55,11 @@ public class PlayerController : MonoBehaviour {
             Unlocked = GameObject.FindGameObjectsWithTag("GreenDoor");
             foreach (GameObject Unlocked in Unlocked)
             {
-                Vector3 BasePos = Unlocked.transform.position;
-                BasePos.y = -6f;
-                if (Unlocked.transform.position.y > BasePos.y)
+                Vector3 basePos = Unlocked.transform.position;
+                basePos.y = doorDropPos;
+                if (Unlocked.transform.position.y > basePos.y)
                 {
-                    Unlocked.transform.position = Vector3.MoveTowards(Unlocked.transform.position, BasePos, 0.5f);
+                    Unlocked.transform.position = Vector3.MoveTowards(Unlocked.transform.position, basePos, doorSpeed);
                 }
             }
         }
