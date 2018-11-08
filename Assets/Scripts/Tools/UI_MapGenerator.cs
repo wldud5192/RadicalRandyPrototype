@@ -93,9 +93,6 @@ public class UI_MapGenerator : EditorWindow
 					wall.name = CubeName.ToString();
 					wall.transform.parent = ParentCube.transform;
 					wall.isStatic = true;
-
-					//GameObjectUtility.SetStaticEditorFlags(wall.transform.GetChild(0).gameObject, StaticEditorFlags.NavigationStatic);
-					//GameObjectUtility.SetNavMeshArea(wall, 1);
 				}
 				else
 				{
@@ -112,9 +109,7 @@ public class UI_MapGenerator : EditorWindow
 					}
 				}
 
-
-				CubePosition += Vector3.right * objectScale;
-
+				CubePosition += Vector3.right * objectScale;					
 				CubeName++;
 			}
 
