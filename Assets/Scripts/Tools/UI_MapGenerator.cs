@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.AI;
@@ -67,6 +69,11 @@ public class UI_MapGenerator : EditorWindow
 				GenerateMap();
 			}
 		}
+
+		if(GUILayout.Button("Load Map from File"))
+		{
+			LoadMap("MapData");
+		}
 	}
 
 	void GenerateMap()
@@ -116,5 +123,16 @@ public class UI_MapGenerator : EditorWindow
 			CubePosition = new Vector3(0, 0, CubePosition.z + objectScale);
 		}
 		UnityEditor.AI.NavMeshBuilder.BuildNavMesh();
+	}
+
+	void SaveMap()
+	{
+		string InputText = System.IO.File.ReadAllText("FilePath");
+		//string.split
+	}
+
+	void LoadMap(string MapLocation)
+	{
+
 	}
 }
