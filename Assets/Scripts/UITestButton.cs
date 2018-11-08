@@ -20,22 +20,17 @@ public class UITestButton : MonoBehaviour
 
     public void EnableObject()
     {
-        Debug.Log(activateNext);
-        if (activateNext <= objArray.Length)
+        if (activateNext < objArray.Length)
         {
             objArray[activateNext].SetActive(true);
             activateNext++;
             objArray[activateNext].GetComponent<AudioSource>().Play();
 
-        }
-        else
+        } if (activateNext == objArray.Length)
         {
+            objArray[activateNext].SetActive(true);
+            objArray[activateNext].GetComponent<AudioSource>().Play();
             activateNext = 0;
-            foreach (GameObject i in objArray)
-            {
-                i.SetActive(false);
-            }
-
         }
     }
 }
