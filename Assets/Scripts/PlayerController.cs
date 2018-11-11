@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -8,6 +9,8 @@ public class PlayerController : MonoBehaviour {
     public int lives;
     Vector2 inputDirection;
     Vector3 startPosition;
+
+    public Image gameOverUI;
 
     public bool playerIsDetected;
     Animator anim;
@@ -63,11 +66,16 @@ public class PlayerController : MonoBehaviour {
         else
 
         {
-            //Show gameUI
-            //On gameoverbutton pressed
-            //Reset scene
+
+            gameOverUI.gameObject.SetActive(true);
+
         }
 
+    }
+
+    public void OnGameOverButtonClick()
+    {
+        //reset scene
     }
 
 }
