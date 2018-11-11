@@ -15,6 +15,13 @@ public class AIMasterScript : MonoBehaviour
 		AI_Alerted
 	};
 
+	enum SearchType
+	{
+		Search_Snake,
+		Search_Horizontal,
+		Search_Vertical
+	}
+
 	float viewDistance;
 	float walkSpeed;
 	float runSpeed;
@@ -34,6 +41,7 @@ public class AIMasterScript : MonoBehaviour
 
 	public AI_SO aiLogic;
 	AIState currentState;
+	SearchType searchMethod;
 
 	void Start()
 	{

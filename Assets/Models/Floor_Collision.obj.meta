@@ -1,22 +1,17 @@
 fileFormatVersion: 2
-guid: b0c394612af94fc41a7da7288a8878c0
+guid: 30a3b93195f1316479fb81081a747da3
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Floor
+    100000: default
     100002: //RootNode
-    100004: default
-    400000: Floor
+    400000: default
     400002: //RootNode
-    400004: default
-    2100000: palette
-    2100002: palette_2
-    2300000: Floor
-    2300002: default
-    3300000: Floor
-    3300002: default
-    4300000: Floor
-    4300002: default
+    2100000: None
+    2300000: default
+    3300000: default
+    4300000: default
+    6400000: default
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -50,7 +45,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1

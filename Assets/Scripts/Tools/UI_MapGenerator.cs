@@ -5,20 +5,23 @@ using System.IO;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.AI;
-
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Generates a map based on X and Y scale, sets and builds NavMesh and inputs Mapdata and scale.
 /// </summary>
 public class UI_MapGenerator : EditorWindow
 {
-	int MapRes_X;
-	int MapRes_Y;
+	int mapRes_X;
+	int mapRes_Y;
 
 	float objectScale = 2.0f;
 
-	Vector3 CubePosition;
-	int CubeName;
+	Vector3 meshGridPosition;
+	int meshPieceID;
+	string dataListTypes;
+
+	int[][] fileDataReader;
 
 	MapObjectList_SO mapData;
 
@@ -35,7 +38,7 @@ public class UI_MapGenerator : EditorWindow
 		EditorGUILayout.BeginHorizontal();
 		{
 			EditorGUILayout.LabelField("Res X");
-			MapRes_X = EditorGUILayout.IntField(MapRes_X);
+			mapRes_X = EditorGUILayout.IntField(mapRes_X);
 			//int.TryParse(EditorGUILayout.TextArea("Res X"), out MapRes_X);
 		}
 		EditorGUILayout.EndHorizontal();
@@ -43,7 +46,7 @@ public class UI_MapGenerator : EditorWindow
 		EditorGUILayout.BeginHorizontal();
 		{
 			EditorGUILayout.LabelField("Res Y");
-			MapRes_Y = EditorGUILayout.IntField(MapRes_Y);
+			mapRes_Y = EditorGUILayout.IntField(mapRes_Y);
 
 			//int.TryParse(EditorGUILayout.TextArea(MapRes_Y), out MapRes_Y);
 		}
@@ -66,73 +69,111 @@ public class UI_MapGenerator : EditorWindow
 			}
 			else
 			{
-				GenerateMap();
+				dataListTypes = string.Empty;
+				GenerateMap(false);
 			}
 		}
 
 		if(GUILayout.Button("Load Map from File"))
 		{
-			LoadMap("MapData");
+			LoadMap();
 		}
+
+
 	}
 
-	void GenerateMap()
+	void GenerateMap(bool readingFromFile)
 	{
 		GameObject generatedMap = GameObject.Find("Grid Parent");
 		DestroyImmediate(generatedMap);
 
-		CubePosition = Vector3.zero;
-
-		CubeName = 1;
+		meshGridPosition = Vector3.zero;
+		meshPieceID = 1;
 
 		GameObject ParentCube = new GameObject();
 		ParentCube.name = "Grid Parent";
 
-		for (int y = 0; y < MapRes_Y; y++)
+		for (int y = 0; y < mapRes_Y; y++)
 		{
-			for (int x = 0; x < MapRes_X; x++)
+			for (int x = 0; x < mapRes_X; x++)
 			{
-				if (y == 0 || y == MapRes_Y - 1 || x == 0 || x == MapRes_X - 1)
+				if (y == 0 || y == mapRes_Y - 1 || x == 0 || x == mapRes_X - 1)
 				{
-
+					dataListTypes += -1 + ", ";
+					if (x == mapRes_X - 1)
+					{
+						dataListTypes += "\r\n";
+					}
 					GameObject wall = Instantiate(mapData.mapExterior);
-					wall.transform.position = CubePosition;
-					wall.name = CubeName.ToString();
+					wall.transform.position = meshGridPosition;
+					wall.name = meshPieceID.ToString();
 					wall.transform.parent = ParentCube.transform;
 					wall.isStatic = true;
 				}
 				else
 				{
-					GameObject innerEnviornment = Instantiate(mapData.meshObjects[Random.Range(0, mapData.meshObjects.Length)]);
-					innerEnviornment.transform.position = CubePosition;
-					innerEnviornment.name = CubeName.ToString();
-					innerEnviornment.transform.parent = ParentCube.transform;
-					innerEnviornment.isStatic = true;
-
-					if (!innerEnviornment.transform.GetChild(0).gameObject.name.ToLower().Contains("wall"))
+					if (readingFromFile)
 					{
-						GameObjectUtility.SetStaticEditorFlags(innerEnviornment.transform.GetChild(0).gameObject, StaticEditorFlags.NavigationStatic);
-						GameObjectUtility.SetNavMeshArea(innerEnviornment.transform.GetChild(0).gameObject, 0);
+						GameObject innerEnvironmentPiece = Instantiate(mapData.meshObjects[fileDataReader[y][x]]);
+					}
+					else
+					{
+						int randomID = Random.Range(0, mapData.meshObjects.Length);
+						dataListTypes += randomID + ", ";
+
+						GameObject innerEnviornment = Instantiate(mapData.meshObjects[randomID]);
+						innerEnviornment.transform.position = meshGridPosition;
+						innerEnviornment.name = meshPieceID.ToString();
+						innerEnviornment.transform.parent = ParentCube.transform;
+						innerEnviornment.isStatic = true;
+
+						if (!innerEnviornment.transform.GetChild(0).gameObject.name.ToLower().Contains("wall"))
+						{
+							GameObjectUtility.SetStaticEditorFlags(innerEnviornment.transform.GetChild(0).gameObject, StaticEditorFlags.NavigationStatic);
+							GameObjectUtility.SetNavMeshArea(innerEnviornment.transform.GetChild(0).gameObject, 0);
+						}
 					}
 				}
 
-				CubePosition += Vector3.right * objectScale;					
-				CubeName++;
+				meshGridPosition += Vector3.right * objectScale;					
+				meshPieceID++;
 			}
 
-			CubePosition = new Vector3(0, 0, CubePosition.z + objectScale);
+			meshGridPosition = new Vector3(0, 0, meshGridPosition.z + objectScale);
 		}
+
+		if (SceneManager.GetActiveScene().name == "")
+		{
+			Debug.LogError("Please save this map first.");
+			return;
+		}
+
 		UnityEditor.AI.NavMeshBuilder.BuildNavMesh();
+		SaveMap();
 	}
 
 	void SaveMap()
 	{
-		string InputText = System.IO.File.ReadAllText("FilePath");
-		//string.split
+		string MapLocation = Application.dataPath + "//Scenes//GeneratedFileData//";
+		string MapName = SceneManager.GetActiveScene().name;
+
+		File.WriteAllText(MapLocation + MapName + ".txt", dataListTypes);
 	}
 
-	void LoadMap(string MapLocation)
+	void LoadMap()
 	{
+		string MapLocation = Application.dataPath + "//Scenes//GeneratedFileData//";
+		string MapName = SceneManager.GetActiveScene().name;
+		MapName = MapName.Replace(" ", "_");
+		string MapFilePath = MapLocation + MapName;
 
+		try
+		{
+			StreamReader fileRead = new StreamReader(MapFilePath);
+		}
+		catch (System.Exception)
+		{
+			Debug.Log("Failed to find File " + MapName + " in " + MapLocation);
+		}
 	}
 }
