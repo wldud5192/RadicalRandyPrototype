@@ -3838,6 +3838,11 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 80e24577ae8b802439560b944b35a9cb, type: 2}
+    - target: {fileID: 114497711016134068, guid: 6d3046cdd6cb25d4e9c021273013fbe0,
+        type: 2}
+      propertyPath: gameOverUI
+      value: 
+      objectReference: {fileID: 414717266}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d3046cdd6cb25d4e9c021273013fbe0, type: 2}
   m_IsPrefabAsset: 0

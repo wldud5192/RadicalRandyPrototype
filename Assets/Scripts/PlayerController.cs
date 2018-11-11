@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
     Vector2 inputDirection;
     Vector3 startPosition;
 
-    public Image gameOverUI;
+    public GameObject gameOverUI;
 
     public bool playerIsDetected;
     Animator anim;
@@ -66,8 +66,8 @@ public class PlayerController : MonoBehaviour {
         else
 
         {
-
-            gameOverUI.gameObject.SetActive(true);
+            anim.SetBool("isDead", true);
+            gameOverUI.SetActive(true);
 
         }
 
