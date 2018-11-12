@@ -5,7 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ping
-  - Enemy
+  - RedDoor
+  - BlueDoor
+  - GreenDoor
+  - RedKey
+  - BlueKey
+  - GreenKey
   layers:
   - Default
   - TransparentFX
