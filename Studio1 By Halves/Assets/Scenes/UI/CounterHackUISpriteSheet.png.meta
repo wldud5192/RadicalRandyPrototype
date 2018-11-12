@@ -1,0 +1,1380 @@
+fileFormatVersion: 2
+guid: d5c07c63b0e65244f97dfe252c1b1c99
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: CounterHackUISpriteSheet_0
+    21300002: CounterHackUISpriteSheet_1
+    21300004: CounterHackUISpriteSheet_2
+    21300006: CounterHackUISpriteSheet_3
+    21300008: CounterHackUISpriteSheet_4
+    21300010: CounterHackUISpriteSheet_5
+    21300012: CounterHackUISpriteSheet_6
+    21300014: CounterHackUISpriteSheet_7
+    21300016: CounterHackUISpriteSheet_8
+    21300018: CounterHackUISpriteSheet_9
+    21300020: CounterHackUISpriteSheet_10
+    21300022: CounterHackUISpriteSheet_11
+    21300024: CounterHackUISpriteSheet_12
+    21300026: CounterHackUISpriteSheet_13
+    21300028: CounterHackUISpriteSheet_14
+    21300030: CounterHackUISpriteSheet_15
+    21300032: CounterHackUISpriteSheet_16
+    21300034: CounterHackUISpriteSheet_17
+    21300036: CounterHackUISpriteSheet_18
+    21300038: CounterHackUISpriteSheet_19
+    21300040: CounterHackUISpriteSheet_20
+    21300042: CounterHackUISpriteSheet_21
+    21300044: CounterHackUISpriteSheet_22
+    21300046: CounterHackUISpriteSheet_23
+    21300048: CounterHackUISpriteSheet_24
+    21300050: CounterHackUISpriteSheet_25
+    21300052: CounterHackUISpriteSheet_26
+    21300054: CounterHackUISpriteSheet_27
+    21300056: CounterHackUISpriteSheet_28
+    21300058: CounterHackUISpriteSheet_29
+    21300060: CounterHackUISpriteSheet_30
+    21300062: CounterHackUISpriteSheet_31
+    21300064: CounterHackUISpriteSheet_32
+    21300066: CounterHackUISpriteSheet_33
+    21300068: CounterHackUISpriteSheet_34
+    21300070: CounterHackUISpriteSheet_35
+    21300072: CounterHackUISpriteSheet_36
+    21300074: CounterHackUISpriteSheet_37
+    21300076: CounterHackUISpriteSheet_38
+    21300078: CounterHackUISpriteSheet_39
+    21300080: CounterHackUISpriteSheet_40
+    21300082: CounterHackUISpriteSheet_41
+    21300084: CounterHackUISpriteSheet_42
+    21300086: CounterHackUISpriteSheet_43
+    21300088: CounterHackUISpriteSheet_44
+    21300090: CounterHackUISpriteSheet_45
+    21300092: CounterHackUISpriteSheet_46
+    21300094: CounterHackUISpriteSheet_47
+    21300096: CounterHackUISpriteSheet_48
+    21300098: CounterHackUISpriteSheet_49
+    21300100: CounterHackUISpriteSheet_50
+    21300102: CounterHackUISpriteSheet_51
+    21300104: CounterHackUISpriteSheet_52
+    21300106: CounterHackUISpriteSheet_53
+    21300108: CounterHackUISpriteSheet_54
+    21300110: CounterHackUISpriteSheet_55
+    21300112: CounterHackUISpriteSheet_56
+    21300114: CounterHackUISpriteSheet_57
+    21300116: CounterHackUISpriteSheet_58
+    21300118: CounterHackUISpriteSheet_59
+    21300120: CounterHackUISpriteSheet_60
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8a2d0992dbcf844a8c5f1557ff63b98
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b74d280988ce35741b10ff09f12606dc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae893b00572250d4cb566c75e023af91
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1118d175afefadd4384e568d8cdd4131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c190180ee8629447874e77370545ee7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79247320d4e21b14586cbc0beec713e2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa56047b2c52174f94f1fbb4e70127e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c9da397d7d7eba458b40d7a29db87ed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65f658fb09d8df047bdcb37150f89f26
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0826787a89812114486315734614d2a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20061a6c0a9fe144282ea15d0d03e2bb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 2750
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3d0974742d771b4391dd7c47d7f099f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8069d906c7cd64294942a4cb1a4b03
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4acd31d839aa90046a85f377d212e588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec6eaa0e6f0a2e948a6eebbb8275cd5c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cc7aa60da361cd41b7604aa44c85b2d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3309265cc8877694b963d599595a03a1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a8d23f99d2219347bb4808581037805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc4ff9b8e07b4ed489ae98c9a833d04c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9b96345f5b05e84194100c8d4b1fa3a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e6af7bcc1976843bbd5cfedc8d52b0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b22f349b64f261241a41a393b06ba1be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61f33b6c403634a4eaeb8d0fb7febab2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 2750
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceb1e955abf854f409afd5ee7d364fc5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e7154accd05a3e4494f93be684c723c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06b15bf5e1b844842a6f473ba4b57ae4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37bb29438c28a26408d14361a8c63eaf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea9e46e920486e74e91e50f44ab405dc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 395c6d03c19b9094389b81ffee9dbbd1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 290a64b5b21a84d41a84add9e40bb220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c66ddf68e12bef4c91520f40bd8f464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96214d4a384f78b4abce4845c37f8cd9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56bdec4401aa7844b97671e3b1cb4b81
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_33
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3251b2fe38a4744c9594ba663e676f5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e97219f464bb504a8881a8a105a22cb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_35
+      rect:
+        serializedVersion: 2
+        x: 2750
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf7789996475a446853932adf029a53
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fac31aead4dbd854b9742df7ced725ab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_37
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37f0cffd500bd3b4ab14cfbc5d3e349f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_38
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d59b06c6ce3e574cbfe0ebbe4df1fe6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_39
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b60bda36414cf5348a3e1686e655f9fb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_40
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44e018b1f5f2ca24fb91ce5466b07e36
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_41
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faf400bad5f52b642972afe56c5306b5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_42
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceebfbc65101e894eb23cd276fc96919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_43
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69d88f947aa84f54c978e3c49835c331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_44
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 618baa4759ff6df42907f8743a778ff9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_45
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d4b167921cada24e85415022e60744b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_46
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8102d7d75e64370428516ae186f7083f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_47
+      rect:
+        serializedVersion: 2
+        x: 2750
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9dcf33c5bb623f4ea8478c8c1833616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7cfd6ff10450c64e96acc77ac3a7e44
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_49
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f375fe62e6a8ad46bf141c5cf5f4d53
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_50
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57727dde789e38645bd541fc9a0a0c8c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_51
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0760f7d9773fc5b429501882eef68d98
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_52
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef6545000c0fb51448974cdea2bc02cc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_53
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c35eb113914402b4f99754b2475e756b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_54
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db7587b4dfdb7d74595d306911c4bf0f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_55
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8196a4371d509b7468e896784eb9883a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_56
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aa1902c53e9a1644abb42362a08110d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_57
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3ee36d3153faae499df56d427c7ff97
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_58
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e3d88bbfb985b5428a9110c8d01ab75
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_59
+      rect:
+        serializedVersion: 2
+        x: 2750
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 367eb98f116917847b3dfde1380bc6cc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CounterHackUISpriteSheet_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed78614d3f62bcd4ca9ef4d260d0d6f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5cf5a82be1fe11e4aa42724404dc4c45
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
