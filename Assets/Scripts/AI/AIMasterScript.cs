@@ -15,22 +15,33 @@ public class AIMasterScript : MonoBehaviour
 		AI_Alerted
 	};
 
+	enum SearchType
+	{
+		Search_Snake,
+		Search_Horizontal,
+		Search_Vertical
+	}
+
 	float viewDistance;
 	float walkSpeed;
 	float runSpeed;
-	GameObject[] patrolPositions;
-	int nextPatrolPosition;
+	public GameObject[] patrolPositions;
+	public int nextPatrolPosition;
 	bool canRun;
 	bool isLethal;
 	bool isChasingPlayer;
 	NavMeshAgent navAgent;
 	Vector3 playersLastLocation;
 	float attackDistance;
+	float searchTime;
+	float searchDistance;
+	public float minDistanceFromCheckpoint;
 
 	public Vector3 alertPosition;
 
 	public AI_SO aiLogic;
 	AIState currentState;
+	SearchType searchMethod;
 
 	void Start()
 	{
@@ -65,20 +76,18 @@ public class AIMasterScript : MonoBehaviour
 
 	void Patrol()
 	{
-		if (patrolPositions.Length > 0 && patrolPositions != null)
+		if (Vector3.Distance(transform.position, patrolPositions[nextPatrolPosition].transform.position) < minDistanceFromCheckpoint) //Todo - Replace with SO Editable
 		{
-			if (Vector3.Distance(transform.position, patrolPositions[nextPatrolPosition].transform.position) < 10) //Todo - Replace with SO Editable
+			if(patrolPositions.Length -1 < nextPatrolPosition + 1)
 			{
-				if (nextPatrolPosition > patrolPositions.Length)
-				{
-					nextPatrolPosition = 0;
-				}
-				else
-				{
-					nextPatrolPosition += 1;
-				}
+				nextPatrolPosition = 0;
+			}
+			else
+			{
+				nextPatrolPosition += 1;
 			}
 		}
+		navAgent.SetDestination(patrolPositions[nextPatrolPosition].transform.position);
 	}
 
 	void Chase()
@@ -114,14 +123,33 @@ public class AIMasterScript : MonoBehaviour
 		viewDistance = aiLogic.viewDistance;
 		walkSpeed = aiLogic.walkSpeed;
 		runSpeed = aiLogic.runSpeed;
-		patrolPositions = aiLogic.patrolPositions;
 		canRun = aiLogic.canRun;
 		isLethal = aiLogic.isLethal;
 		attackDistance = aiLogic.attackDistance;
+		searchTime = aiLogic.searchTime;
+		searchDistance = aiLogic.searchDistance;
 	}
 
 	private void OnCollisionEnter(Collision collision)
 	{
+		if(collision.transform.CompareTag("Player"))
+		{
+			isChasingPlayer = true;
+			playersLastLocation = collision.transform.position;
+			currentState = AIState.AI_Chasing;
+		}
 		
+		if(isChasingPlayer = true)
+		{
+			StartCoroutine(SearchForPlayer());
+		}
+	}
+
+	IEnumerator SearchForPlayer()
+	{
+		isChasingPlayer = false;
+		currentState = AIState.AI_Searching;
+		yield return new WaitForSeconds(searchTime);
+		currentState = AIState.AI_Patroling;
 	}
 }

@@ -15,7 +15,7 @@ public class Ping : MonoBehaviour
 
     void OnTriggerStay(Collider col)
     {
-        if (col.gameObject.tag == "Player" && this.gameObject != null)
+        if (col.gameObject.tag == "Player" && ping.gameObject != null)
         {
             scanner = true;
             ping.GetComponent<MeshRenderer>().enabled = true;
@@ -27,7 +27,7 @@ public class Ping : MonoBehaviour
     {
 
         Vector3 originalScale = ping.transform.localScale;
-        Vector3 destinationScale = new Vector3(500.0f, 500.0f);
+        Vector3 destinationScale = new Vector3(0.50f, 0.50f);
 
         
         {
