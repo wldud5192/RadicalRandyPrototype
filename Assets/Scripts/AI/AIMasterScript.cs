@@ -70,7 +70,7 @@ public class AIMasterScript : MonoBehaviour
 			break;
 
 			default:
-				break;
+			break;
 		}
 	}
 

@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
-<<<<<<< HEAD
 	public float walkSpeed;
     public float runSpeed;
     public int lives;
@@ -20,12 +19,10 @@ public class PlayerController : MonoBehaviour {
     {
         anim = gameObject.GetComponent<Animator>();
     }
-=======
 	public float speed;
     public float doorDropPos;
     public float doorSpeed;
     GameObject[] Unlocked;
->>>>>>> origin/Player
 
     void FixedUpdate ()
 	{
@@ -62,7 +59,6 @@ public class PlayerController : MonoBehaviour {
         }
 	}
 
-<<<<<<< HEAD
     void OnPlayerKilled ()
     {
         if (lives - 1 > 0)
@@ -79,13 +75,6 @@ public class PlayerController : MonoBehaviour {
         }
 
     }
-
-    public void OnGameOverButtonClick()
-    {
-        //reset scene
-    }
-
-=======
 
     // Unlocking Doors
     private void OnTriggerStay(Collider other)
@@ -130,5 +119,4 @@ public class PlayerController : MonoBehaviour {
             }
         }
     }
->>>>>>> origin/Player
 }
