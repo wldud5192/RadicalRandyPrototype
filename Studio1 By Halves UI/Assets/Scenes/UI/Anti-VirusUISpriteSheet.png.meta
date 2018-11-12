@@ -1,0 +1,1380 @@
+fileFormatVersion: 2
+guid: 2710a27cbd2a59a4680f9e38d940285e
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Anti-VirusUISpriteSheet_0
+    21300002: Anti-VirusUISpriteSheet_1
+    21300004: Anti-VirusUISpriteSheet_2
+    21300006: Anti-VirusUISpriteSheet_3
+    21300008: Anti-VirusUISpriteSheet_4
+    21300010: Anti-VirusUISpriteSheet_5
+    21300012: Anti-VirusUISpriteSheet_6
+    21300014: Anti-VirusUISpriteSheet_7
+    21300016: Anti-VirusUISpriteSheet_8
+    21300018: Anti-VirusUISpriteSheet_9
+    21300020: Anti-VirusUISpriteSheet_10
+    21300022: Anti-VirusUISpriteSheet_11
+    21300024: Anti-VirusUISpriteSheet_12
+    21300026: Anti-VirusUISpriteSheet_13
+    21300028: Anti-VirusUISpriteSheet_14
+    21300030: Anti-VirusUISpriteSheet_15
+    21300032: Anti-VirusUISpriteSheet_16
+    21300034: Anti-VirusUISpriteSheet_17
+    21300036: Anti-VirusUISpriteSheet_18
+    21300038: Anti-VirusUISpriteSheet_19
+    21300040: Anti-VirusUISpriteSheet_20
+    21300042: Anti-VirusUISpriteSheet_21
+    21300044: Anti-VirusUISpriteSheet_22
+    21300046: Anti-VirusUISpriteSheet_23
+    21300048: Anti-VirusUISpriteSheet_24
+    21300050: Anti-VirusUISpriteSheet_25
+    21300052: Anti-VirusUISpriteSheet_26
+    21300054: Anti-VirusUISpriteSheet_27
+    21300056: Anti-VirusUISpriteSheet_28
+    21300058: Anti-VirusUISpriteSheet_29
+    21300060: Anti-VirusUISpriteSheet_30
+    21300062: Anti-VirusUISpriteSheet_31
+    21300064: Anti-VirusUISpriteSheet_32
+    21300066: Anti-VirusUISpriteSheet_33
+    21300068: Anti-VirusUISpriteSheet_34
+    21300070: Anti-VirusUISpriteSheet_35
+    21300072: Anti-VirusUISpriteSheet_36
+    21300074: Anti-VirusUISpriteSheet_37
+    21300076: Anti-VirusUISpriteSheet_38
+    21300078: Anti-VirusUISpriteSheet_39
+    21300080: Anti-VirusUISpriteSheet_40
+    21300082: Anti-VirusUISpriteSheet_41
+    21300084: Anti-VirusUISpriteSheet_42
+    21300086: Anti-VirusUISpriteSheet_43
+    21300088: Anti-VirusUISpriteSheet_44
+    21300090: Anti-VirusUISpriteSheet_45
+    21300092: Anti-VirusUISpriteSheet_46
+    21300094: Anti-VirusUISpriteSheet_47
+    21300096: Anti-VirusUISpriteSheet_48
+    21300098: Anti-VirusUISpriteSheet_49
+    21300100: Anti-VirusUISpriteSheet_50
+    21300102: Anti-VirusUISpriteSheet_51
+    21300104: Anti-VirusUISpriteSheet_52
+    21300106: Anti-VirusUISpriteSheet_53
+    21300108: Anti-VirusUISpriteSheet_54
+    21300110: Anti-VirusUISpriteSheet_55
+    21300112: Anti-VirusUISpriteSheet_56
+    21300114: Anti-VirusUISpriteSheet_57
+    21300116: Anti-VirusUISpriteSheet_58
+    21300118: Anti-VirusUISpriteSheet_59
+    21300120: Anti-VirusUISpriteSheet_60
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44d1aa976ccce49469d43c3d95b7114f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8a30c2739d467745b346496591cf0ab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59ca4fd7e1291da439be4dade4aff31f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fae6b18cc13499469fff11f8f13d8fa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22722d983c56bb145a2b50f625edc5cd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4df42a74c563c648a42081b9838b8f3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 391f9f457f05df44db915ef807c83ccb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c41e3b9e6afc9784197c76125dd14085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a85604657ba7c54cbc2cca74f9940c3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afb5865ae53d81e4f84ba11622ec553c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dff2d03da076908438a2b4e100dd81b9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 2750
+        y: 705
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 393c58732596b0341988a035640681e2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56c794f0c40be924d898cafe3b3aefb5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a22ce942c4f5954fa27ae6e14338ebf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 725d6afbf06fcea4989a6d01d6458fbd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f24136d90be37e4b89b7fd238f14c9b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 651bfe9913da3ba46b2296e5a9408c57
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ff7e8972659d7142956edd26f226b4e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a71647d1e56716b44b24142a385cee91
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c52838d67ab0c064196527464a42910c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 301b1999fc4214e40ad24965161db5d2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acfaf603cf819494aa8fb0c8d2b5ebc9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edaced2f814c9a8478f9fb11794cd3c3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 2750
+        y: 564
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 427d3fc95ffe0854a885fc73ed14cf77
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2955f0cbdcae824894c6275d335f662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73b86b482e96a0547a79448905a589a1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 970279f687e1eb2459bb706398d2f166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e552e660d60e84fad51a8eb3077fee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eda294ca9fb727d48ab13cc0d007d657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a6e939ddf7d9784bae4ad0234b48397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42a5315d2dc164b4ea9b450324e63e2f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c40be5c938d5bc84ea110673963c7ae7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df0c0f3dbf50f8a4dac4919a0bdfe9bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_33
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa1384a8b3ba022499ee02d41d6d92b8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49065a3e04d28d04abaa4555df70cadf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_35
+      rect:
+        serializedVersion: 2
+        x: 2750
+        y: 423
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61772c35352cdfc4f8f4c23ef9e306db
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 790a17c7531e09f4a9e724cfb66116af
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_37
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afac0cb380d19e2498ab033bb7b17d22
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_38
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe084d59fe93d6e4191e926e43ea1e80
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_39
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dea698f32bcddd141ba7db714cf66997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_40
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e65975535befc3a4981eab08fa3f4879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_41
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27f712f3c8309b24ab08c5bda036ca86
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_42
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 820c8becc2f44e448a4165e7c72693db
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_43
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6e66ae5c1e69045afc6bb88054ca13
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_44
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1e4e08a337773d4ba513b0ad52e8d80
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_45
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07285639fbe98c44db5c6b9f717a4fe0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_46
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87f49e047b564c5469ffeac43c64ffdd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_47
+      rect:
+        serializedVersion: 2
+        x: 2750
+        y: 282
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a96a7605fd4d81e46ab86f3f74a0a3c0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cbc1a0e7380c214e941408171bf1713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_49
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1667542e444544c9d38bda9383fdd7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_50
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb8a1ecd0a78df24bbfcaefea13c10ab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_51
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c611353d6adcc984b8adb8efce97dcb9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_52
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccc056c78f74cef4497db8eb89502625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_53
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd25fbdcc2de8b74f8e047053ba3cef9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_54
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b78141bf3efdcc42aa442e846fd9e5d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_55
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22fbe0979e3ed2f4cbf0e5cd4a969b75
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_56
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd9e3517d13169d41a084113bba8177d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_57
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8613e57595ffb314e91a68f2d4c51244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_58
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f36907db4b1aa449ba79a18253edf8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_59
+      rect:
+        serializedVersion: 2
+        x: 2750
+        y: 141
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e176d39e5f1c75b41ac2173d57fd4291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Anti-VirusUISpriteSheet_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 250
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aa392950adf9a44f8be98384419afed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 7174fb0fbdeb4fb46bf895bf89495c80
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
