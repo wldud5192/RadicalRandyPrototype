@@ -10,11 +10,19 @@ public class PlayerHealth : MonoBehaviour
 
     public Image gameOverUI;
     public Image[] lifeImages;
+    GameObject[] lifeUI;
     public Sprite fullLife;
     public Sprite emptyLife;
 
     void Start()
     {
+        lifeUI = GameObject.FindGameObjectsWithTag("LifeUI");
+
+        for (int i = 0; i < maxLife; i++)
+        {
+            lifeImages[i] = lifeUI[i].GetComponent<Image>();
+        }
+
         curLife = maxLife;
     }
 
