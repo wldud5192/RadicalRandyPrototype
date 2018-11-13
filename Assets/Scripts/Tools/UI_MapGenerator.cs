@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿//Ignore this garbage for now. It works for generating maps but the loading is absolute shit so I replaced it with the UI_SpeedMapGen. If you can fix this then go ahead otherwise just scrap it, but make sure
+//to grab the GenerateMap
+
+/*using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
@@ -21,9 +24,10 @@ public class UI_MapGenerator : EditorWindow
 	int meshPieceID;
 	string dataListTypes;
 
-	int[][] fileDataReader;
+	char[][] fileDataReader;
 
-	MapObjectList_SO mapData;
+	MapObjectList_SO mapMeshData;
+	TextAsset mapPhysicalData;
 
 	[MenuItem("Tools/Map Generator")]
 	public static void ShowWindow()
@@ -59,13 +63,14 @@ public class UI_MapGenerator : EditorWindow
 		}
 		EditorGUILayout.EndHorizontal();
 
-		mapData = (MapObjectList_SO)EditorGUILayout.ObjectField(mapData, typeof(MapObjectList_SO));
+		mapMeshData = (MapObjectList_SO)EditorGUILayout.ObjectField(mapMeshData, typeof(MapObjectList_SO));
+		mapPhysicalData = (TextAsset)EditorGUILayout.ObjectField(mapPhysicalData, typeof(TextAsset));
 
 		if (GUILayout.Button("Generate Map"))
 		{
-			if (mapData == null)
+			if (mapMeshData == null)
 			{
-				Debug.LogError("Failed to get mapData. Set Map Data!");
+				//Debug.logError("Failed to get mapData. Set Map Data!");
 			}
 			else
 			{
@@ -74,12 +79,29 @@ public class UI_MapGenerator : EditorWindow
 			}
 		}
 
-		if(GUILayout.Button("Load Map from File"))
+		EditorGUILayout.BeginHorizontal();
 		{
-			LoadMap();
+			if (GUILayout.Button("Load Map from File"))
+			{
+				LoadMap();
+			}
+			if (GUILayout.Button("Save Map to File"))
+			{
+				SaveMap();
+			}
 		}
+		EditorGUILayout.EndHorizontal();
+	}
 
+	GameObject gridParent;
 
+	void GenerateExternalLayer()
+	{
+		GameObject wall = Instantiate(mapMeshData.mapExterior);
+		wall.transform.position = meshGridPosition;
+		wall.name = "External Wall";
+		wall.transform.parent = gridParent.transform;
+		wall.isStatic = true;
 	}
 
 	void GenerateMap(bool readingFromFile)
@@ -88,43 +110,132 @@ public class UI_MapGenerator : EditorWindow
 		DestroyImmediate(generatedMap);
 
 		meshGridPosition = Vector3.zero;
-		meshPieceID = 1;
 
-		GameObject ParentCube = new GameObject();
-		ParentCube.name = "Grid Parent";
+		gridParent = new GameObject();
+		gridParent.name = "Grid Parent";
 
+		//Scan on Y & X axis
 		for (int y = 0; y < mapRes_Y; y++)
 		{
 			for (int x = 0; x < mapRes_X; x++)
 			{
+				//If we're on the first, last or any side layers then generate
 				if (y == 0 || y == mapRes_Y - 1 || x == 0 || x == mapRes_X - 1)
 				{
-					dataListTypes += -1 + ", ";
-					if (x == mapRes_X - 1)
+					GenerateExternalLayer();
+
+					if (y != 0 && y < mapRes_Y - 2)
 					{
-						dataListTypes += "\r\n";
+						if (x == mapRes_X - 1)
+						{
+							dataListTypes += "\n";
+						}
 					}
-					GameObject wall = Instantiate(mapData.mapExterior);
-					wall.transform.position = meshGridPosition;
-					wall.name = meshPieceID.ToString();
-					wall.transform.parent = ParentCube.transform;
-					wall.isStatic = true;
 				}
 				else
 				{
 					if (readingFromFile)
 					{
-						GameObject innerEnvironmentPiece = Instantiate(mapData.meshObjects[fileDataReader[y][x]]);
+						GameObject innerEnvironmentPiece;
+						//Debug.Log(y + " | " + x);
+						if (y < mapRes_Y - 1)
+							if (x < mapRes_X - 1)
+								switch (fileDataReader[y][x])
+								{
+									case '\u25CB':
+										innerEnvironmentPiece = Instantiate(mapMeshData.meshObjects[0]);
+										innerEnvironmentPiece.transform.position = meshGridPosition;
+										innerEnvironmentPiece.transform.parent = gridParent.transform;
+										innerEnvironmentPiece.name = y + "," + x + " \u2327";
+										//Debug.Log("Floor");
+										break;
+
+									case '\u25A8':
+										innerEnvironmentPiece = Instantiate(mapMeshData.meshObjects[1]);
+										innerEnvironmentPiece.transform.position = meshGridPosition;
+										innerEnvironmentPiece.transform.parent = gridParent.transform;
+										innerEnvironmentPiece.name = y + "," + x + " \u25A8";
+										//Debug.Log("Wall");
+										break;
+								}
+
 					}
 					else
 					{
-						int randomID = Random.Range(0, mapData.meshObjects.Length);
-						dataListTypes += randomID + ", ";
-
-						GameObject innerEnviornment = Instantiate(mapData.meshObjects[randomID]);
+						int randomID = Random.Range(0, mapMeshData.meshObjects.Length);
+						GameObject innerEnviornment = Instantiate(mapMeshData.meshObjects[randomID]);
 						innerEnviornment.transform.position = meshGridPosition;
-						innerEnviornment.name = meshPieceID.ToString();
-						innerEnviornment.transform.parent = ParentCube.transform;
+
+						switch (mapMeshData.meshObjects[randomID].name.ToLower())
+						{
+							case "floor":
+								dataListTypes += "\u25CB";
+								break;
+
+							case "wall":
+								dataListTypes += "\u25A8";
+								break;
+
+							case "start":
+								dataListTypes += "☆";
+
+								break;
+
+							case "exit":
+								dataListTypes += "★";
+								break;
+
+							case "cpu":
+								dataListTypes += "◎";
+								break;
+
+							case "vpn":
+								dataListTypes += "※";
+								break;
+
+							case "switch":
+								dataListTypes += "◐";
+								break;
+
+							case "agentspawn_left":
+								dataListTypes += ">";
+								break;
+
+							case "agentspawn_right":
+								dataListTypes += "<";
+								break;
+
+							case "virus":
+								dataListTypes += "V";
+								break;
+
+							case "antivirus":
+								dataListTypes += "A";
+								break;
+
+							case "key":
+								dataListTypes += "§";
+								break;
+
+							case "door":
+								dataListTypes += "Ⅲ";
+								break;
+
+							case "health":
+								dataListTypes += "♥";
+								break;
+
+							case "counterhack":
+								dataListTypes += "⇔";
+								break;
+
+							default:
+								break;
+						}
+
+						innerEnviornment.name = mapMeshData.meshObjects[randomID].name.ToLower();
+
+						innerEnviornment.transform.parent = gridParent.transform;
 						innerEnviornment.isStatic = true;
 
 						if (!innerEnviornment.transform.GetChild(0).gameObject.name.ToLower().Contains("wall"))
@@ -135,7 +246,7 @@ public class UI_MapGenerator : EditorWindow
 					}
 				}
 
-				meshGridPosition += Vector3.right * objectScale;					
+				meshGridPosition += Vector3.right * objectScale;
 				meshPieceID++;
 			}
 
@@ -144,7 +255,7 @@ public class UI_MapGenerator : EditorWindow
 
 		if (SceneManager.GetActiveScene().name == "")
 		{
-			Debug.LogError("Please save this map first.");
+			//Debug.logError("Please save this map first.");
 			return;
 		}
 
@@ -154,26 +265,74 @@ public class UI_MapGenerator : EditorWindow
 
 	void SaveMap()
 	{
-		string MapLocation = Application.dataPath + "//Scenes//GeneratedFileData//";
-		string MapName = SceneManager.GetActiveScene().name;
+		string fileWriteDir = "";
+		if (mapPhysicalData == null)
+		{
+			string MapLocation = Application.dataPath + "//Scenes//GeneratedFileData//";
+			string mapName = SceneManager.GetActiveScene().name;
 
-		File.WriteAllText(MapLocation + MapName + ".txt", dataListTypes);
+			mapName = mapName.Replace(" ", "_");
+			mapName = mapName.Replace(".", "_");
+			dataListTypes = dataListTypes.Replace(" ", "");
+			fileWriteDir = MapLocation + mapName + ".txt";
+		}
+		else
+		{
+			fileWriteDir = AssetDatabase.GetAssetPath(mapPhysicalData);
+			//Debug.Log(fileWriteDir);
+		}
+
+		File.WriteAllText(fileWriteDir, dataListTypes);
 	}
 
 	void LoadMap()
 	{
-		string MapLocation = Application.dataPath + "//Scenes//GeneratedFileData//";
-		string MapName = SceneManager.GetActiveScene().name;
-		MapName = MapName.Replace(" ", "_");
-		string MapFilePath = MapLocation + MapName;
+		string mapFilePath = "";
+		string mapFileData = "";
+
+		if (mapPhysicalData == null)
+		{
+			string mapLocation = Application.dataPath + "//Scenes//GeneratedFileData//";
+			string mapName = SceneManager.GetActiveScene().name;
+
+			mapName = mapName.Replace(" ", "_");
+			mapName = mapName.Replace(".", "_");
+
+			mapFilePath = mapLocation + mapName + ".txt";
+		}
+		else
+		{
+			mapFilePath = AssetDatabase.GetAssetPath(mapPhysicalData);
+		}
 
 		try
 		{
-			StreamReader fileRead = new StreamReader(MapFilePath);
+			StreamReader fileRead = new StreamReader(mapFilePath);
+			mapFileData = fileRead.ReadToEnd();
 		}
 		catch (System.Exception)
 		{
-			Debug.Log("Failed to find File " + MapName + " in " + MapLocation);
+			//Debug.Log("Failed to find File at " + mapFilePath);
 		}
+
+		int i = 0, j = 0;
+		fileDataReader = new char[mapRes_Y - 2][];
+
+		foreach (var row in mapFileData.Split('\n'))
+		{
+			fileDataReader[j] = row.ToCharArray();
+			Debug.Log("ROW DATA: " + row.ToString());
+			j++;
+		}
+
+		for (int y = 1; y < mapRes_Y - 2; y++)
+		{
+			for (int x = 1; x < mapRes_X - 1; x++)
+			{
+				Debug.Log(fileDataReader[y][x]);
+			}
+		}
+
+		GenerateMap(true);
 	}
-}
+}*/

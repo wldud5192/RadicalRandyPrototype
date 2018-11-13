@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UITestButton : MonoBehaviour
+public class UI_TestButton : MonoBehaviour
 {
 
     public GameObject[] objArray;
