@@ -6,14 +6,12 @@ public class PlayerController : MonoBehaviour {
 
 	public float walkSpeed;
     public float runSpeed;
-    public int lives;
     Vector2 inputDirection;
     Vector3 startPosition;
 
-    public Image gameOverUI;
-
     public bool playerIsDetected;
     Animator anim;
+   
 
     void Start()
     {
@@ -59,22 +57,7 @@ public class PlayerController : MonoBehaviour {
         }
 	}
 
-    void OnPlayerKilled ()
-    {
-        if (lives - 1 > 0)
-        {
-            lives -= 1;
-        }
 
-        else
-
-        {
-
-            gameOverUI.gameObject.SetActive(true);
-
-        }
-
-    }
 
     // Unlocking Doors
     private void OnTriggerStay(Collider other)

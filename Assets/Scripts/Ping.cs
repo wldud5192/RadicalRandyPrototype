@@ -4,31 +4,42 @@ using UnityEngine;
 
 public class Ping : MonoBehaviour
 {
-    public bool scanner;
+    public GameObject hackingPE;
     public GameObject ping;
-    public bool count;
+    float coolDown;
+    public bool canActivate = true;
+    AudioSource activateSound;
 
     void Start()
     {
-
+        activateSound = GetComponent<AudioSource>();
     }
 
-    void Update ()
+   /* if reusable
+       void Update ()
     {
-        if (count)
+        if(!canActivate)
         {
-                for (int t = 0; t > 10; t++)
-                {
-                ping.gameObject.SetActive(false);
-                }
+            coolDown += Time.deltaTime;
         }
+
+        if (coolDown > 10f)
+        {
+            canActivate = true;
+        }
+        
     }
 
-    void OnTriggerStay(Collider col)
+        also instantiate PING & Assign the prefab in the inspector
+    */
+
+    void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Player" && ping.gameObject != null)
+        if (col.gameObject.tag == "Player" && ping.gameObject != null && canActivate)
         {
-            scanner = true;
+            coolDown = 0;
+            canActivate = false;
+            activateSound.Play();
             ping.GetComponent<MeshRenderer>().enabled = true;
             StartCoroutine(Scale(10));
 
@@ -36,23 +47,19 @@ public class Ping : MonoBehaviour
     }
     IEnumerator Scale(float time)
     {
-        count = true;
         Vector3 originalScale = ping.transform.localScale;
-        Vector3 destinationScale = new Vector3(0.50f, 0.50f);
-
-        
+        Vector3 destinationScale = new Vector3(500f, 0, 500f);
+        float currentTime = 0.0f;
+        do
         {
-            float currentTime = 0.0f;
+            ping.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / time);
+            currentTime += Time.deltaTime;
+            yield return null;
+        } while (currentTime <= time);
 
-            do
-            {
-
-                ping.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / time);
-                currentTime += Time.deltaTime;
-                yield return null;
-            } while (currentTime <= time);
-        }
-
+        ping.GetComponent<AudioSource>().Play();
+        Destroy(ping.gameObject, ping.GetComponent<AudioSource>().clip.length);
+        Destroy(hackingPE);
         
 
     }
