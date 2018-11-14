@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(NavMeshAgent))]
@@ -169,39 +170,51 @@ public class AIMasterScript : MonoBehaviour
 			RaycastHit hitFront;
 			RaycastHit hitBack;
 
-			if (moveUpOrRight)
+			if (player == null)
 			{
-				if (Physics.Raycast(this.transform.position, Vector3.forward, out hitFront, 500))
+				if (moveUpOrRight)
 				{
-					distance = Vector3.Distance(transform.position, hitFront.transform.position);
-
-					if (!ScanForPlayer(hitFront) && player == null)
+					if (Physics.Raycast(this.transform.position, Vector3.forward, out hitFront, 500))
 					{
-						navAgent.SetDestination(hitFront.transform.position);
-						Debug.Log(distance);
+						distance = Vector3.Distance(transform.position, hitFront.transform.position);
 
-						if (distance < 5)
+						if (!ScanForPlayer(hitFront) && player == null)
 						{
-							moveUpOrRight = false;
+							navAgent.SetDestination(hitFront.transform.position);
+							Debug.Log(distance);
+
+							if (distance < 5)
+							{
+								moveUpOrRight = false;
+							}
+						}
+					}
+				}
+				else
+				{
+					if (Physics.Raycast(this.transform.position, -Vector3.forward, out hitBack, 500))
+					{
+						distance = Vector3.Distance(transform.position, hitBack.transform.position);
+
+						if (!ScanForPlayer(hitBack) && player == null)
+						{
+							navAgent.SetDestination(hitBack.transform.position);
+
+							if (distance < 5)
+							{
+								moveUpOrRight = true;
+							}
 						}
 					}
 				}
 			}
 			else
 			{
-				if (Physics.Raycast(this.transform.position, -Vector3.forward, out hitBack, 500))
+				navAgent.SetDestination(player.transform.position);
+
+				if(Vector3.Distance(transform.position, player.transform.position) < attackDistance)
 				{
-					distance = Vector3.Distance(transform.position, hitBack.transform.position);
-
-					if (!ScanForPlayer(hitBack) && player == null)
-					{
-						navAgent.SetDestination(hitBack.transform.position);
-
-						if (distance < 5)
-						{
-							moveUpOrRight = true;
-						}
-					}
+					SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 				}
 			}
 		}
@@ -221,6 +234,7 @@ public class AIMasterScript : MonoBehaviour
 			{
 				player = hit.transform.gameObject;
 				navAgent.SetDestination(player.transform.position);
+				player.GetComponent<PlayerController>().playerIsDetected = true;
 				return true;
 			}
 			return false;

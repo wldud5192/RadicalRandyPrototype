@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad9bc1c0a69dc0478501b151fcb5376, type: 3}
   m_Name: GovernmentAgent
   m_EditorClassIdentifier: 
-  viewDistance: 60
+  viewDistance: 15
   walkSpeed: 10
   runSpeed: 30
   canRun: 0
   isLethal: 0
-  attackDistance: 0
+  attackDistance: 2
   searchTime: 0
   searchDistance: 5
