@@ -15,8 +15,11 @@ public class PlayerController : MonoBehaviour {
 
     void Start()
     {
+        walkSpeed = 6f;
+        runSpeed = 9f;
         anim = gameObject.GetComponent<Animator>();
     }
+
 	public float speed;
     public float doorDropPos;
     public float doorSpeed;

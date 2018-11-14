@@ -9,76 +9,76 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1780229862364164}
+  m_RootGameObject: {fileID: 1517558483053950}
   m_IsPrefabAsset: 1
---- !u!1 &1780229862364164
+--- !u!1 &1481140318777082
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4577250163023986}
-  - component: {fileID: 82830304025159130}
-  - component: {fileID: 65221130394512682}
-  - component: {fileID: 114091233044897958}
+  - component: {fileID: 4650655993012962}
+  - component: {fileID: 33612587003245194}
+  - component: {fileID: 23078514279429842}
   m_Layer: 0
-  m_Name: Counterhack
+  m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 18
   m_IsActive: 1
---- !u!1 &1879314230303186
+--- !u!1 &1517558483053950
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4612308308202752}
-  - component: {fileID: 33413161210559928}
-  - component: {fileID: 23659894240728980}
+  - component: {fileID: 4410778124729970}
+  - component: {fileID: 114796512058060964}
+  - component: {fileID: 65494533253585912}
+  - component: {fileID: 82885010843311904}
   m_Layer: 0
-  m_Name: Counterhack
+  m_Name: Health 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 18
   m_IsActive: 1
---- !u!4 &4577250163023986
+--- !u!4 &4410778124729970
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1780229862364164}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -1.16, y: -0.071834, z: 4.08}
-  m_LocalScale: {x: 0.075586, y: 0.075586, z: 0.075586}
+  m_GameObject: {fileID: 1517558483053950}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.78, y: 0.48, z: 4.37}
+  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_Children:
-  - {fileID: 4612308308202752}
+  - {fileID: 4650655993012962}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!4 &4612308308202752
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4650655993012962
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1879314230303186}
+  m_GameObject: {fileID: 1481140318777082}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4577250163023986}
+  m_Father: {fileID: 4410778124729970}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23659894240728980
+--- !u!23 &23078514279429842
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1879314230303186}
+  m_GameObject: {fileID: 1481140318777082}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -88,7 +88,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: b33a3f337ff9e244d8101d002abeda43, type: 2}
+  - {fileID: 2100000, guid: 9d6d78437c317c447a192bedaa588872, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,39 +108,39 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33413161210559928
+--- !u!33 &33612587003245194
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1879314230303186}
-  m_Mesh: {fileID: 4300000, guid: 3fccd4e648a261946a63a21a924238dd, type: 3}
---- !u!65 &65221130394512682
+  m_GameObject: {fileID: 1481140318777082}
+  m_Mesh: {fileID: 4300000, guid: 7cebb7a7cb432424b80dfce56f0b1293, type: 3}
+--- !u!65 &65494533253585912
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1780229862364164}
+  m_GameObject: {fileID: 1517558483053950}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 20, y: 20, z: 20}
-  m_Center: {x: 0, y: 15.08, z: 0}
---- !u!82 &82830304025159130
+  m_Center: {x: 0, y: 12.74, z: 0}
+--- !u!82 &82885010843311904
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1780229862364164}
+  m_GameObject: {fileID: 1517558483053950}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d1125e87929616844a8b30644fb31945, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ffa96af717384704c9c5a003564d4228, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -150,9 +150,9 @@ AudioSource:
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassEffects: 1
+  BypassListenerEffects: 1
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -222,15 +222,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114091233044897958
+--- !u!114 &114796512058060964
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1780229862364164}
+  m_GameObject: {fileID: 1517558483053950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06ff693fdd2025d42af262a12c83751b, type: 3}
+  m_Script: {fileID: 11500000, guid: e6c694eb35bae08488b92bd8ffd5581b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 60
