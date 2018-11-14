@@ -6,7 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class DestroyableTile : MonoBehaviour
 {
-	public Vector3 boxScale;
+    bool alreadyActivated = false;
+    public Vector3 boxScale;
 	BoxCollider overlapBox;
 	public List<Collider> enemyList;
 	public Collider[] overlappedObjects;
@@ -35,21 +36,21 @@ public class DestroyableTile : MonoBehaviour
 
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
 	private void OnTriggerEnter(Collider other)
 	{
-		//ScanForNearestEnemy();
+        //ScanForNearestEnemy();
+       
 
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !alreadyActivated)
         {
             crackSound.Play();
             //GetComponent<Animator>.SetBool("CrackAnim", true)
             exit.currentNum -= 1;
-            Destroy(gameObject, crackSound.clip.length);
+            MeshRenderer cpu = GetComponent<MeshRenderer>();
+            cpu.enabled = false;
+
+            alreadyActivated = true;
         }
 	}
 
