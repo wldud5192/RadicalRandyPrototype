@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 [RequireComponent(typeof(BoxCollider))]
 public class DestroyableTile : MonoBehaviour
 {
@@ -11,14 +12,26 @@ public class DestroyableTile : MonoBehaviour
 	public Collider[] overlappedObjects;
 
 	public float scanDistance;
+    AudioSource crackSound;
+    ExitScript exit;
 
 	[Tooltip("Hides the ball scaled by Scan Distance")]
 	public bool disableGizmos;
 
 	void Start()
     {
-		enemyList = new List<Collider>();
+
+        Component[] destroyOnLoad = GetComponents(this.GetType());
+        if (destroyOnLoad.Length > 1)
+        {
+            Destroy(destroyOnLoad[0]);
+
+        }
+
+        enemyList = new List<Collider>();
 		overlappedObjects = new Collider[8];
+        crackSound = GetComponent<AudioSource>();
+        exit = GameObject.FindGameObjectWithTag("Exit").GetComponent<ExitScript>();
 
 	}
 
@@ -29,9 +42,18 @@ public class DestroyableTile : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		ScanForNearestEnemy();
+		//ScanForNearestEnemy();
+
+        if (other.gameObject.tag == "Player")
+        {
+            crackSound.Play();
+            //GetComponent<Animator>.SetBool("CrackAnim", true)
+            exit.currentNum -= 1;
+            Destroy(gameObject, crackSound.clip.length);
+        }
 	}
 
+    /* 
 	private void OnDrawGizmos()
 	{
 		if (!disableGizmos)
@@ -58,7 +80,7 @@ public class DestroyableTile : MonoBehaviour
 			if (overlappedObj == null)
 				continue;
 
-			if (overlappedObj.name.ToLower().Contains("enemy") || overlappedObj.CompareTag("Enemy") /*|| overlappedObj.GetComponent<AIMasterScript>() != null*/ || !overlappedObj.name.ToLower().Contains("tile"))
+			if (overlappedObj.name.ToLower().Contains("enemy") || overlappedObj.CompareTag("Enemy") //|| overlappedObj.GetComponent<AIMasterScript>() != null// || !overlappedObj.name.ToLower().Contains("tile"))
 			{
 				enemyList.Add(overlappedObj);
 			}
@@ -83,5 +105,8 @@ public class DestroyableTile : MonoBehaviour
 				}
 			}
 		}
-	}
+	} */
+
+
+    
 }

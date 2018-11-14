@@ -12,6 +12,8 @@ TagManager:
   - BlueKey
   - GreenKey
   - LifeUI
+  - Exit
+  - CPU
   layers:
   - Default
   - TransparentFX
