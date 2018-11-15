@@ -121,6 +121,17 @@ public class AIMasterScript : MonoBehaviour
         NavMeshHit hitPoint;
         NavMesh.SamplePosition(randomNavPosition, out hitPoint, 50, 1);
 
+
+		//Scan directly forward from player
+
+		RaycastHit FoVHit;
+		if(Physics.Raycast(transform.position, transform.forward, out FoVHit, viewDistance))
+		{
+			ScanForPlayer(FoVHit);
+		}
+
+		Debug.DrawLine(transform.position, transform.position + transform.forward * viewDistance);
+
         //Scan Vector 3.Up * dist + -Vector3.forward * dist
 
         float distance = 0.0f;
@@ -135,7 +146,7 @@ public class AIMasterScript : MonoBehaviour
                 if (Physics.Raycast(this.transform.position, Vector3.right, out hitRight, 500))
                 {
                     distance = Vector3.Distance(transform.position, hitRight.transform.position);
-                    if (!ScanForPlayer(hitRight) && player == null)
+                    if (player == null)
                     {
                         navAgent.SetDestination(hitRight.transform.position);
                         Debug.Log(distance);
@@ -151,7 +162,7 @@ public class AIMasterScript : MonoBehaviour
             {
                 if (Physics.Raycast(this.transform.position, -Vector3.right, out hitLeft, 500))
                 {
-                    if (!ScanForPlayer(hitLeft) && player == null)
+                    if (player == null)
                     {
                         distance = Vector3.Distance(transform.position, hitLeft.transform.position);
 
@@ -178,7 +189,7 @@ public class AIMasterScript : MonoBehaviour
                     {
                         distance = Vector3.Distance(transform.position, hitFront.transform.position);
 
-                        if (!ScanForPlayer(hitFront) && player == null)
+                        if (player == null)
                         {
                             navAgent.SetDestination(hitFront.transform.position);
                             Debug.Log(distance);
@@ -196,7 +207,7 @@ public class AIMasterScript : MonoBehaviour
                     {
                         distance = Vector3.Distance(transform.position, hitBack.transform.position);
 
-                        if (!ScanForPlayer(hitBack) && player == null)
+                        if (player == null)
                         {
                             navAgent.SetDestination(hitBack.transform.position);
 
