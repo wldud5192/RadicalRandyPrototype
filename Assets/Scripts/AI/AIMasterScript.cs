@@ -40,6 +40,7 @@ public class AIMasterScript : MonoBehaviour
 
     public Vector3 alertPosition;
 
+    PlayerHealth playerHealthUI;
     public AI_SO aiLogic;
     public AIState currentState;
     public SearchType searchMethod;
@@ -52,6 +53,7 @@ public class AIMasterScript : MonoBehaviour
 
     void Start()
     {
+        playerHealthUI = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         GetOrCreateNavMesh();
         GetSOData();
 
@@ -213,6 +215,7 @@ public class AIMasterScript : MonoBehaviour
 
             if (Vector3.Distance(transform.position, player.transform.position) < attackDistance)
             {
+               // playerHealthUI.curLife -= 1;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }

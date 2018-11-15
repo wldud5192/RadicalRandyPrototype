@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxLife = 3;
+    /*public int maxLife = 3;
     public int curLife;
 
     public Image gameOverUI;
@@ -83,4 +83,5 @@ public class PlayerHealth : MonoBehaviour
         }
 
     }
+    */
 }
