@@ -19,7 +19,12 @@ public class DestroyableTile : MonoBehaviour
 	[Tooltip("Hides the ball scaled by Scan Distance")]
 	public bool disableGizmos;
 
-	void Start()
+    private void OnValidate()
+    {
+        gameObject.GetComponents<BoxCollider>()[1].size = new Vector3(2.1f, 2.0f, 2.1f);
+    }
+
+    void Start()
     {
 
         Component[] destroyOnLoad = GetComponents(this.GetType());
@@ -33,8 +38,10 @@ public class DestroyableTile : MonoBehaviour
 		overlappedObjects = new Collider[8];
         crackSound = GetComponent<AudioSource>();
         exit = GameObject.FindGameObjectWithTag("Exit").GetComponent<ExitScript>();
+        gameObject.GetComponents<BoxCollider>()[1].size = new Vector3(2.1f, 2.0f, 2.1f);
 
-	}
+
+    }
 
 
 	private void OnTriggerEnter(Collider other)

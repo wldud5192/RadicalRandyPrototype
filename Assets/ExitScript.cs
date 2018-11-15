@@ -56,22 +56,34 @@ public class ExitScript : MonoBehaviour {
                 GetComponent<AudioSource>().Play();            }
 
             alreadyPlayed = true;
+        }  
+
+
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            int newSceneNum = (sceneNumber += 1);
+            SceneManager.LoadScene(newSceneNum);
+
         }
-        
+
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            int newSceneNum = (sceneNumber -= 1);
+            SceneManager.LoadScene(newSceneNum);
+        }
  	}
 
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Player" && exitOpen && !sceneIsBuilt)
+        /*if (col.gameObject.tag == "Player" && exitOpen && !sceneIsBuilt)
         {
             int newSceneNum = sceneNumber += 1;
-            Scene newScene = SceneManager.CreateScene("Level" + newSceneNum);
-            SceneManager.LoadScene(sceneName: "Level" + newSceneNum);
+            SceneManager.LoadScene(newSceneNum);
             sceneIsBuilt = true;
 
             DestroyAllGameObjects();
-        }
+        }*/
     }
 
         public void DestroyAllGameObjects()

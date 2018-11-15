@@ -22,11 +22,18 @@ public class PlayerController : MonoBehaviour
 		anim = gameObject.GetComponent<Animator>();
 		playerRB = GetComponent<Rigidbody>();
 
+        transform.position += new Vector3(0,0.1f,0);
+
 		walkSpeed = 500;
 		runSpeed = 900;
-	}
 
-	public float speed;
+        playerRB.constraints = RigidbodyConstraints.None;
+        playerRB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        playerRB.useGravity = true;
+
+    }
+
+    public float speed;
 	public float doorDropPos;
 	public float doorSpeed;
 	GameObject[] Unlocked;
@@ -74,12 +81,17 @@ public class PlayerController : MonoBehaviour
 
 		if (playerIsDetected)
 		{
-			playerRB.AddForce(movement * runSpeed * Time.deltaTime);
-		}
+			playerRB.AddForce(movement * runSpeed * Time.deltaTime * 15);
+
+            playerRB.velocity = Vector3.ClampMagnitude(playerRB.velocity, 3);
+        }
 		else
 		{
-			playerRB.AddForce(movement * walkSpeed * Time.deltaTime);
-		}
+			playerRB.AddForce(movement * walkSpeed * Time.deltaTime * 15);
+
+            playerRB.velocity = Vector3.ClampMagnitude(playerRB.velocity, 1);
+        }
+
 	}
 
 

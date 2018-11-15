@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+using UnityEngine;
 using UnityEditor;
 using System.Collections;
 using UnityEngine.SceneManagement;
@@ -35,3 +36,4 @@ public class EditorTest : EditorWindow
         }
     }
 }
+#endif
