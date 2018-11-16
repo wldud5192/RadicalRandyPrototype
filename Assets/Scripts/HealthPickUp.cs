@@ -26,7 +26,7 @@ public class HealthPickUp : MonoBehaviour
         if (col.gameObject == player)
         {
             pickupSound.Play();
-            player.GetComponent<PlayerHealth>().curLife += 1;
+           // player.GetComponent<PlayerHealth>().curLife += 1;
             transform.position = Vector3.one * 9999f;
             Destroy(gameObject, pickupSound.clip.length);
         }

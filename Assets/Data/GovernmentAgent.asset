@@ -18,4 +18,4 @@ MonoBehaviour:
   isLethal: 0
   attackDistance: 2
   searchTime: 0
-  searchDistance: 5
+  searchDistance: 10

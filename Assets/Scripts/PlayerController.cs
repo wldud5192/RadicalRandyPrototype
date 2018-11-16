@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 
+
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
 
@@ -13,28 +15,48 @@ public class PlayerController : MonoBehaviour
 	public bool playerIsDetected;
 	Animator anim;
 
+	Rigidbody playerRB;
 
 	void Start()
 	{
-		walkSpeed = 6f;
-		runSpeed = 9f;
 		anim = gameObject.GetComponent<Animator>();
-	}
+		playerRB = GetComponent<Rigidbody>();
 
-	public float speed;
+        transform.position += new Vector3(0,0.1f,0);
+
+		walkSpeed = 500;
+		runSpeed = 900;
+
+        playerRB.constraints = RigidbodyConstraints.None;
+        playerRB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        playerRB.useGravity = true;
+
+    }
+
+    public float speed;
 	public float doorDropPos;
 	public float doorSpeed;
 	GameObject[] Unlocked;
 
-	void FixedUpdate()
+	void Update()
 	{
 		float moveHorizontal = Input.GetAxisRaw("Horizontal");
 		float moveVertical = Input.GetAxisRaw("Vertical");
 
 		Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15F);
 		movement = movement.normalized;
 
-		if (movement.magnitude > 0.0001f)
+		if(moveHorizontal == 0)
+		{
+			playerRB.velocity = new Vector3(0, 0, playerRB.velocity.z);
+		}
+		if(moveVertical == 0)
+		{
+			playerRB.velocity = new Vector3(playerRB.velocity.x, 0, 0);
+		}
+
+		if (movement.magnitude != 0)
 		{
 			if (playerIsDetected)
 			{
@@ -44,8 +66,6 @@ public class PlayerController : MonoBehaviour
 			{
 				anim.SetBool("isWalking", true);
 			}
-
-			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15F);
 		}
 		else
 		{
@@ -61,12 +81,17 @@ public class PlayerController : MonoBehaviour
 
 		if (playerIsDetected)
 		{
-			transform.Translate(movement * runSpeed * Time.deltaTime, Space.World);
-		}
+			playerRB.AddForce(movement * runSpeed * Time.deltaTime * 15);
+
+            playerRB.velocity = Vector3.ClampMagnitude(playerRB.velocity, 3);
+        }
 		else
 		{
-			transform.Translate(movement * walkSpeed * Time.deltaTime, Space.World);
-		}
+			playerRB.AddForce(movement * walkSpeed * Time.deltaTime * 15);
+
+            playerRB.velocity = Vector3.ClampMagnitude(playerRB.velocity, 1);
+        }
+
 	}
 
 
