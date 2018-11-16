@@ -45,14 +45,25 @@ public class UI_SpeedMapGen : EditorWindow
 
 		mapPhysicalData = (TextAsset)EditorGUILayout.ObjectField(mapPhysicalData, typeof(TextAsset));
 
-		if(GUILayout.Button("Load Map"))
+		EditorGUILayout.BeginHorizontal();
 		{
-			ReadFile();
+			if (GUILayout.Button("Load Map"))
+			{
+				ReadFile();
+			}
+
+			if (GUILayout.Button("Get Map Scale"))
+			{
+				PullMapScale();
+			}
 		}
+		EditorGUILayout.EndHorizontal();
 	}
 
 	void ReadFile()
 	{
+		PullMapScale();
+
 		GameObject generatedMap = GameObject.Find("Master List of Level Objects");
 		DestroyImmediate(generatedMap);
 
@@ -150,6 +161,43 @@ public class UI_SpeedMapGen : EditorWindow
 			}
 
 			spawnOffset = new Vector3(0, 0, spawnOffset.z + tileOffset);
+		}
+	}
+
+	void PullMapScale()
+	{
+		if (mapPhysicalData != null)
+		{
+			StreamReader FileRead = new StreamReader(AssetDatabase.GetAssetPath(mapPhysicalData));
+			string MapData = FileRead.ReadToEnd();
+
+			int yRes = 0;
+			int xRes = 0;
+
+			foreach (string row in MapData.Split('\n'))
+			{
+				yRes++;
+			}
+
+			for (int x = 0; x < MapData.Length; x++)
+			{
+				if (MapData[x + 1] == '\n')
+				{
+					break;
+				}
+				else
+				{
+					xRes++;
+					Debug.Log(MapData[x]);
+				}
+			}
+
+			MapSize_X = xRes;
+			MapSize_Y = yRes;
+		}
+		else
+		{
+			Debug.LogError("Please input a Map txt file");
 		}
 	}
 }
