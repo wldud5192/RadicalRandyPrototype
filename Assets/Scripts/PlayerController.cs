@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
         playerRB.constraints = RigidbodyConstraints.None;
         playerRB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         playerRB.useGravity = true;
-
     }
 
     public float speed;

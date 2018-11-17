@@ -76,14 +76,14 @@ public class ExitScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        /*if (col.gameObject.tag == "Player" && exitOpen && !sceneIsBuilt)
+        if (col.gameObject.tag == "Player" && exitOpen && !sceneIsBuilt)
         {
             int newSceneNum = sceneNumber += 1;
             SceneManager.LoadScene(newSceneNum);
             sceneIsBuilt = true;
 
             DestroyAllGameObjects();
-        }*/
+        }
     }
 
         public void DestroyAllGameObjects()

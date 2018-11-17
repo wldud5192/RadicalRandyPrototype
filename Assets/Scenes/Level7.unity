@@ -13084,6 +13084,12 @@ Prefab:
       propertyPath: searchMethod
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000825631983228, guid: 9bbfddad11223294b941adb76a409f3f,
+        type: 2}
+      propertyPath: aiLogic
+      value: 
+      objectReference: {fileID: 11400000, guid: a6a7c8d02dd7b1543a625657c9172aee,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bbfddad11223294b941adb76a409f3f, type: 2}
   m_IsPrefabAsset: 0

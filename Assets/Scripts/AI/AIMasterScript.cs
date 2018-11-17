@@ -46,8 +46,9 @@ public class AIMasterScript : MonoBehaviour
     public SearchType searchMethod;
 
     public bool moveUpOrRight;
+	public float wallHitDistance;
 
-    GameObject player;
+	GameObject player;
 
     //public float viewDistance = 15;
 
@@ -58,6 +59,11 @@ public class AIMasterScript : MonoBehaviour
         GetSOData();
 
         moveUpOrRight = true;
+
+		if(wallHitDistance <= 0)
+		{
+			wallHitDistance = 5;
+		}
     }
 
     void Update()
@@ -151,7 +157,7 @@ public class AIMasterScript : MonoBehaviour
                         navAgent.SetDestination(hitRight.transform.position);
                         Debug.Log(distance);
 
-                        if (distance < 5)
+                        if (distance < wallHitDistance)
                         {
                             moveUpOrRight = false;
                         }
@@ -168,7 +174,7 @@ public class AIMasterScript : MonoBehaviour
 
                         navAgent.SetDestination(hitLeft.transform.position);
 
-                        if (distance < 5)
+                        if (distance < wallHitDistance)
                         {
                             moveUpOrRight = true;
                         }
@@ -194,7 +200,7 @@ public class AIMasterScript : MonoBehaviour
                             navAgent.SetDestination(hitFront.transform.position);
                             Debug.Log(distance);
 
-                            if (distance < 5)
+                            if (distance < wallHitDistance)
                             {
                                 moveUpOrRight = false;
                             }
@@ -211,7 +217,7 @@ public class AIMasterScript : MonoBehaviour
                         {
                             navAgent.SetDestination(hitBack.transform.position);
 
-                            if (distance < 5)
+                            if (distance < wallHitDistance)
                             {
                                 moveUpOrRight = true;
                             }
@@ -272,13 +278,9 @@ public class AIMasterScript : MonoBehaviour
     void GetSOData()
     {
         viewDistance = aiLogic.viewDistance;
-        walkSpeed = aiLogic.walkSpeed;
-        runSpeed = aiLogic.runSpeed;
-        canRun = aiLogic.canRun;
-        isLethal = aiLogic.isLethal;
+        walkSpeed = aiLogic.speed;
         attackDistance = aiLogic.attackDistance;
         searchTime = aiLogic.searchTime;
-        searchDistance = aiLogic.searchDistance;
     }
 
     private void OnCollisionEnter(Collision collision)

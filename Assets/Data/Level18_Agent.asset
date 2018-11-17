@@ -9,13 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fad9bc1c0a69dc0478501b151fcb5376, type: 3}
-  m_Name: levle3AI
+  m_Name: Level18_Agent
   m_EditorClassIdentifier: 
-  viewDistance: 10
-  walkSpeed: 10
-  runSpeed: 30
-  canRun: 0
-  isLethal: 0
+  viewDistance: 5
+  speed: 0.2
   attackDistance: 1.5
   searchTime: 0
-  searchDistance: 10

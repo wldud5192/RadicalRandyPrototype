@@ -1,6 +1,4 @@
-﻿#if UNITY_EDITOR
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -90,74 +88,101 @@ public class UI_SpeedMapGen : EditorWindow
 			{
 				Debug.Log(FileDataReader[y][x]);
 
+				GameObject Item = null;
+
 				switch (FileDataReader[y][x])
 				{
 					case '○':
-						Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
-					break;
+						//Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						break;
 
 					case '▨':
-						Instantiate(Resources.Load<GameObject>("Wall"), spawnOffset, Quaternion.identity, masterList.transform);
-					break;
+						//Instantiate(Resources.Load<GameObject>("Wall"), spawnOffset, Quaternion.identity, masterList.transform);
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Wall"));
+						break;
 
 					case '☆':
-						Instantiate(Resources.Load<GameObject>("Player"), spawnOffset, Quaternion.identity, masterList.transform);
-						Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
-					break;
+						//Instantiate(Resources.Load<GameObject>("Player"), spawnOffset, Quaternion.identity, masterList.transform);
+						//Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Player"));
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						break;
 
 					case '★':
-						Instantiate(Resources.Load<GameObject>("Exit"), spawnOffset, Quaternion.identity, masterList.transform);
-					break;
+						//Instantiate(Resources.Load<GameObject>("Exit"), spawnOffset, Quaternion.identity, masterList.transform);
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Exit"));
+						break;
 
 					case '◎':
-						Instantiate(Resources.Load<GameObject>("Tile"), spawnOffset, Quaternion.identity, masterList.transform);
-					break;
+						//Instantiate(Resources.Load<GameObject>("Tile"), spawnOffset, Quaternion.identity, masterList.transform);
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Tile"));
+						break;
 
 					case '※':
-						Instantiate(Resources.Load<GameObject>("VPN"), spawnOffset, Quaternion.identity, masterList.transform);
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("VPN"));
 						break;
 
 					case '◐':
-						Instantiate(Resources.Load<GameObject>("Switch"), spawnOffset, Quaternion.identity, masterList.transform);
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Switch"));
+						//Instantiate(Resources.Load<GameObject>("Switch"), spawnOffset, Quaternion.identity, masterList.transform);
 						break;
 
 					case '>':
-						Instantiate(Resources.Load<GameObject>("AgentSpawn"), spawnOffset, Quaternion.identity, masterList.transform);
-						Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
+						//Instantiate(Resources.Load<GameObject>("AgentSpawn"), spawnOffset, Quaternion.identity, masterList.transform);
+						//Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("AgentSpawn"));
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
 						break;
 
 					case 'V':
-						Instantiate(Resources.Load<GameObject>("Virus"), spawnOffset, Quaternion.identity, masterList.transform);
-						Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
+						//Instantiate(Resources.Load<GameObject>("Virus"), spawnOffset, Quaternion.identity, masterList.transform);
+						//Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Virus"));
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
 						break;
 
 					case 'A':
-						Instantiate(Resources.Load<GameObject>("Antivirus"), spawnOffset, Quaternion.identity, masterList.transform);
+						//Instantiate(Resources.Load<GameObject>("Antivirus"), spawnOffset, Quaternion.identity, masterList.transform);
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Antivirus"));
 						break;
 
 					case '§':
-						Instantiate(Resources.Load<GameObject>("Key"), spawnOffset, Quaternion.identity, masterList.transform);
-						Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
+						//Instantiate(Resources.Load<GameObject>("Key"), spawnOffset, Quaternion.identity, masterList.transform);
+						//Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Key"));
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
 						break;
 
 					case 'Ⅲ':
-						Instantiate(Resources.Load<GameObject>("Door"), spawnOffset, Quaternion.identity, masterList.transform);
-						Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
+						//Instantiate(Resources.Load<GameObject>("Door"), spawnOffset, Quaternion.identity, masterList.transform);
+						//Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Door"));
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
 						break;
 
 					case '♥':
-						Instantiate(Resources.Load<GameObject>("Health"), spawnOffset, Quaternion.identity, masterList.transform);
-						Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
+						//Instantiate(Resources.Load<GameObject>("Health"), spawnOffset, Quaternion.identity, masterList.transform);
+						//Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Health"));
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
 						break;
 
 					case '⇔':
-						Instantiate(Resources.Load<GameObject>("Counterhack"), spawnOffset, Quaternion.identity, masterList.transform);
-						Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
+						//Instantiate(Resources.Load<GameObject>("Counterhack"), spawnOffset, Quaternion.identity, masterList.transform);
+						//Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Counterhack"));
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
 						break;
 
 					default:
+						Item = new GameObject();
 					break;
 				}
+
+				Item.transform.position = spawnOffset;
+				Item.transform.rotation = Quaternion.identity;
+				Item.transform.parent = masterList.transform;
 
 				spawnOffset += Vector3.right * tileOffset;
 			}
@@ -203,4 +228,3 @@ public class UI_SpeedMapGen : EditorWindow
 		}
 	}
 }
-#endif
