@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
 		runSpeed = 900;
 
         playerRB.constraints = RigidbodyConstraints.None;
-        playerRB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+		playerRB.constraints = RigidbodyConstraints.FreezeRotation;
         playerRB.useGravity = true;
     }
 
@@ -43,8 +43,9 @@ public class PlayerController : MonoBehaviour
 		float moveVertical = Input.GetAxisRaw("Vertical");
 
 		Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15F);
 		movement = movement.normalized;
+
+		HandleInputRotation(moveHorizontal, moveVertical);
 
 		if(moveHorizontal == 0)
 		{
@@ -93,7 +94,25 @@ public class PlayerController : MonoBehaviour
 
 	}
 
-
+	void HandleInputRotation(float moveHorizontal, float moveVertical)
+	{
+		if (moveHorizontal > 0)
+		{
+			transform.rotation = Quaternion.Euler(0, 90,0);
+		}
+		else if (moveHorizontal < 0)
+		{
+			transform.rotation = Quaternion.Euler(0, 270,0);
+		}
+		else if(moveVertical > 0)
+		{
+			transform.rotation = Quaternion.Euler(0,0,0);
+		}
+		else if(moveVertical < 0)
+		{
+			transform.rotation = Quaternion.Euler(0,180,0);
+		}
+	}
 
 	// Unlocking Doors
 	private void OnTriggerStay(Collider other)

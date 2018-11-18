@@ -50,7 +50,14 @@ public class AIMasterScript : MonoBehaviour
 
 	GameObject player;
 
-    //public float viewDistance = 15;
+	//todo
+	/*
+	 * Enemies stop looking for player at a set distance
+	 * Enemies move to broken CPUs if within distance
+	 * Enemies Dash instantly to positions
+	 * Enemies move in a set pattern
+	 */
+
 
     void Start()
     {
@@ -242,6 +249,23 @@ public class AIMasterScript : MonoBehaviour
         Debug.DrawLine(transform.position, transform.position + Vector3.right * 10, Color.red);
         Debug.DrawLine(transform.position, transform.position + -Vector3.right * 10, Color.red);
     }
+
+	RaycastHit ScanInDirection(Vector3 direction, float distance )
+	{
+		RaycastHit hit;
+
+		if (Physics.Raycast(this.transform.position, direction, out hit, 500))
+		{
+			distance = Vector3.Distance(transform.position, hit.transform.position);
+
+			if (player == null)
+			{
+				return hit;
+			}
+		}
+
+		return hit;
+	}
 
     //Scans for player for set distance!
     bool ScanForPlayer(RaycastHit hit)
