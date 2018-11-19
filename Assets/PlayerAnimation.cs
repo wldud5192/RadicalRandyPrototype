@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour {
-
+    /*
     public Animator anim;
     public PlayerController controller;
 
@@ -30,5 +30,5 @@ public class PlayerAnimation : MonoBehaviour {
                 anim.SetBool("isWalking", false);
             }
         }
-
+        */
     }

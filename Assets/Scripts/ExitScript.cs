@@ -82,7 +82,7 @@ public class ExitScript : MonoBehaviour {
             SceneManager.LoadScene(newSceneNum);
             sceneIsBuilt = true;
 
-            DestroyAllGameObjects();
+            //DestroyAllGameObjects();
         }
     }
 
