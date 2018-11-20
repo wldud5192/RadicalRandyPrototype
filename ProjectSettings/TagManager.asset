@@ -27,7 +27,11 @@ TagManager:
   - Player
   - Ground
   - Ping
+<<<<<<< HEAD
   - IgnoreLighting
+=======
+  - IgnoreShadows
+>>>>>>> 4e303512e5d17b5f637081bcd7854efb6bf9fb7f
   - 
   - 
   - 
