@@ -24,8 +24,8 @@ public class PlayerController : MonoBehaviour
 
         transform.position += new Vector3(0,0.1f,0);
 
-		walkSpeed = 500;
-		runSpeed = 900;
+		walkSpeed = 2000;
+		runSpeed = 3500;
 
         playerRB.constraints = RigidbodyConstraints.None;
 		playerRB.constraints = RigidbodyConstraints.FreezeRotation;

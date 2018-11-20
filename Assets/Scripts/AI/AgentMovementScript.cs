@@ -23,6 +23,7 @@ public class AgentMovementScript : MonoBehaviour
 	SearchType searchType;
 	NavMeshAgent navAgent;
 	bool movingUpRight;
+	GameObject player;
 
 	[Header("AgentData")]
 	public float Speed;
@@ -30,7 +31,7 @@ public class AgentMovementScript : MonoBehaviour
 	public float searchTime;
 	public float distanceFromCheckpoint;
 	public SearchState movementState;
-	float viewDistance;
+	public float viewDistance;
 	Vector3 moveDirection;
 
 	public Transform navObjectParent;
@@ -38,6 +39,7 @@ public class AgentMovementScript : MonoBehaviour
 	List<Transform> navPositions;
 	int currentTargetNode;
 
+	[SerializeField]
 	bool chasingPlayer, isIdle, isLookingAround;
 
 	float nodeDistance = 1.0f;
@@ -61,13 +63,18 @@ public class AgentMovementScript : MonoBehaviour
 
 	void Update()
 	{
-		if(!isIdle)
+		if (!chasingPlayer)
 		{
-			Search();
+			SearchingForPlayer();
+		}
+
+		if (!isIdle)
+		{
+			Wandering();
 		}
 		else
 		{
-			if(!isLookingAround)
+			if (!isLookingAround)
 			{
 				StartCoroutine(IdleForTime());
 			}
@@ -75,7 +82,7 @@ public class AgentMovementScript : MonoBehaviour
 		}
 	}
 
-	void Search()
+	void Wandering()
 	{
 		if (chasingPlayer)
 		{
@@ -98,10 +105,48 @@ public class AgentMovementScript : MonoBehaviour
 			Debug.Log("Were close to the node. Lets look around");
 		}
 
-		if(navAgent.destination == null && !isLookingAround)
+		if (navAgent.destination == null && !isLookingAround)
 		{
 			navAgent.SetDestination(navPositions[currentTargetNode].position);
 			Debug.Log("Were heading to a new node");
+		}
+	}
+
+	void SearchingForPlayer()
+	{
+		Debug.DrawLine(transform.position, transform.position + transform.forward * viewDistance);
+
+		if (chasingPlayer == true)
+		{
+			return;
+		}
+
+		RaycastHit hit;
+		if (Physics.Raycast(transform.position, transform.forward, out hit, viewDistance))
+		{
+			if (hit.transform != null && hit.transform.CompareTag("Player"))
+			{
+				player = hit.transform.gameObject;
+				chasingPlayer = true;
+			}
+		}
+
+	}
+
+	void ChasingPlayer()
+	{
+		RaycastHit playerTarget;
+		if (Physics.Raycast(transform.position, player.transform.position, out playerTarget, 1000.0f))
+		{
+			if (!playerTarget.transform.CompareTag("Player"))
+			{
+				chasingPlayer = false;
+				Debug.Log("I've lost the player");
+			}
+			else
+			{
+				navAgent.SetDestination(player.transform.position);
+			}
 		}
 	}
 
