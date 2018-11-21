@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 
@@ -14,27 +15,24 @@ public class PlayerController : MonoBehaviour
 
 	public bool playerIsDetected;
 	Animator anim;
-
 	Rigidbody playerRB;
+	public float speed;
+	public List<Key_SO> keyList;
 
 	void Start()
 	{
+		keyList = new List<Key_SO>();
 		anim = gameObject.GetComponent<Animator>();
 		playerRB = GetComponent<Rigidbody>();
 
         transform.position += new Vector3(0,0.1f,0);
 
 		walkSpeed = 2000;
-		runSpeed = 3500;
+		runSpeed = 2750;
         
 		playerRB.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
         playerRB.useGravity = true;
     }
-
-    public float speed;
-	public float doorDropPos;
-	public float doorSpeed;
-	GameObject[] Unlocked;
 
 	void Update()
 	{
@@ -81,7 +79,6 @@ public class PlayerController : MonoBehaviour
 		if (playerIsDetected)
 		{
 			playerRB.AddForce(movement * runSpeed * Time.deltaTime * 15);
-
             playerRB.velocity = Vector3.ClampMagnitude(playerRB.velocity, 3);
         }
 		else
@@ -113,47 +110,12 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	// Unlocking Doors
-	private void OnTriggerStay(Collider other)
+	private void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag == ("RedKey"))                         //Identify the current key you are inside of
+		if(other.GetType() == typeof(Key_SO))
 		{
-			Unlocked = GameObject.FindGameObjectsWithTag("RedDoor");    //Puts all Doors of that colour into an array
-			foreach (GameObject Unlocked in Unlocked)
-			{
-				Vector3 basePos = Unlocked.transform.position;          // BasePos is given the current position of each door
-				basePos.y = doorDropPos;                                        // BasePos is then lowered to be (presumably) below field
-				if (Unlocked.transform.position.y > basePos.y)          // if the current position is above the basepos then the door is lowered
-				{
-					Unlocked.transform.position = Vector3.MoveTowards(Unlocked.transform.position, basePos, doorSpeed);
-				}
-			}
-		}
-		else if (other.gameObject.tag == ("BlueKey"))                   //Same as applies above
-		{
-			Unlocked = GameObject.FindGameObjectsWithTag("BlueDoor");
-			foreach (GameObject Unlocked in Unlocked)
-			{
-				Vector3 basePos = Unlocked.transform.position;
-				basePos.y = doorDropPos;
-				if (Unlocked.transform.position.y > basePos.y)
-				{
-					Unlocked.transform.position = Vector3.MoveTowards(Unlocked.transform.position, basePos, doorSpeed);
-				}
-			}
-		}
-		else if (other.gameObject.tag == ("GreenKey"))                     //Same as applies above
-		{
-			Unlocked = GameObject.FindGameObjectsWithTag("GreenDoor");
-			foreach (GameObject Unlocked in Unlocked)
-			{
-				Vector3 basePos = Unlocked.transform.position;
-				basePos.y = doorDropPos;
-				if (Unlocked.transform.position.y > basePos.y)
-				{
-					Unlocked.transform.position = Vector3.MoveTowards(Unlocked.transform.position, basePos, doorSpeed);
-				}
-			}
+			keyList.Add(other.GetComponent<Key_SO>());
+			DestroyImmediate(other.gameObject);
 		}
 	}
 }

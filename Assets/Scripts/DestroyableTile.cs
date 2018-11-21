@@ -6,62 +6,51 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class DestroyableTile : MonoBehaviour
 {
-    bool alreadyActivated = false;
-    public Vector3 boxScale;
+	bool alreadyActivated = false;
+	public Vector3 boxScale;
 	BoxCollider overlapBox;
 	public List<Collider> enemyList;
 	public Collider[] overlappedObjects;
 
 	public float scanDistance;
-    AudioSource crackSound;
-    ExitScript exit;
+	AudioSource crackSound;
+	ExitScript exit;
 
 	[Tooltip("Hides the ball scaled by Scan Distance")]
 	public bool disableGizmos;
 
-    private void OnValidate()
-    {
-        gameObject.GetComponents<BoxCollider>()[1].size = new Vector3(2.1f, 2.0f, 2.1f);
-    }
+	private void OnValidate()
+	{
+		gameObject.GetComponents<BoxCollider>()[1].size = new Vector3(2.1f, 2.0f, 2.1f);
+	}
 
-    void Start()
-    {
-
-        Component[] destroyOnLoad = GetComponents(this.GetType());
-        if (destroyOnLoad.Length > 1)
-        {
-            Destroy(destroyOnLoad[0]);
-
-        }
-
-        enemyList = new List<Collider>();
-		overlappedObjects = new Collider[8];
-        crackSound = GetComponent<AudioSource>();
-        exit = GameObject.FindGameObjectWithTag("Exit").GetComponent<ExitScript>();
-        gameObject.GetComponents<BoxCollider>()[1].size = new Vector3(2.1f, 2.0f, 2.1f);
-
-
-    }
+	void Start()
+	{
+		//enemyList = new List<Collider>();
+		//overlappedObjects = new Collider[8];
+		crackSound = GetComponent<AudioSource>();
+		exit = GameObject.FindObjectOfType<ExitScript>();
+		gameObject.GetComponents<BoxCollider>()[1].size = new Vector3(2.1f, 2.0f, 2.1f);
+	}
 
 
 	private void OnTriggerEnter(Collider other)
 	{
-        //ScanForNearestEnemy();
-       
+		//ScanForNearestEnemy();
 
-        if (other.gameObject.tag == "Player" && !alreadyActivated)
-        {
-            crackSound.Play();
-            //GetComponent<Animator>.SetBool("CrackAnim", true)
-            exit.currentNum -= 1;
-            MeshRenderer cpu = GetComponent<MeshRenderer>();
-            cpu.enabled = false;
+		if (other.gameObject.CompareTag("Player") && !alreadyActivated)
+		{
+			crackSound.Play();
+			//GetComponent<Animator>.SetBool("CrackAnim", true)
+			exit.currentNum -= 1;
+			MeshRenderer cpu = GetComponent<MeshRenderer>();
+			cpu.enabled = false;
 
-            alreadyActivated = true;
-        }
+			alreadyActivated = true;
+		}
 	}
 
-    /* 
+	/* 
 	private void OnDrawGizmos()
 	{
 		if (!disableGizmos)
@@ -116,5 +105,5 @@ public class DestroyableTile : MonoBehaviour
 	} */
 
 
-    
+
 }

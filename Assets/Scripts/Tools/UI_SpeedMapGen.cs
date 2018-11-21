@@ -5,6 +5,8 @@ using UnityEditor;
 
 using System.IO;
 
+#if UNITY_EDITOR
+
 public class UI_SpeedMapGen : EditorWindow
 {
 	int MapSize_X, MapSize_Y;
@@ -43,7 +45,9 @@ public class UI_SpeedMapGen : EditorWindow
 
 		tileOffset = EditorGUILayout.FloatField(tileOffset);
 
+#pragma warning disable
 		mapPhysicalData = (TextAsset)EditorGUILayout.ObjectField(mapPhysicalData, typeof(TextAsset));
+#pragma warning restore
 
 		EditorGUILayout.BeginHorizontal();
 		{
@@ -228,3 +232,4 @@ public class UI_SpeedMapGen : EditorWindow
 		}
 	}
 }
+#endif

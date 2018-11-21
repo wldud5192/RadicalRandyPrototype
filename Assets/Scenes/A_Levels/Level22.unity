@@ -4353,6 +4353,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000825631983228, guid: 9bbfddad11223294b941adb76a409f3f,
+        type: 2}
+      propertyPath: searchMethod
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bbfddad11223294b941adb76a409f3f, type: 2}
   m_IsPrefabAsset: 0
@@ -11467,6 +11472,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99598f63c31b4d14fa76991c9ba4544d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLife: 5
+  curLife: 0
+  lifeImages: []
+  fullLife: {fileID: 0}
+  emptyLife: {fileID: 0}
 --- !u!192 &2025429893
 OcclusionArea:
   m_ObjectHideFlags: 0
@@ -11492,8 +11502,7 @@ MonoBehaviour:
   runSpeed: 5
   playerIsDetected: 0
   speed: 0
-  doorDropPos: 0
-  doorSpeed: 0
+  keyList: []
 --- !u!136 &2025429895
 CapsuleCollider:
   m_ObjectHideFlags: 0

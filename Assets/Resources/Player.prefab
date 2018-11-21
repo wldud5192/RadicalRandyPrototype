@@ -211,7 +211,7 @@ GameObject:
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -655,8 +655,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1440938568674394}
-  m_LocalRotation: {x: -0, y: -0.0009626406, z: -0, w: -0.9999996}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 2}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4650903913593070}
@@ -664,7 +664,7 @@ Transform:
   - {fileID: 4420657015422268}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 360.11, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4650903913593070
 Transform:
   m_ObjectHideFlags: 1
@@ -844,7 +844,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!95 &95493415396316226
 Animator:
@@ -930,12 +930,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e050d55cc7876c438d6cdfe7fb1f059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 3
+  walkSpeed: 2
   runSpeed: 5
   playerIsDetected: 0
   speed: 0
-  doorDropPos: 0
-  doorSpeed: 0
+  keyList: []
 --- !u!114 &114355911900534866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -947,13 +946,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99598f63c31b4d14fa76991c9ba4544d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLife: 5
+  curLife: 0
+  lifeImages: []
+  fullLife: {fileID: 0}
+  emptyLife: {fileID: 0}
 --- !u!136 &136454208050072276
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1440938568674394}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 02dd0ebed24bdc04995d8e2997408d5c, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.11
