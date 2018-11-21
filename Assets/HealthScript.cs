@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour
+public class HealthScript : MonoBehaviour
 {
+    
     public int maxLife = 5;
     public int curLife;
 
@@ -16,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         gameOverUI = GameObject.Find("GameOverUI");
         lifeUI = GameObject.FindGameObjectsWithTag("LifeUI");
 
@@ -29,7 +31,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        if(maxLife < curLife)
+        if (maxLife < curLife)
         {
             maxLife = curLife;
         }
@@ -39,16 +41,19 @@ public class PlayerHealth : MonoBehaviour
             if (i < maxLife)
             {
                 lifeImages[i].sprite = fullLife;
-            } else
+            }
+            else
             {
                 lifeImages[i].sprite = emptyLife;
             }
             if (i < curLife)
             {
                 lifeImages[i].enabled = true;
-            } else
+            }
+            else
             {
-                lifeImages[i].enabled = false;            }
+                lifeImages[i].enabled = false;
+            }
         }
     }
 
@@ -59,14 +64,15 @@ public class PlayerHealth : MonoBehaviour
             if (curLife <= i)
             {
                 lifeImages[i].enabled = false;
-            } else
+            }
+            else
             {
                 lifeImages[i].enabled = true;
             }
 
         }
     }
-    
+
     void OnPlayerKilled()
     {
         if (curLife - 1 > 0)
@@ -83,5 +89,5 @@ public class PlayerHealth : MonoBehaviour
         }
 
     }
-    
+
 }

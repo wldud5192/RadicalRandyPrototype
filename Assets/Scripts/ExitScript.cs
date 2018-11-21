@@ -25,7 +25,12 @@ public class ExitScript : MonoBehaviour {
 
         }
 
-        listOfCpuTiles = GameObject.FindGameObjectsWithTag("CPU");
+        if (GameObject.FindGameObjectsWithTag("CPU") == null)
+        {
+            sceneNumber = 0;
+        } else {
+            listOfCpuTiles = GameObject.FindGameObjectsWithTag("CPU");
+        }
 
         startNum = listOfCpuTiles.Length;
         currentNum = startNum;

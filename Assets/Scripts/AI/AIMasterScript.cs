@@ -162,7 +162,7 @@ public class AIMasterScript : MonoBehaviour
                     if (player == null)
                     {
                         navAgent.SetDestination(hitRight.transform.position);
-                        Debug.Log(distance);
+                       // Debug.Log(distance);
 
                         if (distance < wallHitDistance)
                         {
@@ -205,7 +205,7 @@ public class AIMasterScript : MonoBehaviour
                         if (player == null)
                         {
                             navAgent.SetDestination(hitFront.transform.position);
-                            Debug.Log(distance);
+                           // Debug.Log(distance);
 
                             if (distance < wallHitDistance)
                             {

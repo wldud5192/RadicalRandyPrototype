@@ -1638,7 +1638,6 @@ GameObject:
   - component: {fileID: 933518517}
   - component: {fileID: 933518516}
   - component: {fileID: 933518515}
-  - component: {fileID: 933518514}
   m_Layer: 9
   m_Name: Player(Clone)
   m_TagString: Player
@@ -1662,17 +1661,6 @@ Transform:
   m_Father: {fileID: 875469924}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 360.11, z: 0}
---- !u!114 &933518514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 933518512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99598f63c31b4d14fa76991c9ba4544d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!192 &933518515
 OcclusionArea:
   m_ObjectHideFlags: 0
