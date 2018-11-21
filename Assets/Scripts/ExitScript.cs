@@ -71,9 +71,16 @@ public class ExitScript : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player" && exitOpen && !sceneIsBuilt)
 		{
-			int newSceneNum = sceneNumber += 1;
-			SceneManager.LoadScene(newSceneNum);
-			sceneIsBuilt = true;
+			if (sceneNumber + 1 < 20)
+			{
+				int newSceneNum = sceneNumber += 1;
+				SceneManager.LoadScene(newSceneNum);
+				sceneIsBuilt = true;
+			}
+			else
+			{
+				SceneManager.LoadScene("MainMenu");
+			}
 
 			DestroyAllGameObjects();
 		}
