@@ -1,0 +1,274 @@
+fileFormatVersion: 2
+guid: 17bc1eb9ca7a950439746ed658875206
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Armature.001
+    100004: Armature.002
+    100006: Armature.003
+    100008: Armature.004
+    100010: Armature.005
+    100012: Armature.006
+    100014: Armature.007
+    100016: Armature.008
+    100018: Bone
+    100020: Bone 1
+    100022: Bone 2
+    100024: Bone 3
+    100026: Bone 4
+    100028: Bone 5
+    100030: Bone 6
+    100032: Bone 7
+    100034: Bone 8
+    100036: Bone_end
+    100038: Bone_end 1
+    100040: Bone_end 2
+    100042: Bone_end 3
+    100044: Bone_end 4
+    100046: Bone_end 5
+    100048: Bone_end 6
+    100050: Bone_end 7
+    100052: Bone_end 8
+    100054: Tile
+    100056: //RootNode
+    100058: TileBroken
+    100060: TileBroken.001
+    100062: TileBroken.002
+    100064: TileBroken.003
+    100066: TileBroken.004
+    100068: TileBroken.005
+    100070: TileBroken.006
+    100072: TileBroken.007
+    400000: Armature
+    400002: Armature.001
+    400004: Armature.002
+    400006: Armature.003
+    400008: Armature.004
+    400010: Armature.005
+    400012: Armature.006
+    400014: Armature.007
+    400016: Armature.008
+    400018: Bone
+    400020: Bone 1
+    400022: Bone 2
+    400024: Bone 3
+    400026: Bone 4
+    400028: Bone 5
+    400030: Bone 6
+    400032: Bone 7
+    400034: Bone 8
+    400036: Bone_end
+    400038: Bone_end 1
+    400040: Bone_end 2
+    400042: Bone_end 3
+    400044: Bone_end 4
+    400046: Bone_end 5
+    400048: Bone_end 6
+    400050: Bone_end 7
+    400052: Bone_end 8
+    400054: Tile
+    400056: //RootNode
+    400058: TileBroken
+    400060: TileBroken.001
+    400062: TileBroken.002
+    400064: TileBroken.003
+    400066: TileBroken.004
+    400068: TileBroken.005
+    400070: TileBroken.006
+    400072: TileBroken.007
+    2100000: palette.001
+    2100002: Material.001
+    2100004: palette
+    2100006: Material.009
+    2100008: Material.002
+    2100010: Material.003
+    2100012: Material.004
+    2100014: Material.005
+    2100016: Material.006
+    2100018: Material.007
+    2100020: Material.008
+    4300000: Tile
+    4300002: TileBroken.003
+    4300004: TileBroken.004
+    4300006: TileBroken.005
+    4300008: TileBroken
+    4300010: TileBroken.007
+    4300012: TileBroken.006
+    4300014: TileBroken.002
+    4300016: TileBroken.001
+    7400000: Armature.008|Armature.001Action
+    7400002: Armature.008|Armature.002Action
+    7400004: Armature.008|Armature.003Action
+    7400006: Armature.008|Armature.004Action
+    7400008: Armature.008|Armature.005Action
+    7400010: Armature.008|Armature.006Action
+    7400012: Armature.008|Armature.007Action
+    7400014: Armature.008|Armature.008Action
+    7400016: Armature.008|ArmatureAction
+    7400018: Armature|Armature.001Action
+    7400020: Armature|Armature.002Action
+    7400022: Armature|Armature.003Action
+    7400024: Armature|Armature.004Action
+    7400026: Armature|Armature.005Action
+    7400028: Armature|Armature.006Action
+    7400030: Armature|Armature.007Action
+    7400032: Armature|Armature.008Action
+    7400034: Armature|ArmatureAction
+    7400036: Armature.003|Armature.001Action
+    7400038: Armature.003|Armature.002Action
+    7400040: Armature.003|Armature.003Action
+    7400042: Armature.003|Armature.004Action
+    7400044: Armature.003|Armature.005Action
+    7400046: Armature.003|Armature.006Action
+    7400048: Armature.003|Armature.007Action
+    7400050: Armature.003|Armature.008Action
+    7400052: Armature.003|ArmatureAction
+    7400054: Armature.002|Armature.001Action
+    7400056: Armature.002|Armature.002Action
+    7400058: Armature.002|Armature.003Action
+    7400060: Armature.002|Armature.004Action
+    7400062: Armature.002|Armature.005Action
+    7400064: Armature.002|Armature.006Action
+    7400066: Armature.002|Armature.007Action
+    7400068: Armature.002|Armature.008Action
+    7400070: Armature.002|ArmatureAction
+    7400072: Armature.001|Armature.001Action
+    7400074: Armature.001|Armature.002Action
+    7400076: Armature.001|Armature.003Action
+    7400078: Armature.001|Armature.004Action
+    7400080: Armature.001|Armature.005Action
+    7400082: Armature.001|Armature.006Action
+    7400084: Armature.001|Armature.007Action
+    7400086: Armature.001|Armature.008Action
+    7400088: Armature.001|ArmatureAction
+    7400090: Armature.007|Armature.001Action
+    7400092: Armature.007|Armature.002Action
+    7400094: Armature.007|Armature.003Action
+    7400096: Armature.007|Armature.004Action
+    7400098: Armature.007|Armature.005Action
+    7400100: Armature.007|Armature.006Action
+    7400102: Armature.007|Armature.007Action
+    7400104: Armature.007|Armature.008Action
+    7400106: Armature.007|ArmatureAction
+    7400108: Armature.006|Armature.001Action
+    7400110: Armature.006|Armature.002Action
+    7400112: Armature.006|Armature.003Action
+    7400114: Armature.006|Armature.004Action
+    7400116: Armature.006|Armature.005Action
+    7400118: Armature.006|Armature.006Action
+    7400120: Armature.006|Armature.007Action
+    7400122: Armature.006|Armature.008Action
+    7400124: Armature.006|ArmatureAction
+    7400126: Armature.005|Armature.001Action
+    7400128: Armature.005|Armature.002Action
+    7400130: Armature.005|Armature.003Action
+    7400132: Armature.005|Armature.004Action
+    7400134: Armature.005|Armature.005Action
+    7400136: Armature.005|Armature.006Action
+    7400138: Armature.005|Armature.007Action
+    7400140: Armature.005|Armature.008Action
+    7400142: Armature.005|ArmatureAction
+    7400144: Armature.004|Armature.001Action
+    7400146: Armature.004|Armature.002Action
+    7400148: Armature.004|Armature.003Action
+    7400150: Armature.004|Armature.004Action
+    7400152: Armature.004|Armature.005Action
+    7400154: Armature.004|Armature.006Action
+    7400156: Armature.004|Armature.007Action
+    7400158: Armature.004|Armature.008Action
+    7400160: Armature.004|ArmatureAction
+    9500000: //RootNode
+    13700000: Tile
+    13700002: TileBroken
+    13700004: TileBroken.001
+    13700006: TileBroken.002
+    13700008: TileBroken.003
+    13700010: TileBroken.004
+    13700012: TileBroken.005
+    13700014: TileBroken.006
+    13700016: TileBroken.007
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
