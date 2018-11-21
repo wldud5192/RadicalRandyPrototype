@@ -12,6 +12,7 @@ public class HealthScript : MonoBehaviour
     public int curLife;
     bool isDead = false;
 
+    GameObject bgm;
     GameObject gameOverUI;
     public Image[] lifeImages;
     GameObject[] lifeUI;
@@ -20,6 +21,7 @@ public class HealthScript : MonoBehaviour
 
     void Start()
     {
+        bgm = GameObject.FindGameObjectWithTag("BGM");
         deathAudio = GetComponent<AudioSource>();
         DontDestroyOnLoad(this.gameObject);
         gameOverUI = GameObject.Find("GameOverUI");
@@ -76,6 +78,7 @@ public class HealthScript : MonoBehaviour
         yield return new WaitForSeconds(deathAudio.clip.length);
         SceneManager.LoadScene("GameOver");       
         isDead = true;
+        bgm.GetComponent<AudioSource>().Stop();
         Destroy(this.gameObject);
     }
 

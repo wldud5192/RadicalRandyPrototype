@@ -8,12 +8,11 @@ public class HealthPickUp : MonoBehaviour
 
     public float speed;
     AudioSource pickupSound;
-    GameObject player;
-
+    HealthScript playerHP;
     void Start()
     {
         pickupSound = GetComponent<AudioSource>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        playerHP = GameObject.Find("Canvas").GetComponent<HealthScript>();
     }
 
     void Update()
@@ -23,10 +22,10 @@ public class HealthPickUp : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject == player)
+        if (col.gameObject.tag == "Player")
         {
             pickupSound.Play();
-           // player.GetComponent<PlayerHealth>().curLife += 1;
+            playerHP.curLife += 1;
             transform.position = Vector3.one * 9999f;
             Destroy(gameObject, pickupSound.clip.length);
         }

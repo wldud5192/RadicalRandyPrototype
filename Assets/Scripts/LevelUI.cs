@@ -19,6 +19,10 @@ public class LevelUI : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         m_TextComponent.text = "Level: " + scene.buildIndex;
+        if (scene.name == "GameOver")
+        {
+            Destroy(Camera.main);
+        }
     }
 
 }

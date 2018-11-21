@@ -2,51 +2,84 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DissolveSphere : MonoBehaviour {
+public class DissolveSphere : MonoBehaviour
+{
 
-    public GameObject player;
+    GameObject player;
+    AudioSource audio;
     Shader shader1;
     Shader shader2;
     Renderer rend;
     public bool hiding = false;
+    bool exiting;
+    float cooldown;
+    //public bool onCD = false;
 
     Material mat;
 
     void Start()
     {
-        rend = player.gameObject.GetComponent<Renderer>();
+        audio = GetComponent<AudioSource>();
+        player = GameObject.Find("Character");
+        rend = player.GetComponent<SkinnedMeshRenderer>();
         shader1 = Shader.Find("XRay Shaders/Diffuse-XRay-Replaceable");
         shader2 = Shader.Find("DissolverShader/DissolveShader");
-        mat = player.gameObject.GetComponent<Renderer>().material;
+        mat = rend.material;
     }
 
     void Update()
     {
         if (hiding)
         {
-            rend.material.shader = shader2;
-            mat.SetFloat("_DissolveAmount", Mathf.Sin(Time.time) / 2 + 0.5f);
+            mat.shader = shader2;
         }
-    }
+        else
+        {
+            mat.shader = shader1;
+        }
 
+        if (mat.shader == shader2)
+        {
+            mat.SetFloat("_DissolveAmount", Mathf.Lerp(0, 60, Time.deltaTime));
+        }
+
+        /*if (onCD)
+        {
+            cooldown -= Time.deltaTime;
+            if (cooldown < 0)
+            {
+               onCD = false;
+            }
+        }*/
+    }
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            
+            hiding = true;
+        }
+    }
 
-                    hiding = true;
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player" /*&& !onCD*/)
+        {
+            cooldown = 10;
+            audio.Play();
+            //onCD = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" /* && onCD*/)
         {
-            rend.material.shader = shader1;
+            exiting = true;
             hiding = false;
+
         }
     }
+
+    
 }

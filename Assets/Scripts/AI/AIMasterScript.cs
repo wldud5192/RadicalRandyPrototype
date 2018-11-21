@@ -312,11 +312,14 @@ public class AIMasterScript : MonoBehaviour
     {
         playerCont.enabled = false;
         playerAnim.SetBool("isDead", true);
-        isHit = true;        
-        playerHealthUI.curLife -= 1;
-        playerHurt.Play();
+        if (isHit == false)
+        {
+            playerHealthUI.curLife -= 1;
+            playerHurt.Play();
+            isHit = true;
+        }
         //playerAnim.SetBool("isDead", true);
-        yield return new WaitForSeconds(playerHurt.clip.length);
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         isHit = false;
     }

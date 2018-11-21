@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour {
+    
 
 	public void LoadByIndex(int sceneIndex)
     {
