@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthScript : MonoBehaviour
 {
-    
+    AudioSource deathAudio;
+
     public int maxLife = 5;
     public int curLife;
+    bool isDead = false;
 
     GameObject gameOverUI;
     public Image[] lifeImages;
@@ -17,6 +20,7 @@ public class HealthScript : MonoBehaviour
 
     void Start()
     {
+        deathAudio = GetComponent<AudioSource>();
         DontDestroyOnLoad(this.gameObject);
         gameOverUI = GameObject.Find("GameOverUI");
         lifeUI = GameObject.FindGameObjectsWithTag("LifeUI");
@@ -31,6 +35,14 @@ public class HealthScript : MonoBehaviour
 
     void Update()
     {
+        if (curLife < 0)
+        {
+            if (!isDead)
+            {
+                StartCoroutine(Death());
+            }
+        }
+
         if (maxLife < curLife)
         {
             maxLife = curLife;
@@ -55,6 +67,16 @@ public class HealthScript : MonoBehaviour
                 lifeImages[i].enabled = false;
             }
         }
+    }
+
+
+    IEnumerator Death()
+    {
+        deathAudio.Play();
+        yield return new WaitForSeconds(deathAudio.clip.length);
+        SceneManager.LoadScene("GameOver");       
+        isDead = true;
+        Destroy(this.gameObject);
     }
 
     void CheckLifeAmount()

@@ -40,7 +40,11 @@ public class AIMasterScript : MonoBehaviour
 
     public Vector3 alertPosition;
 
-    PlayerHealth playerHealthUI;
+    bool isHit = false;
+    PlayerController playerCont;
+    Animator playerAnim;
+    AudioSource playerHurt;
+    HealthScript playerHealthUI;
     public AI_SO aiLogic;
     public AIState currentState;
     public SearchType searchMethod;
@@ -61,7 +65,10 @@ public class AIMasterScript : MonoBehaviour
 
     void Start()
     {
-        playerHealthUI = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        playerCont = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerAnim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        playerHurt = GetComponent<AudioSource>();
+        playerHealthUI = GameObject.Find("Canvas").GetComponent<HealthScript>();
         GetOrCreateNavMesh();
         GetSOData();
 
@@ -239,8 +246,10 @@ public class AIMasterScript : MonoBehaviour
 
             if (Vector3.Distance(transform.position, player.transform.position) < attackDistance)
             {
-               // playerHealthUI.curLife -= 1;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                if (!isHit)
+                {
+                    StartCoroutine(Death());
+                }
             }
         }
 
@@ -299,6 +308,18 @@ public class AIMasterScript : MonoBehaviour
         }
     }
 
+    IEnumerator Death()
+    {
+        playerCont.enabled = false;
+        playerAnim.SetBool("isDead", true);
+        isHit = true;        
+        playerHealthUI.curLife -= 1;
+        playerHurt.Play();
+        //playerAnim.SetBool("isDead", true);
+        yield return new WaitForSeconds(playerHurt.clip.length);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        isHit = false;
+    }
     void GetSOData()
     {
         viewDistance = aiLogic.viewDistance;
