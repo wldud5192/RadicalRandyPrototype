@@ -141,7 +141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4325995497563774}
-  - component: {fileID: 108438572325789146}
+  - component: {fileID: 108322611316771568}
   m_Layer: 12
   m_Name: mixamorig:Head
   m_TagString: Untagged
@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 195498384139930102}
   - component: {fileID: 54941252776434928}
   - component: {fileID: 82449937350276120}
+  - component: {fileID: 135011334658471098}
   m_Layer: 12
   m_Name: Agent
   m_TagString: Untagged
@@ -589,8 +590,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1262956869125136}
-  m_LocalRotation: {x: -0.14461048, y: -0.45660537, z: 0.061585683, w: 0.8756749}
-  m_LocalPosition: {x: -0, y: 0.024925938, z: 0.0008008289}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4936221269141894}
@@ -604,7 +605,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514360339144038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 1, z: 2}
+  m_LocalPosition: {x: 2, y: 1.1, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4115499278989966}
@@ -958,7 +959,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!108 &108438572325789146
+--- !u!108 &108322611316771568
 Light:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -973,7 +974,7 @@ Light:
   m_SpotAngle: 133.5603
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -986,7 +987,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 3895
+    m_Bits: 4294967295
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
@@ -1010,11 +1011,30 @@ MonoBehaviour:
   nextPatrolPosition: 0
   minDistanceFromCheckpoint: 0
   alertPosition: {x: 0, y: 0, z: 0}
-  aiLogic: {fileID: 11400000, guid: 4939186b1f546244dbd5865b91f0eeca, type: 2}
-  currentState: 2
-  searchMethod: 2
+  aiLogic: {fileID: 11400000, guid: d2c540aeb4364e048a0f9073721fbfe1, type: 2}
+  currentState: 1
+  searchMethod: 1
   moveUpOrRight: 0
   wallHitDistance: 0
+  player: {fileID: 0}
+  searchBehindRange: 0
+  sphereOffset: {x: 0, y: 0, z: 0}
+  timeUntilAlerted: 10
+  fovAngle: 110
+  playerSighted: 0
+  fovDistance: 15
+--- !u!135 &135011334658471098
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1514360339144038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136443554174491774
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1023,7 +1043,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1514360339144038}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
