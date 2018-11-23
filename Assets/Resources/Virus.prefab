@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4967693962865322}
   - component: {fileID: 33308556564209214}
   - component: {fileID: 23379231733732474}
+  - component: {fileID: 114066232314783480}
   m_Layer: 0
   m_Name: Virus
   m_TagString: Untagged
@@ -83,3 +84,14 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1347712339121982}
   m_Mesh: {fileID: 4300000, guid: 96fa4b44ab473044db31cf75af4c0468, type: 3}
+--- !u!114 &114066232314783480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1347712339121982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e95ff03237a7c7479bdaaab5e5b624c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114899432489829432}
   - component: {fileID: 65381300059591550}
   - component: {fileID: 82677934661744594}
+  - component: {fileID: 114607198428248444}
   m_Layer: 0
   m_Name: VPN
   m_TagString: Untagged
@@ -193,6 +194,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114607198428248444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1259649403354722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e95ff03237a7c7479bdaaab5e5b624c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114899432489829432
 MonoBehaviour:
   m_ObjectHideFlags: 1

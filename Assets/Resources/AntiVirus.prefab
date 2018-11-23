@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 199496838681345814}
   - component: {fileID: 82819154476528318}
   - component: {fileID: 222674277599178106}
+  - component: {fileID: 114502002073949754}
   m_Layer: 0
   m_Name: AntiVirus
   m_TagString: Untagged
@@ -195,6 +196,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   removingText: {fileID: 0}
+--- !u!114 &114502002073949754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1805993312171200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e95ff03237a7c7479bdaaab5e5b624c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198394892531753704
 ParticleSystem:
   m_ObjectHideFlags: 1

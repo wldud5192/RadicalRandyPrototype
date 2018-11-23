@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 82382583322320338}
   - component: {fileID: 65845926459828966}
   - component: {fileID: 114577161462857242}
+  - component: {fileID: 114636479456516636}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Exit
@@ -222,3 +223,14 @@ MonoBehaviour:
   sceneNumber: 0
   exitOpen: 0
   sceneIsBuilt: 0
+--- !u!114 &114636479456516636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1391564197412738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e95ff03237a7c7479bdaaab5e5b624c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

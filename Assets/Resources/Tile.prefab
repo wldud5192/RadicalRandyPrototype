@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114571970230918628}
   - component: {fileID: 65431877228842908}
   - component: {fileID: 82595462654462366}
+  - component: {fileID: 114859543739717208}
   m_Layer: 0
   m_Name: Tile
   m_TagString: CPU
@@ -223,3 +224,14 @@ MonoBehaviour:
   overlappedObjects: []
   scanDistance: 0
   disableGizmos: 0
+--- !u!114 &114859543739717208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1172422675445962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e95ff03237a7c7479bdaaab5e5b624c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

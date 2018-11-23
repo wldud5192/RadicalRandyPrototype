@@ -21,6 +21,7 @@ public class AIMasterScript : MonoBehaviour
 	}
 
 	float viewDistance;
+	float fieldOfView = 110.0f;
 	float walkSpeed;
 	float runSpeed;
 	public GameObject[] patrolPositions;
@@ -59,24 +60,16 @@ public class AIMasterScript : MonoBehaviour
 	public float timeUntilAlerted;
 	private float alertTime;
 
-
-	//todo
-	/*
-	 * Enemies stop looking for player at a set distance
-	 * Enemies move to broken CPUs if within distance
-	 * Enemies Dash instantly to positions
-	 * Enemies move in a set pattern
-	 */
-
+	public TextMesh seenTimer;
 
 	void Start()
 	{
-		playerCont = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-		playerAnim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+		GameObject player = GameObject.FindObjectOfType<PlayerController>().gameObject;
+		playerCont = player.GetComponent<PlayerController>();
+		playerAnim = player.GetComponent<Animator>();
 		playerHurt = GetComponent<AudioSource>();
 
 		playerHealthUI = GameObject.FindObjectOfType<HealthScript>();
-		GetOrCreateNavMesh();
 		GetSOData();
 
 		moveUpOrRight = true;
@@ -87,10 +80,13 @@ public class AIMasterScript : MonoBehaviour
 		}
 
 		currentState = AIState.AI_Searching;
+		navAgent = GetComponent<NavMeshAgent>();
 	}
 
 	void Update()
 	{
+		seenTimer.text = alertTime.ToString();
+
 		switch (currentState)
 		{
 			case AIState.AI_Chasing:
@@ -173,8 +169,8 @@ public class AIMasterScript : MonoBehaviour
 				if (ScanInDirection(Vector3.right, 500, out hitRight))
 				{
 					distance = Vector3.Distance(transform.position, hitRight.transform.position);
+					CheckNavAgent();
 					navAgent.SetDestination(hitRight.transform.position);
-
 					if (distance < wallHitDistance)
 					{
 						moveUpOrRight = false;
@@ -186,9 +182,9 @@ public class AIMasterScript : MonoBehaviour
 				if (ScanInDirection(Vector3.left, 500, out hitLeft))
 				{
 					distance = Vector3.Distance(transform.position, hitLeft.transform.position);
-
+					Debug.Log(this.name);
+					CheckNavAgent();
 					navAgent.SetDestination(hitLeft.transform.position);
-
 					if (distance < wallHitDistance)
 					{
 						moveUpOrRight = true;
@@ -207,6 +203,7 @@ public class AIMasterScript : MonoBehaviour
 				if (ScanInDirection(Vector3.forward, 500, out hitFront))
 				{
 					distance = Vector3.Distance(transform.position, hitFront.transform.position);
+					CheckNavAgent();
 					navAgent.SetDestination(hitFront.transform.position);
 					if (distance < wallHitDistance)
 					{
@@ -219,6 +216,7 @@ public class AIMasterScript : MonoBehaviour
 				if (ScanInDirection(Vector3.back, 500, out hitBack))
 				{
 					distance = Vector3.Distance(transform.position, hitBack.transform.position);
+					CheckNavAgent();
 					navAgent.SetDestination(hitBack.transform.position);
 					if (distance < wallHitDistance)
 					{
@@ -269,16 +267,6 @@ public class AIMasterScript : MonoBehaviour
 		navAgent.SetDestination(alertPosition);
 	}
 
-	void GetOrCreateNavMesh()
-	{
-		navAgent = GetComponent<NavMeshAgent>();
-
-		if (navAgent == null)
-		{
-			navAgent = gameObject.AddComponent<NavMeshAgent>();
-		}
-	}
-
 	IEnumerator Death()
 	{
 		playerCont.enabled = false;
@@ -297,6 +285,7 @@ public class AIMasterScript : MonoBehaviour
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		isHit = false;
 	}
+
 	void GetSOData()
 	{
 		viewDistance = aiLogic.viewDistance;
@@ -305,28 +294,27 @@ public class AIMasterScript : MonoBehaviour
 		searchTime = aiLogic.searchTime;
 	}
 
-	public float fovAngle = 110f;
-	public bool playerSighted = false;
-	public float fovDistance = 15.0f;
-
 	private void OnTriggerStay(Collider other)
 	{
-		Vector3 direction = other.transform.position - transform.position;
-
-		float angle = Vector3.Angle(direction, transform.forward);
-		
-		if (angle < fovAngle * 0.5f)
+		if(other.CompareTag("Player"))
 		{
-			RaycastHit hit;
+			Vector3 dir = other.transform.position - transform.position;
+			float angle = Vector3.Angle(dir, transform.forward);
 
-			if (Physics.Raycast(transform.position + transform.up, transform.forward, out hit, fovDistance))
+			if(angle < fieldOfView * 0.5f)
 			{
-				if (hit.collider.gameObject.CompareTag("Player"))
-				{
-					Debug.Log(angle);
-					Debug.DrawLine(transform.position, hit.transform.position);
-				}
+				StartPlayerDetection(other.gameObject);
+				Debug.DrawLine(transform.position, other.transform.position);
+				Debug.Log(angle);
 			}
+		}
+	}
+
+	void CheckNavAgent()
+	{
+		if(navAgent == null)
+		{
+			this.GetComponent<NavMeshAgent>();
 		}
 	}
 }

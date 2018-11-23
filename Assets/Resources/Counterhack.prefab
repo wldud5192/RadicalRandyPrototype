@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 82830304025159130}
   - component: {fileID: 65221130394512682}
   - component: {fileID: 114091233044897958}
+  - component: {fileID: 114673318149206840}
   m_Layer: 0
   m_Name: Counterhack
   m_TagString: Untagged
@@ -234,3 +235,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 60
+  hiding: 0
+--- !u!114 &114673318149206840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780229862364164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e95ff03237a7c7479bdaaab5e5b624c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

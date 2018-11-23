@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114190538633036098}
   - component: {fileID: 65247454741774936}
   - component: {fileID: 82333744985955554}
+  - component: {fileID: 114427166702218584}
   m_Layer: 0
   m_Name: Switch
   m_TagString: Untagged
@@ -293,6 +294,17 @@ MonoBehaviour:
   hackingPE: {fileID: 1190688671124698}
   ping: {fileID: 0}
   canActivate: 1
+--- !u!114 &114427166702218584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1574935529783818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e95ff03237a7c7479bdaaab5e5b624c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198848436907637364
 ParticleSystem:
   m_ObjectHideFlags: 1

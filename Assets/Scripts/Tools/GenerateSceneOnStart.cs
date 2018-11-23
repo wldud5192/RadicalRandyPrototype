@@ -23,6 +23,8 @@ public class GenerateSceneOnStart : MonoBehaviour
 		Debug.Log(directory);
 
 		ReadFile();
+
+		PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("NavmeshBuilder"));
 	}
 
 	void ReadFile()
