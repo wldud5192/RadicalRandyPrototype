@@ -17,7 +17,9 @@ public class AntiVirusScript : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		removingText = GameObject.Find("AntiVirusActivationUI").GetComponent<TMP_Text>();
+		if(GameObject.Find("AntiVirusActivationUI") != null)
+			removingText = GameObject.Find("AntiVirusActivationUI").GetComponent<TMP_Text>();
+
 		audio = GetComponent<AudioSource>();
 		pe = GetComponent<ParticleSystem>();
 
@@ -32,7 +34,10 @@ public class AntiVirusScript : MonoBehaviour
 	{
 		if (activated)
 		{
-			removingText.color = Color.Lerp(Color.green, Color.black, t);
+			if (removingText != null)
+			{
+				removingText.color = Color.Lerp(Color.green, Color.black, t);
+			}
 			if (t < 1)
 			{
 				t += Time.deltaTime / duration;

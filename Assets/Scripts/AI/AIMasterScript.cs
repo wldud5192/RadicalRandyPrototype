@@ -147,7 +147,6 @@ public class AIMasterScript : MonoBehaviour
 			}
 		}
 
-		//Scan directly forward from player
 		RaycastHit FoVHit;
 		if (ScanInDirection(transform.forward, viewDistance, out FoVHit))
 		{
@@ -228,16 +227,16 @@ public class AIMasterScript : MonoBehaviour
 				}
 			}
 		}
-
-		Debug.DrawLine(transform.position, transform.position + Vector3.forward * 10, Color.red);
-		Debug.DrawLine(transform.position, transform.position + -Vector3.forward * 10, Color.red);
-		Debug.DrawLine(transform.position, transform.position + Vector3.right * 10, Color.red);
-		Debug.DrawLine(transform.position, transform.position + -Vector3.right * 10, Color.red);
 	}
 
 	void StartPlayerDetection(GameObject detectedPlayer)
 	{
 		Debug.Log(alertTime);
+
+		if(Vector3.Distance(transform.position, detectedPlayer.transform.position) < 2)
+		{
+			alertTime = timeUntilAlerted;
+		}
 
 		if (alertTime <= timeUntilAlerted)
 		{
@@ -312,7 +311,9 @@ public class AIMasterScript : MonoBehaviour
 
 	private void OnTriggerStay(Collider other)
 	{
-		float angle = Vector3.Angle(transform.position + Vector3.forward, transform.forward);
+		Vector3 direction = other.transform.position - transform.position;
+
+		float angle = Vector3.Angle(direction, transform.forward);
 		
 		if (angle < fovAngle * 0.5f)
 		{
@@ -327,7 +328,5 @@ public class AIMasterScript : MonoBehaviour
 				}
 			}
 		}
-
-
 	}
 }

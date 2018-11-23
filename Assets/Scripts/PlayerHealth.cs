@@ -19,11 +19,13 @@ public class PlayerHealth : MonoBehaviour
 		gameOverUI = GameObject.Find("GameOverUI");
 		lifeUI = GameObject.FindGameObjectsWithTag("LifeUI");
 
+		//WHY???
 		for (int i = 0; i < maxLife; i++)
 		{
-			if (lifeImages.Length <= i && lifeUI.Length <= i)
+			if(lifeImages != null && lifeUI != null && i <= lifeImages.Length && i <= lifeUI.Length )
 			{
-				lifeImages[i] = lifeUI[i].GetComponent<Image>();
+				if(lifeUI[i] != null)
+					lifeImages[i] = lifeUI[i].GetComponent<Image>();
 			}
 		}
 
@@ -80,15 +82,10 @@ public class PlayerHealth : MonoBehaviour
 		{
 			curLife -= 1;
 		}
-
 		else
-
 		{
-
 			gameOverUI.gameObject.SetActive(true);
-
 		}
-
 	}
 
 }
