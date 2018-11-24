@@ -5,9 +5,14 @@ using UnityEngine;
 public class LightSettings : MonoBehaviour
 {
 
-
+    AudioSource audio;
     public bool playerIsAtSpawn;
+    bool playOnce = false;
 
+    void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -26,8 +31,14 @@ public class LightSettings : MonoBehaviour
     }
     void Update()
     {
-        if (playerIsAtSpawn) { 
-        RenderSettings.ambientLight = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time, 1));
+        if (playerIsAtSpawn) {
+            
+            if (!playOnce)
+            {
+                audio.Play();
+                playOnce = true;
+            }
+        RenderSettings.ambientLight = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time, 0.5f));
     } else
         {
             RenderSettings.ambientLight = Color.black;
