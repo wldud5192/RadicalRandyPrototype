@@ -94,86 +94,89 @@ public class UI_SpeedMapGen : EditorWindow
 				switch (FileDataReader[y][x])
 				{
 					case '○':
-						//Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPositioning(Item);
 						break;
 
 					case '▨':
-						//Instantiate(Resources.Load<GameObject>("Wall"), spawnOffset, Quaternion.identity, masterList.transform);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Wall"));
+						SetItemPositioning(Item);
 						break;
 
 					case '☆':
-						//Instantiate(Resources.Load<GameObject>("Player"), spawnOffset, Quaternion.identity, masterList.transform);
-						//Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Player"));
+						SetItemPositioning(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPositioning(Item);
 						break;
 
 					case '★':
-						//Instantiate(Resources.Load<GameObject>("Exit"), spawnOffset, Quaternion.identity, masterList.transform);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Exit"));
+						SetItemPositioning(Item);
 						break;
 
 					case '◎':
-						//Instantiate(Resources.Load<GameObject>("Tile"), spawnOffset, Quaternion.identity, masterList.transform);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Tile"));
+						SetItemPositioning(Item);
 						break;
 
 					case '※':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("VPN"));
+						SetItemPositioning(Item);
 						break;
 
 					case '◐':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Switch"));
-						//Instantiate(Resources.Load<GameObject>("Switch"), spawnOffset, Quaternion.identity, masterList.transform);
+						SetItemPositioning(Item);
 						break;
 
 					case '>':
-						//Instantiate(Resources.Load<GameObject>("AgentSpawn"), spawnOffset, Quaternion.identity, masterList.transform);
-						//Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("AgentSpawn"));
+						SetItemPositioning(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPositioning(Item);
 						break;
 
 					case 'V':
-						//Instantiate(Resources.Load<GameObject>("Virus"), spawnOffset, Quaternion.identity, masterList.transform);
-						//Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Virus"));
+						SetItemPositioning(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPositioning(Item);
 						break;
 
 					case 'A':
-						//Instantiate(Resources.Load<GameObject>("Antivirus"), spawnOffset, Quaternion.identity, masterList.transform);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Antivirus"));
+						SetItemPositioning(Item);
 						break;
 
 					case '§':
-						//Instantiate(Resources.Load<GameObject>("Key"), spawnOffset, Quaternion.identity, masterList.transform);
-						//Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Key"));
+						SetItemPositioning(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPositioning(Item);
 						break;
 
 					case 'Ⅲ':
 						//Instantiate(Resources.Load<GameObject>("Door"), spawnOffset, Quaternion.identity, masterList.transform);
 						//Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Door"));
+						SetItemPositioning(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPositioning(Item);
 						break;
 
 					case '♥':
-						//Instantiate(Resources.Load<GameObject>("Health"), spawnOffset, Quaternion.identity, masterList.transform);
-						//Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Health"));
+						SetItemPositioning(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPositioning(Item);
 						break;
 
 					case '⇔':
-						//Instantiate(Resources.Load<GameObject>("Counterhack"), spawnOffset, Quaternion.identity, masterList.transform);
-						//Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Counterhack"));
+						SetItemPositioning(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPositioning(Item);
 						break;
 
 					default:
@@ -181,15 +184,18 @@ public class UI_SpeedMapGen : EditorWindow
 					break;
 				}
 
-				Item.transform.position = spawnOffset;
-				Item.transform.rotation = Quaternion.identity;
-				Item.transform.parent = masterList.transform;
-
 				spawnOffset += Vector3.right * tileOffset;
 			}
 
 			spawnOffset = new Vector3(0, 0, spawnOffset.z + tileOffset);
 		}
+	}
+
+	void SetItemPositioning(GameObject Item)
+	{
+		Item.transform.position = spawnOffset;
+		Item.transform.rotation = Quaternion.identity;
+		Item.transform.parent = masterList.transform;
 	}
 
 	void PullMapScale()
