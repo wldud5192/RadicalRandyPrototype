@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine.UI;
 
-
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {

@@ -23,8 +23,6 @@ public class GenerateSceneOnStart : MonoBehaviour
 		Debug.Log(directory);
 
 		ReadFile();
-
-		PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("NavmeshBuilder"));
 	}
 
 	void ReadFile()
@@ -143,6 +141,26 @@ public class GenerateSceneOnStart : MonoBehaviour
 			}
 
 			spawnOffset = new Vector3(0, 0, spawnOffset.z + tileOffset);
+		}
+
+		GameObject Nav = GameObject.FindObjectOfType<LocalNavMeshBuilder>().gameObject;
+		DestroyImmediate(Nav);
+		Nav = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("NavmeshBuilder"));
+		Nav.transform.position = Vector3.zero;
+		Nav.GetComponent<LocalNavMeshBuilder>().m_Size = Vector3.one * 100;
+	}
+
+	void SetItemPositioning(GameObject Item)
+	{
+		if (Item != null)
+		{
+			Item.transform.position = spawnOffset;
+			Item.transform.rotation = Quaternion.identity;
+			Item.transform.parent = masterList.transform;
+		}
+		else
+		{
+			Debug.Log("Failed to get an object!");
 		}
 	}
 

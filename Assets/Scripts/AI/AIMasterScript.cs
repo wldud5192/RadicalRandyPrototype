@@ -308,7 +308,12 @@ public class AIMasterScript : MonoBehaviour
 
 			if(angle < fieldOfView * 0.5f)
 			{
-				StartPlayerDetection(other.gameObject);
+				RaycastHit hit;
+				if(Physics.Raycast(transform.position, other.transform.position, out hit))
+				{
+					if(hit.transform.CompareTag("Player"))
+						StartPlayerDetection(other.gameObject);
+				}
 				Debug.DrawLine(transform.position, other.transform.position);
 				//Debug.Log(angle);
 			}

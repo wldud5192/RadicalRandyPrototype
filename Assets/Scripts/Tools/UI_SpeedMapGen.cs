@@ -157,8 +157,6 @@ public class UI_SpeedMapGen : EditorWindow
 						break;
 
 					case 'Ⅲ':
-						//Instantiate(Resources.Load<GameObject>("Door"), spawnOffset, Quaternion.identity, masterList.transform);
-						//Instantiate(Resources.Load<GameObject>("Floor"), spawnOffset, Quaternion.identity, masterList.transform);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Door"));
 						SetItemPositioning(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
@@ -181,21 +179,32 @@ public class UI_SpeedMapGen : EditorWindow
 
 					default:
 						Item = new GameObject();
-					break;
+						break;
 				}
 
 				spawnOffset += Vector3.right * tileOffset;
 			}
 
 			spawnOffset = new Vector3(0, 0, spawnOffset.z + tileOffset);
+
+			GameObject Nav = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("NavmeshBuilder"));
+			Nav.transform.position = Vector3.zero;
+			Nav.GetComponent<LocalNavMeshBuilder>().m_Size = Vector3.one * 100;
 		}
 	}
 
 	void SetItemPositioning(GameObject Item)
 	{
-		Item.transform.position = spawnOffset;
-		Item.transform.rotation = Quaternion.identity;
-		Item.transform.parent = masterList.transform;
+		if (Item != null)
+		{
+			Item.transform.position = spawnOffset;
+			Item.transform.rotation = Quaternion.identity;
+			Item.transform.parent = masterList.transform;
+		}
+		else
+		{
+			Debug.Log("Failed to get an object!");
+		}
 	}
 
 	void PullMapScale()
