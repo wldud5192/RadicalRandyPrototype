@@ -112,8 +112,8 @@ public class AIMasterScript : MonoBehaviour
 		{
 			currentState = AIState.AI_Searching;
 		}
-
-		navAgent.SetDestination(player.transform.position);
+        playerCont.playerIsDetected = true;
+        navAgent.SetDestination(player.transform.position);
 
 		if (Vector3.Distance(transform.position, player.transform.position) < attackDistance)
 		{
@@ -186,7 +186,7 @@ public class AIMasterScript : MonoBehaviour
 				if (ScanInDirection(Vector3.left, 500, out hitLeft))
 				{
 					distance = Vector3.Distance(transform.position, hitLeft.transform.position);
-					Debug.Log(this.name);
+					//Debug.Log(this.name);
 					CheckNavAgent();
 					navAgent.SetDestination(hitLeft.transform.position);
 					if (distance < wallHitDistance)
@@ -233,7 +233,7 @@ public class AIMasterScript : MonoBehaviour
 
 	void StartPlayerDetection(GameObject detectedPlayer)
 	{
-		Debug.Log(alertTime);
+		//Debug.Log(alertTime);
 
 		if(Vector3.Distance(transform.position, detectedPlayer.transform.position) < 2)
 		{
@@ -273,6 +273,7 @@ public class AIMasterScript : MonoBehaviour
 
 	IEnumerator Death()
 	{
+        Destroy(player.GetComponent<BoxCollider>());
 		playerCont.enabled = false;
 		playerAnim.SetBool("isDead", true);
 		if (isHit == false)
@@ -309,7 +310,7 @@ public class AIMasterScript : MonoBehaviour
 			{
 				StartPlayerDetection(other.gameObject);
 				Debug.DrawLine(transform.position, other.transform.position);
-				Debug.Log(angle);
+				//Debug.Log(angle);
 			}
 		}
 	}

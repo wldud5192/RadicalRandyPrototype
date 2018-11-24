@@ -6,12 +6,13 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
-
 	public float walkSpeed;
 	public float runSpeed;
 	Vector2 inputDirection;
 	Vector3 startPosition;
+    public bool played = false;
 
+    public GameObject alertedUI;
 	public bool playerIsDetected;
 	Animator anim;
 
@@ -24,8 +25,8 @@ public class PlayerController : MonoBehaviour
 
         transform.position += new Vector3(0,0.1f,0);
 
-		walkSpeed = 2000;
-		runSpeed = 3500;
+		walkSpeed = 1500;
+		runSpeed = 2000;
         
 		playerRB.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
         playerRB.useGravity = true;
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour
 		{
 			if (playerIsDetected)
 			{
-				anim.SetBool("isRunning", false);
+                anim.SetBool("isRunning", false);
 			}
 			else
 			{
@@ -80,8 +81,12 @@ public class PlayerController : MonoBehaviour
 
 		if (playerIsDetected)
 		{
-			playerRB.AddForce(movement * runSpeed * Time.deltaTime * 15);
-
+            if (!played)
+            {
+                alertedUI.active = true;
+                played = true;
+            }
+            playerRB.AddForce(movement * runSpeed * Time.deltaTime * 15);
             playerRB.velocity = Vector3.ClampMagnitude(playerRB.velocity, 3);
         }
 		else
