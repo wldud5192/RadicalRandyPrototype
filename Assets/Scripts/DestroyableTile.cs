@@ -54,7 +54,7 @@ public class DestroyableTile : MonoBehaviour
             crackSound.Play();
             //GetComponent<Animator>.SetBool("CrackAnim", true)
             exit.currentNum -= 1;
-            MeshRenderer cpu = GetComponent<MeshRenderer>();
+            MeshRenderer cpu = GetComponentInChildren<MeshRenderer>();
             cpu.enabled = false;
 
             alreadyActivated = true;

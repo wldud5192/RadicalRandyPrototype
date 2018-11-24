@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIMasterScript : MonoBehaviour
 {
+    
 	public enum AIState
 	{
 		AI_Chasing,
@@ -60,7 +62,8 @@ public class AIMasterScript : MonoBehaviour
 	public float timeUntilAlerted;
 	private float alertTime;
 
-	public TextMesh seenTimer;
+    public Slider seenBar;
+	//public TextMesh seenTimer;
 
 	void Start()
 	{
@@ -85,7 +88,8 @@ public class AIMasterScript : MonoBehaviour
 
 	void Update()
 	{
-		seenTimer.text = alertTime.ToString();
+        seenBar.value = alertTime;
+		//seenTimer.text = alertTime.ToString();
 
 		switch (currentState)
 		{
