@@ -6,7 +6,7 @@ using TMPro;
 public class AntiVirusScript : MonoBehaviour
 {
 
-	public TMP_Text removingText;
+	TMP_Text removingText;
 	GameObject[] virus;
 	AudioSource audio;
 	ParticleSystem pe;
@@ -14,11 +14,15 @@ public class AntiVirusScript : MonoBehaviour
 	float t = 0f;
 	float duration = 5.5f;
 
-	// Use this for initialization
-	void Start()
-	{
-		if(GameObject.Find("AntiVirusActivationUI") != null)
-			removingText = GameObject.Find("AntiVirusActivationUI").GetComponent<TMP_Text>();
+    // Use this for initialization
+    void Start()
+    {
+        if (GameObject.Find("AntiVirusActivationUI") != null)
+        { removingText = GameObject.Find("AntiVirusActivationUI").GetComponent<TMP_Text>();
+            removingText.gameObject.active = false;
+        } else {
+            Debug.Log("Canvas must exist in the scene.");
+        }
 
 		audio = GetComponent<AudioSource>();
 		pe = GetComponent<ParticleSystem>();
@@ -36,7 +40,8 @@ public class AntiVirusScript : MonoBehaviour
 		{
 			if (removingText != null)
 			{
-				removingText.color = Color.Lerp(Color.green, Color.black, t);
+            removingText.gameObject.active = true;
+            removingText.color = Color.Lerp(Color.green, Color.black, t);
 			}
 			if (t < 1)
 			{
@@ -56,7 +61,8 @@ public class AntiVirusScript : MonoBehaviour
 			for (int i = 0; i < virus.Length; i++)
 			{
 				Destroy(virus[i], 2.5f);
-			}
+                Destroy(removingText, 3f);
+            }
 		}
 
 	}

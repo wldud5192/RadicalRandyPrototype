@@ -8,24 +8,27 @@ public class AudioManager : MonoBehaviour {
     public AudioClip alertedBGM;
     PlayerController playerCont;
     AudioSource audioSource;
+    bool executed = false;
 
 	// Use this for initialization
 	void Start () {
         audioSource = GetComponent<AudioSource>();
-        playerCont = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerCont = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         audioSource.clip = normalBGM;
+        audioSource.Play();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		if(playerCont.playerIsDetected)
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (playerCont.playerIsDetected)
         {
-            if (!playerCont.played)
+            if (!executed)
             {
                 ChangeBGM(alertedBGM);
             }
-            
         }
+
     }
     
     void ChangeBGM(AudioClip music)
@@ -33,5 +36,6 @@ public class AudioManager : MonoBehaviour {
             audioSource.Stop();
             audioSource.clip = music;
             audioSource.Play();
+        executed = true;                
     }    
 }

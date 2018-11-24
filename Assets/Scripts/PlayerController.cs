@@ -91,6 +91,10 @@ public class PlayerController : MonoBehaviour
         }
 		else
 		{
+            if(alertedUI.active)
+            {
+                alertedUI.active = false;
+            }
 			playerRB.AddForce(movement * walkSpeed * Time.deltaTime * 15);
 
             playerRB.velocity = Vector3.ClampMagnitude(playerRB.velocity, 1);
