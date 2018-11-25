@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public GameObject alertedUI;
 	public bool playerIsDetected;
 	Animator anim;
+	[HideInInspector]
+	public bool invisibleToAI;
 
 	Rigidbody playerRB;
 

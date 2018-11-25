@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIMasterScript : MonoBehaviour
 {
-    
+
 	public enum AIState
 	{
 		AI_Chasing,
@@ -62,7 +62,7 @@ public class AIMasterScript : MonoBehaviour
 	public float timeUntilAlerted;
 	private float alertTime;
 
-    public Slider seenBar;
+	public Slider seenBar;
 
 	Vector3 initialPosition;
 
@@ -99,7 +99,7 @@ public class AIMasterScript : MonoBehaviour
 
 	void Update()
 	{
-        seenBar.value = alertTime;
+		seenBar.value = alertTime;
 
 		switch (currentState)
 		{
@@ -123,15 +123,15 @@ public class AIMasterScript : MonoBehaviour
 			currentState = AIState.AI_Searching;
 		}
 
-        playerCont.playerIsDetected = true;
-        navAgent.SetDestination(player.transform.position);
+		playerCont.playerIsDetected = true;
+		navAgent.SetDestination(player.transform.position);
 
 		RaycastHit playerScanHit;
-		if(Physics.Raycast(transform.position, player.transform.position, out playerScanHit, 1000))
+		if (Physics.Raycast(transform.position, player.transform.position, out playerScanHit, 1000))
 		{
-			if(!playerScanHit.transform.CompareTag("Player"))
+			if (!playerScanHit.transform.CompareTag("Player"))
 			{
-				StopDetection();
+				StopPlayerDetection();
 			}
 		}
 
@@ -142,10 +142,13 @@ public class AIMasterScript : MonoBehaviour
 				StartCoroutine(Death());
 			}
 		}
+
+		Debug.Log("Chasing");
 	}
 
 	void Search()
 	{
+		Debug.Log("Searching");
 		if (player != null)
 		{
 			currentState = AIState.AI_Chasing;
@@ -250,9 +253,10 @@ public class AIMasterScript : MonoBehaviour
 
 	void StartPlayerDetection(GameObject detectedPlayer)
 	{
-		if(Vector3.Distance(transform.position, detectedPlayer.transform.position) < 2)
+		if (Vector3.Distance(transform.position, detectedPlayer.transform.position) < 2)
 		{
 			alertTime = timeUntilAlerted;
+			currentState = AIState.AI_Chasing;
 		}
 
 		if (alertTime <= timeUntilAlerted)
@@ -263,18 +267,19 @@ public class AIMasterScript : MonoBehaviour
 		if (alertTime >= timeUntilAlerted)
 		{
 			player = detectedPlayer;
+			currentState = AIState.AI_Chasing;
 		}
 	}
 
-	void StopDetection()
+	void StopPlayerDetection()
 	{
 		if (alertTime > 0)
 		{
 			alertTime -= Time.deltaTime / 2.5f;
 			navAgent.isStopped = false;
 		}
-		
-		if(alertTime <= 0)
+
+		if (alertTime <= 0)
 		{
 			player = null;
 			currentState = AIState.AI_Searching;
@@ -299,7 +304,7 @@ public class AIMasterScript : MonoBehaviour
 				}
 				else
 				{
-					if(navAgent.isStopped)
+					if (navAgent.isStopped)
 					{
 						navAgent.isStopped = false;
 						Debug.Log("Cant see player");
@@ -320,7 +325,7 @@ public class AIMasterScript : MonoBehaviour
 
 	IEnumerator Death()
 	{
-        Destroy(player.GetComponent<BoxCollider>());
+		Destroy(player.GetComponent<BoxCollider>());
 		playerCont.enabled = false;
 		playerAnim.SetBool("isDead", true);
 
@@ -353,28 +358,34 @@ public class AIMasterScript : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			Vector3 dir = other.transform.position - transform.position;
-			Debug.Log("Dir " + dir);
-			float angle = Vector3.Angle(dir, transform.forward);
-			Debug.Log("Angle: " + angle);
-
-			Debug.DrawLine(transform.position, other.transform.position, Color.red);
-
-			if (angle < fieldOfView * 0.5f)
+			if (other.GetComponent<PlayerController>().invisibleToAI != true)
 			{
-				Debug.DrawLine(transform.position, other.transform.position, Color.green);
-				StartPlayerDetection(other.gameObject);
-				navAgent.isStopped = true;
-				navAgent.speed = 0;
+				Vector3 dir = other.transform.position - transform.position;
+				float angle = Vector3.Angle(dir, transform.forward);
+
+				Debug.DrawLine(transform.position, other.transform.position, Color.red);
+
+				if (angle < fieldOfView * 0.5f)
+				{
+					Debug.DrawLine(transform.position, other.transform.position, Color.green);
+					StartPlayerDetection(other.gameObject);
+					navAgent.isStopped = true;
+					navAgent.speed = 0;
+				}
+				else
+				{
+					StopPlayerDetection();
+					navAgent.isStopped = false;
+				}
 			}
 		}
 	}
 
 	private void OnTriggerExit(Collider other)
 	{
-		if(other.CompareTag("Player"))
+		if (other.CompareTag("Player"))
 		{
-			StopDetection();
+			StopPlayerDetection();
 			navAgent.isStopped = false;
 			navAgent.speed = 10.0f;
 		}
@@ -382,7 +393,7 @@ public class AIMasterScript : MonoBehaviour
 
 	void CheckNavAgent()
 	{
-		if(navAgent == null)
+		if (navAgent == null)
 		{
 			this.GetComponent<NavMeshAgent>();
 		}

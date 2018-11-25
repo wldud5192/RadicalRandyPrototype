@@ -95,86 +95,93 @@ public class UI_SpeedMapGen : EditorWindow
 				{
 					case '○':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						break;
 
 					case '▨':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Wall"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						break;
 
 					case '☆':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Player"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						break;
 
 					case '★':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Exit"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						break;
 
 					case '◎':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Tile"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						break;
 
 					case '※':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("VPN"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						break;
 
 					case '◐':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Switch"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						break;
 
 					case '>':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("AgentSpawn"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						break;
 
 					case 'V':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Virus"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						break;
 
 					case 'A':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Antivirus"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						break;
 
 					case '§':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Key"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						break;
 
 					case 'Ⅲ':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Door"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						break;
 
 					case '♥':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Health"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						break;
 
 					case '⇔':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Counterhack"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
-						SetItemPositioning(Item);
+						SetItemPosition(Item);
+						break;
+
+					case '֍':
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("FrozenVirus"));
+						SetItemPosition(Item);
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPosition(Item);
 						break;
 
 					default:
@@ -193,7 +200,7 @@ public class UI_SpeedMapGen : EditorWindow
 		}
 	}
 
-	void SetItemPositioning(GameObject Item)
+	void SetItemPosition(GameObject Item)
 	{
 		if (Item != null)
 		{

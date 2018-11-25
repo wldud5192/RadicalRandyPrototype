@@ -60,73 +60,93 @@ public class GenerateSceneOnStart : MonoBehaviour
 				{
 					case '○':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPosition(Item);
 						break;
 
 					case '▨':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Wall"));
+						SetItemPosition(Item);
 						break;
 
 					case '☆':
-						if(GameObject.FindObjectOfType<PlayerController>() != null)
-						{
-							GameObject.FindObjectOfType<PlayerController>().gameObject.transform.position = new Vector3(x, 0.1f, y);
-						}
-						else
-						{
-							Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Player"));
-							Item.transform.position = new Vector3(x, 0.1f, y);
-						}
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Player"));
+						SetItemPosition(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPosition(Item);
 						break;
 
 					case '★':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Exit"));
+						SetItemPosition(Item);
 						break;
 
 					case '◎':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Tile"));
+						SetItemPosition(Item);
 						break;
 
 					case '※':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("VPN"));
+						SetItemPosition(Item);
 						break;
 
 					case '◐':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Switch"));
+						SetItemPosition(Item);
 						break;
 
 					case '>':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("AgentSpawn"));
+						SetItemPosition(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPosition(Item);
 						break;
 
 					case 'V':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Virus"));
+						SetItemPosition(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPosition(Item);
 						break;
 
 					case 'A':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Antivirus"));
+						SetItemPosition(Item);
 						break;
 
 					case '§':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Key"));
+						SetItemPosition(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPosition(Item);
 						break;
 
 					case 'Ⅲ':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Door"));
+						SetItemPosition(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPosition(Item);
 						break;
 
 					case '♥':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Health"));
+						SetItemPosition(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPosition(Item);
 						break;
 
 					case '⇔':
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Counterhack"));
+						SetItemPosition(Item);
 						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPosition(Item);
+						break;
+
+					case '֍':
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("FrozenVirus"));
+						SetItemPosition(Item);
+						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						SetItemPosition(Item);
 						break;
 
 					default:
@@ -134,24 +154,18 @@ public class GenerateSceneOnStart : MonoBehaviour
 						break;
 				}
 
-				Item.transform.position = spawnOffset;
-				Item.transform.rotation = Quaternion.identity;
-				Item.transform.parent = masterList.transform;
-
 				spawnOffset += Vector3.right * tileOffset;
 			}
 
 			spawnOffset = new Vector3(0, 0, spawnOffset.z + tileOffset);
-		}
 
-		GameObject Nav = GameObject.FindObjectOfType<LocalNavMeshBuilder>().gameObject;
-		DestroyImmediate(Nav);
-		Nav = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("NavmeshBuilder"));
-		Nav.transform.position = Vector3.zero;
-		Nav.GetComponent<LocalNavMeshBuilder>().m_Size = Vector3.one * 100;
+			GameObject Nav = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("NavmeshBuilder"));
+			Nav.transform.position = Vector3.zero;
+			Nav.GetComponent<LocalNavMeshBuilder>().m_Size = Vector3.one * 100;
+		}
 	}
 
-	void SetItemPositioning(GameObject Item)
+	void SetItemPosition(GameObject Item)
 	{
 		if (Item != null)
 		{
