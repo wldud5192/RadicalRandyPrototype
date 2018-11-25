@@ -9,6 +9,8 @@ TagManager:
   - Virus
   - LifeUI
   - BGM
+  - Door
+  - AntiVirus
   layers:
   - Default
   - TransparentFX

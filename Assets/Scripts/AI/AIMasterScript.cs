@@ -49,7 +49,7 @@ public class AIMasterScript : MonoBehaviour
 	public SearchType searchMethod;
 
 	public bool moveUpOrRight;
-	public float wallHitDistance;
+	public float wallHitDistance = 0.1f;
 
 	[HideInInspector]
 	public GameObject player;
@@ -65,6 +65,10 @@ public class AIMasterScript : MonoBehaviour
 	public Slider seenBar;
 
 	Vector3 initialPosition;
+
+	GameObject tempPlayer;
+
+	bool hitPlayer;
 
 	private void OnValidate()
 	{
@@ -95,11 +99,14 @@ public class AIMasterScript : MonoBehaviour
 		currentState = AIState.AI_Searching;
 		navAgent = GetComponent<NavMeshAgent>();
 		initialPosition = transform.position;
+
 	}
 
 	void Update()
 	{
 		seenBar.value = alertTime;
+
+		tempPlayer = GameObject.FindObjectOfType<PlayerController>().gameObject;
 
 		switch (currentState)
 		{
@@ -125,17 +132,21 @@ public class AIMasterScript : MonoBehaviour
 
 		playerCont.playerIsDetected = true;
 		navAgent.SetDestination(player.transform.position);
+		Debug.Log("ZERG RUSH PLAYER!");
 
 		RaycastHit playerScanHit;
-		if (Physics.Raycast(transform.position, player.transform.position, out playerScanHit, 1000))
+		if (player != null)
 		{
-			if (!playerScanHit.transform.CompareTag("Player"))
+			if (Physics.Raycast(transform.position, player.transform.position, out playerScanHit, 1000))
 			{
-				StopPlayerDetection();
+				if (!playerScanHit.transform.CompareTag("Player"))
+				{
+					StopPlayerDetection();
+				}
 			}
 		}
 
-		if (Vector3.Distance(transform.position, player.transform.position) < attackDistance)
+		if (player != null && Vector3.Distance(transform.position, player.transform.position) < attackDistance)
 		{
 			if (!isHit)
 			{
@@ -154,29 +165,30 @@ public class AIMasterScript : MonoBehaviour
 			currentState = AIState.AI_Chasing;
 		}
 
-		/*RaycastHit FoVHit;
-		if (ScanInDirection(transform.forward, viewDistance, out FoVHit, false))
+		RaycastHit hitPlyr;
+		if (Physics.Raycast(this.transform.position, tempPlayer.transform.position, out hitPlyr, 5000))
 		{
-			if (FoVHit.transform.gameObject != null)
+			if (hitPlyr.transform.CompareTag("Player"))
 			{
-				if (FoVHit.transform.CompareTag("Player"))
-				{
-					StartPlayerDetection(FoVHit.transform.gameObject);
-				}
-				StopDetection();
+				Debug.DrawLine(this.transform.position, hitPlyr.transform.position, Color.blue);
+				hitPlayer = true;
 			}
-		}*/
+		}
+
+		playerCont.playerIsDetected = false;
+		StopPlayerDetection();
 
 		float distance = 0.0f;
 
 		if (searchMethod == SearchType.Search_Horizontal)
 		{
+			Debug.Log("Searching Horizontal");
 			RaycastHit hitRight;
 			RaycastHit hitLeft;
 
 			if (moveUpOrRight)
 			{
-				if (ScanInDirection(Vector3.right, 500, out hitRight, true))
+				if (ScanInDirection(Vector3.right, 500, out hitRight))
 				{
 					distance = Vector3.Distance(transform.position, hitRight.transform.position);
 					CheckNavAgent();
@@ -193,7 +205,7 @@ public class AIMasterScript : MonoBehaviour
 			}
 			else
 			{
-				if (ScanInDirection(Vector3.left, 500, out hitLeft, true))
+				if (ScanInDirection(Vector3.left, 500, out hitLeft))
 				{
 					distance = Vector3.Distance(transform.position, hitLeft.transform.position);
 					//Debug.Log(this.name);
@@ -215,9 +227,11 @@ public class AIMasterScript : MonoBehaviour
 			RaycastHit hitFront;
 			RaycastHit hitBack;
 
+			Debug.Log("Searching Vertical");
+
 			if (moveUpOrRight)
 			{
-				if (ScanInDirection(Vector3.forward, 500, out hitFront, true))
+				if (ScanInDirection(Vector3.forward, 500, out hitFront))
 				{
 					distance = Vector3.Distance(transform.position, hitFront.transform.position);
 					CheckNavAgent();
@@ -234,7 +248,7 @@ public class AIMasterScript : MonoBehaviour
 			}
 			else
 			{
-				if (ScanInDirection(Vector3.back, 500, out hitBack, true))
+				if (ScanInDirection(Vector3.back, 500, out hitBack))
 				{
 					distance = Vector3.Distance(transform.position, hitBack.transform.position);
 					CheckNavAgent();
@@ -281,12 +295,13 @@ public class AIMasterScript : MonoBehaviour
 
 		if (alertTime <= 0)
 		{
-			player = null;
 			currentState = AIState.AI_Searching;
+			playerCont.playerIsDetected = false;
+			player = null;
 		}
 	}
 
-	bool ScanInDirection(Vector3 direction, float distance, out RaycastHit hitObj, bool ignorePlayer = false)
+	bool ScanInDirection(Vector3 direction, float distance, out RaycastHit hitObj)
 	{
 		RaycastHit hit = new RaycastHit();
 		hitObj = new RaycastHit();
@@ -295,28 +310,34 @@ public class AIMasterScript : MonoBehaviour
 		{
 			distance = Vector3.Distance(transform.position, hit.transform.position);
 
-			if (!ignorePlayer)
-			{
-				if (hit.transform.CompareTag("Player"))
-				{
-					navAgent.Stop();
-					Debug.Log("Seen player");
-				}
-				else
-				{
-					if (navAgent.isStopped)
-					{
-						navAgent.isStopped = false;
-						Debug.Log("Cant see player");
-					}
-				}
-			}
-
 			hitObj = hit;
 			return true;
 		}
 		return false;
 	}
+
+	/*
+	void ScanForPlayer()
+	{
+		if (tempPlayer == null)
+		{
+			tempPlayer = GameObject.FindObjectOfType<PlayerController>().gameObject;
+		}
+
+		RaycastHit playerHitCast;
+
+		if (Physics.Raycast(transform.position, tempPlayer.transform.position, out playerHitCast))
+		{
+			Debug.DrawLine(transform.position, playerHitCast.transform.position, Color.yellow);
+			Debug.Log(playerHitCast.transform.name);
+
+			if (playerHitCast.transform.CompareTag("Player"))
+			{
+				hitPlayer = true;
+			}
+		}
+	}
+	*/
 
 	void Alert(Vector3 alertPosition)
 	{
@@ -360,23 +381,21 @@ public class AIMasterScript : MonoBehaviour
 		{
 			if (other.GetComponent<PlayerController>().invisibleToAI != true)
 			{
-				Vector3 dir = other.transform.position - transform.position;
-				float angle = Vector3.Angle(dir, transform.forward);
-
-				Debug.DrawLine(transform.position, other.transform.position, Color.red);
-
-				if (angle < fieldOfView * 0.5f)
+				if (hitPlayer == true)
 				{
-					Debug.DrawLine(transform.position, other.transform.position, Color.green);
-					StartPlayerDetection(other.gameObject);
-					navAgent.isStopped = true;
-					navAgent.speed = 0;
+					Vector3 dir = other.transform.position - transform.position;
+					float angle = Vector3.Angle(dir, transform.forward);
+					if (angle < fieldOfView * 0.5f)
+					{
+						StartPlayerDetection(other.gameObject);
+						navAgent.isStopped = true;
+					}
 				}
-				else
-				{
-					StopPlayerDetection();
-					navAgent.isStopped = false;
-				}
+			}
+			else
+			{
+				StopPlayerDetection();
+				navAgent.isStopped = false;
 			}
 		}
 	}

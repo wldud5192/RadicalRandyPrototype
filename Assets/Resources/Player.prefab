@@ -929,14 +929,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e050d55cc7876c438d6cdfe7fb1f059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalBGM: {fileID: 8300000, guid: 581733c278dadcd4a8ccd9481ccd887f, type: 3}
+  alertedBGM: {fileID: 8300000, guid: 67019823e4cc3964db681a5998c0a535, type: 3}
   walkSpeed: 3
   runSpeed: 5
   played: 0
-  alertedUI: {fileID: 0}
   playerIsDetected: 0
-  speed: 0
-  doorDropPos: 0
-  doorSpeed: 0
+  invisibleToAI: 0
 --- !u!136 &136454208050072276
 CapsuleCollider:
   m_ObjectHideFlags: 1

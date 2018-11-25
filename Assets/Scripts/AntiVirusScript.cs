@@ -17,11 +17,11 @@ public class AntiVirusScript : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		if (GameObject.Find("AntiVirusActivationUI") != null)
+		if (GameObject.FindGameObjectWithTag("AntiVirus") != null)
 		{
-			removingText = GameObject.Find("AntiVirusActivationUI").GetComponent<TMP_Text>();
-			removingText.gameObject.active = false;
-		}
+			removingText = GameObject.FindGameObjectWithTag("AntiVirus").GetComponent<TMP_Text>();
+			removingText.gameObject.SetActive(false);
+        }
 		else
 		{
 			Debug.Log("Canvas must exist in the scene.");
@@ -45,8 +45,8 @@ public class AntiVirusScript : MonoBehaviour
 		{
 			if (removingText != null)
 			{
-				removingText.gameObject.active = true;
-				removingText.color = Color.Lerp(Color.green, Color.black, t);
+                removingText.gameObject.SetActive(true);
+                removingText.color = Color.Lerp(Color.green, Color.black, t);
 			}
 			if (t < 1)
 			{

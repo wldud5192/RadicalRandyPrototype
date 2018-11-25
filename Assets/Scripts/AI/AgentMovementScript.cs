@@ -1,166 +1,111 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(SphereCollider))]
 public class AgentMovementScript : MonoBehaviour
 {
-	public enum SearchType
-	{
-		Search_Up,
-		Search_Right
-	}
 
-	public enum SearchState
+	enum AI_State
 	{
-		Patrol,
 		Chasing,
 		Searching
 	}
 
-	SearchType searchType;
+	public enum MovementType
+	{
+		Horizontal,
+		Vertical
+	}
+
+	public float viewDistance = 5.0f;
+	public float fieldOfView = 110.0f;
+	float walkSpeed;
+	float runSpeed;
 	NavMeshAgent navAgent;
-	bool movingUpRight;
+	public float attackDistance;
+	AI_State currentEnemyState;
+	public MovementType movementType;
+	public Slider SuspicionScale;
+	float alertTimer;
+	public float timeUntilAlerted;
 	GameObject player;
 
-	[Header("AgentData")]
-	public float Speed;
-	public float dashSpeed;
-	public float searchTime;
-	public float distanceFromCheckpoint;
-	public SearchState movementState;
-	public float viewDistance;
-	Vector3 moveDirection;
-
-	public Transform navObjectParent;
-	[SerializeField]
-	List<Transform> navPositions;
-	int currentTargetNode;
-
-	[SerializeField]
-	bool chasingPlayer, isIdle, isLookingAround;
-
-	float nodeDistance = 1.0f;
-
-	private void Awake()
+	void OnValidate()
 	{
-		navAgent = GetComponent<NavMeshAgent>();
-		Debug.Log(navObjectParent.name);
-		navPositions = new List<Transform>();
+		GetComponent<SphereCollider>().radius = viewDistance;
+	}
 
-		foreach (Transform childObj in navObjectParent.GetComponentsInChildren<Transform>())
-		{
-			if (childObj != navObjectParent)
-			{
-				navPositions.Add(childObj);
-			}
-		}
-		navAgent.speed = dashSpeed;
-		isIdle = true;
+	void Start()
+	{
+		currentEnemyState = AI_State.Searching;
+		navAgent = GetComponent<NavMeshAgent>();
 	}
 
 	void Update()
 	{
-		if (!chasingPlayer)
+		if (player == null)
 		{
-			SearchingForPlayer();
-		}
-
-		if (!isIdle)
-		{
-			Wandering();
-		}
-		else
-		{
-			if (!isLookingAround)
-			{
-				StartCoroutine(IdleForTime());
-			}
-			transform.LookAt(navPositions[currentTargetNode]);
-		}
-	}
-
-	void Wandering()
-	{
-		if (chasingPlayer)
-		{
-			Debug.Log("Were chasing the player");
+			Debug.LogError("Failed to find player");
 			return;
 		}
 
-		if (Vector3.Distance(this.transform.position, navPositions[currentTargetNode].position) < nodeDistance)
-		{
-			if (navPositions.Count - 1 < currentTargetNode + 1)
-			{
-				currentTargetNode = 0;
-			}
-			else
-			{
-				currentTargetNode += 1;
-			}
+		SuspicionScale.value = alertTimer;
 
-			isIdle = true;
-			Debug.Log("Were close to the node. Lets look around");
-		}
-
-		if (navAgent.destination == null && !isLookingAround)
+		switch(currentEnemyState)
 		{
-			navAgent.SetDestination(navPositions[currentTargetNode].position);
-			Debug.Log("Were heading to a new node");
+			case AI_State.Chasing:
+				Chase();
+			break;
+
+			case AI_State.Searching:
+				Search();
+			break;
+
+			default:
+				break;
 		}
 	}
 
-	void SearchingForPlayer()
+	void Chase()
 	{
-		Debug.DrawLine(transform.position, transform.position + transform.forward * viewDistance);
-
-		if (chasingPlayer == true)
+		RaycastHit hitPlayer;
+		if(Physics.Raycast(transform.position, player.transform.position, out hitPlayer, 1000))
 		{
-			return;
-		}
-
-		RaycastHit hit;
-		if (Physics.Raycast(transform.position, transform.forward, out hit, viewDistance))
-		{
-			if (hit.transform != null && hit.transform.CompareTag("Player"))
+			if(hitPlayer.transform.CompareTag("Player") == false)
 			{
-				player = hit.transform.gameObject;
-				chasingPlayer = true;
-			}
-		}
-
-	}
-
-	void ChasingPlayer()
-	{
-		RaycastHit playerTarget;
-		if (Physics.Raycast(transform.position, player.transform.position, out playerTarget, 1000.0f))
-		{
-			if (!playerTarget.transform.CompareTag("Player"))
-			{
-				chasingPlayer = false;
-				Debug.Log("I've lost the player");
+				StopPlayerDetection();
 			}
 			else
 			{
 				navAgent.SetDestination(player.transform.position);
 			}
 		}
+
+		if(Vector3.Distance(transform.position, player.transform.position) < attackDistance)
+		{
+			StartCoroutine(Death());
+		}
 	}
 
-	IEnumerator IdleForTime()
+	void Search()
 	{
-		Debug.Log("Lets have a look around");
-		isLookingAround = true;
 
-		yield return new WaitForSeconds(searchTime);
-
-		navAgent.SetDestination(navPositions[currentTargetNode].position);
-		isIdle = false;
-		isLookingAround = false;
-		Debug.Log("Lets move on");
 	}
 
+	void StartPlayerDetection()
+	{ }
+
+	void StopPlayerDetection()
+	{ }
+
+	IEnumerator Death()
+	{
+		yield return new WaitForSeconds(0.0f);
+	}
 }
