@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33045618708602056}
   - component: {fileID: 23711119451051400}
   - component: {fileID: 54887307694906844}
-  - component: {fileID: 65824653711479278}
+  - component: {fileID: 135299458702081606}
   m_Layer: 0
   m_Name: Virus
   m_TagString: Virus
@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1347712339121982}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4, y: 0.1, z: 3}
-  m_LocalScale: {x: 0.045, y: 0.045, z: 0.045}
+  m_LocalPosition: {x: 7.99, y: 1.004, z: 9.3628}
+  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -98,10 +98,10 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 1
---- !u!65 &65824653711479278
-BoxCollider:
+--- !u!135 &135299458702081606
+SphereCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -110,5 +110,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 33, y: 30, z: 10.000002}
+  m_Radius: 18
   m_Center: {x: 0, y: 16.000004, z: -5.000001}

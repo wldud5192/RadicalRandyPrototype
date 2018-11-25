@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class KeyScript : MonoBehaviour {
-
-    Vector3 basePos;
-    Vector3 _closedPosition;
-    float raiseHeight = -5f;
-    float doorSpeed = 10f;
+    
     float speed = 60f;
     AudioSource audio;
     GameObject player;
@@ -31,23 +27,17 @@ public class KeyScript : MonoBehaviour {
     {
         if(col.gameObject == player)
         {
-            Vector3 endpos = door.transform.position + new Vector3(0f, 0f, raiseHeight);
-            StartCoroutine("MoveDoor", endpos);
+            StartCoroutine("MoveDoor");
             audio.Play();
             transform.position = Vector3.one * 9999f;
             Destroy(gameObject, audio.clip.length);
         }
     }
 
-    IEnumerator MoveDoor (Vector3 endPos)
+    IEnumerator MoveDoor ()
     {
-        float t = 0f;
-        Vector3 startPos = door.transform.position;
-        while (t < 2f)
-        {
-            t += Time.deltaTime * 10f;
-            door.transform.position = Vector3.Slerp(basePos, endPos, t);
-            yield return null;
+        Destroy(door);
+        yield return null;
         }
+
     }
-}
