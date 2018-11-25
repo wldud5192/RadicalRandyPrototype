@@ -5,13 +5,18 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
+    public AudioClip normalBGM;
+    public AudioClip alertedBGM;
+    AudioSource bgm;
 	public float walkSpeed;
 	public float runSpeed;
 	Vector2 inputDirection;
 	Vector3 startPosition;
     public bool played = false;
 
-    public GameObject alertedUI;
+    GameObject canvas;
+
+    GameObject alertedUI;
 	public bool playerIsDetected;
 	Animator anim;
 
@@ -19,22 +24,23 @@ public class PlayerController : MonoBehaviour
 
 	void Start()
 	{
-		anim = gameObject.GetComponent<Animator>();
+        canvas = GameObject.Find("Canvas");
+        bgm = canvas.GetComponent<AudioSource>();
+        alertedUI = canvas.transform.Find("AlertedUI").gameObject;
+        ChangeBGM();
+
+        anim = gameObject.GetComponent<Animator>();
 		playerRB = GetComponent<Rigidbody>();
 
         transform.position += new Vector3(0,0.1f,0);
 
-		walkSpeed = 1500;
-		runSpeed = 2000;
+		walkSpeed = 1000;
+		runSpeed = 1500;
         
 		playerRB.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
         playerRB.useGravity = true;
     }
-
-    public float speed;
-	public float doorDropPos;
-	public float doorSpeed;
-	GameObject[] Unlocked;
+    
 
 	void Update()
 	{
@@ -80,26 +86,46 @@ public class PlayerController : MonoBehaviour
 
 		if (playerIsDetected)
 		{
-			playerRB.AddForce(movement * runSpeed * Time.deltaTime * 15);
+            playerRB.AddForce(movement * runSpeed * Time.deltaTime * 15);
 			playerRB.velocity = Vector3.ClampMagnitude(playerRB.velocity, 3);
 			if (!played)
             {
-                alertedUI.active = true;
+                ChangeBGM();
+                alertedUI.SetActive(true);
                 played = true;
             }
            
         }
 		else
-		{
+        {
 			playerRB.AddForce(movement * walkSpeed * Time.deltaTime * 15);
 			playerRB.velocity = Vector3.ClampMagnitude(playerRB.velocity, 1);
-			if (alertedUI.active)
+            if (played)
             {
-                alertedUI.active = false;
+                ChangeBGM();
+                alertedUI.SetActive(false);
+                played = false;
             }
         }
 
 	}
+
+    void ChangeBGM()
+    {
+
+        if (bgm.clip == normalBGM)
+        {
+            bgm.Stop();
+            bgm.clip = alertedBGM;
+            bgm.Play();
+        }
+        else
+        {
+            bgm.Stop();
+            bgm.clip = normalBGM;
+            bgm.Play();
+        }
+    }
 
 	void HandleInputRotation(float moveHorizontal, float moveVertical)
 	{
@@ -120,48 +146,5 @@ public class PlayerController : MonoBehaviour
 			transform.rotation = Quaternion.Euler(0,180,0);
 		}
 	}
-
-	// Unlocking Doors
-	private void OnTriggerStay(Collider other)
-	{
-		if (other.gameObject.tag == ("RedKey"))                         //Identify the current key you are inside of
-		{
-			Unlocked = GameObject.FindGameObjectsWithTag("RedDoor");    //Puts all Doors of that colour into an array
-			foreach (GameObject Unlocked in Unlocked)
-			{
-				Vector3 basePos = Unlocked.transform.position;          // BasePos is given the current position of each door
-				basePos.y = doorDropPos;                                        // BasePos is then lowered to be (presumably) below field
-				if (Unlocked.transform.position.y > basePos.y)          // if the current position is above the basepos then the door is lowered
-				{
-					Unlocked.transform.position = Vector3.MoveTowards(Unlocked.transform.position, basePos, doorSpeed);
-				}
-			}
-		}
-		else if (other.gameObject.tag == ("BlueKey"))                   //Same as applies above
-		{
-			Unlocked = GameObject.FindGameObjectsWithTag("BlueDoor");
-			foreach (GameObject Unlocked in Unlocked)
-			{
-				Vector3 basePos = Unlocked.transform.position;
-				basePos.y = doorDropPos;
-				if (Unlocked.transform.position.y > basePos.y)
-				{
-					Unlocked.transform.position = Vector3.MoveTowards(Unlocked.transform.position, basePos, doorSpeed);
-				}
-			}
-		}
-		else if (other.gameObject.tag == ("GreenKey"))                     //Same as applies above
-		{
-			Unlocked = GameObject.FindGameObjectsWithTag("GreenDoor");
-			foreach (GameObject Unlocked in Unlocked)
-			{
-				Vector3 basePos = Unlocked.transform.position;
-				basePos.y = doorDropPos;
-				if (Unlocked.transform.position.y > basePos.y)
-				{
-					Unlocked.transform.position = Vector3.MoveTowards(Unlocked.transform.position, basePos, doorSpeed);
-				}
-			}
-		}
-	}
+    
 }

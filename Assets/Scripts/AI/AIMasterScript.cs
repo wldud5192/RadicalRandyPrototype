@@ -49,7 +49,7 @@ public class AIMasterScript : MonoBehaviour
 	public SearchType searchMethod;
 
 	public bool moveUpOrRight;
-	public float wallHitDistance;
+	public float wallHitDistance = 0.1f;
 
 	[HideInInspector]
 	public GameObject player;
@@ -276,6 +276,7 @@ public class AIMasterScript : MonoBehaviour
 		
 		if(alertTime <= 0)
 		{
+            playerCont.playerIsDetected = false;
 			player = null;
 			currentState = AIState.AI_Searching;
 		}
