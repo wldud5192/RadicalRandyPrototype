@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
 	public int curLife;
 
 	GameObject gameOverUI;
-	public Image[] lifeImages;
+	public List<Image> lifeImages;
 	GameObject[] lifeUI;
 	public Sprite fullLife;
 	public Sprite emptyLife;
@@ -19,10 +19,10 @@ public class PlayerHealth : MonoBehaviour
 		gameOverUI = GameObject.Find("GameOverUI");
 		lifeUI = GameObject.FindGameObjectsWithTag("LifeUI");
 
-		//WHY???
+		if(maxLife != 0)
 		for (int i = 0; i < maxLife; i++)
 		{
-			if(lifeImages != null && lifeUI != null && i <= lifeImages.Length && i <= lifeUI.Length )
+			if(lifeImages != null && lifeUI != null && i <= lifeImages.Count && i <= lifeUI.Length )
 			{
 				if(lifeUI[i] != null)
 					lifeImages[i] = lifeUI[i].GetComponent<Image>();
@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
 			maxLife = curLife;
 		}
 
-		for (int i = 0; i < lifeImages.Length; i++)
+		for (int i = 0; i < lifeImages.Count; i++)
 		{
 			if (i < maxLife)
 			{

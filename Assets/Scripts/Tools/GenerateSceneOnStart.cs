@@ -19,7 +19,8 @@ public class GenerateSceneOnStart : MonoBehaviour
 		tileOffset = 2.0f;
 
 		mapDirectory = SceneManager.GetActiveScene().name + ".txt";
-		directory = Application.dataPath + "//..//StreamingAssets/";
+		directory = Application.dataPath + "/../StreamingAssets/";
+
 		Debug.Log(directory);
 
 		ReadFile();

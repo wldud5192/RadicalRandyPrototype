@@ -80,23 +80,23 @@ public class PlayerController : MonoBehaviour
 
 		if (playerIsDetected)
 		{
-            if (!played)
+			playerRB.AddForce(movement * runSpeed * Time.deltaTime * 15);
+			playerRB.velocity = Vector3.ClampMagnitude(playerRB.velocity, 3);
+			if (!played)
             {
                 alertedUI.active = true;
                 played = true;
             }
-            playerRB.AddForce(movement * runSpeed * Time.deltaTime * 15);
-            playerRB.velocity = Vector3.ClampMagnitude(playerRB.velocity, 3);
+           
         }
 		else
 		{
-            if(alertedUI.active)
+			playerRB.AddForce(movement * walkSpeed * Time.deltaTime * 15);
+			playerRB.velocity = Vector3.ClampMagnitude(playerRB.velocity, 1);
+			if (alertedUI.active)
             {
                 alertedUI.active = false;
             }
-			playerRB.AddForce(movement * walkSpeed * Time.deltaTime * 15);
-
-            playerRB.velocity = Vector3.ClampMagnitude(playerRB.velocity, 1);
         }
 
 	}

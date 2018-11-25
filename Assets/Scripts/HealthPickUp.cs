@@ -12,7 +12,7 @@ public class HealthPickUp : MonoBehaviour
     void Start()
     {
         pickupSound = GetComponent<AudioSource>();
-        playerHP = GameObject.Find("Canvas").GetComponent<HealthScript>();
+        playerHP = GameObject.FindObjectOfType<HealthScript>();
     }
 
     void Update()

@@ -22,8 +22,8 @@ public class AIMasterScript : MonoBehaviour
 		Search_Vertical
 	}
 
-	float viewDistance;
-	float fieldOfView = 110.0f;
+	public float viewDistance;
+	public float fieldOfView = 110.0f;
 	float walkSpeed;
 	float runSpeed;
 	public GameObject[] patrolPositions;
@@ -63,7 +63,17 @@ public class AIMasterScript : MonoBehaviour
 	private float alertTime;
 
     public Slider seenBar;
-	//public TextMesh seenTimer;
+
+	Vector3 initialPosition;
+
+	private void OnValidate()
+	{
+		GetComponent<SphereCollider>().radius = viewDistance;
+		foreach (Collider collision in GetComponents<Collider>())
+		{
+			collision.isTrigger = true;
+		}
+	}
 
 	void Start()
 	{
@@ -84,12 +94,12 @@ public class AIMasterScript : MonoBehaviour
 
 		currentState = AIState.AI_Searching;
 		navAgent = GetComponent<NavMeshAgent>();
+		initialPosition = transform.position;
 	}
 
 	void Update()
 	{
         seenBar.value = alertTime;
-		//seenTimer.text = alertTime.ToString();
 
 		switch (currentState)
 		{
@@ -112,8 +122,18 @@ public class AIMasterScript : MonoBehaviour
 		{
 			currentState = AIState.AI_Searching;
 		}
+
         playerCont.playerIsDetected = true;
         navAgent.SetDestination(player.transform.position);
+
+		RaycastHit playerScanHit;
+		if(Physics.Raycast(transform.position, player.transform.position, out playerScanHit, 1000))
+		{
+			if(!playerScanHit.transform.CompareTag("Player"))
+			{
+				StopDetection();
+			}
+		}
 
 		if (Vector3.Distance(transform.position, player.transform.position) < attackDistance)
 		{
@@ -131,36 +151,19 @@ public class AIMasterScript : MonoBehaviour
 			currentState = AIState.AI_Chasing;
 		}
 
-		Physics.OverlapSphereNonAlloc(transform.position + sphereOffset, searchBehindRange, sphereHitObjects);
-
-		if (sphereHitObjects != null && sphereHitObjects.Length > 0)
+		/*RaycastHit FoVHit;
+		if (ScanInDirection(transform.forward, viewDistance, out FoVHit, false))
 		{
-			foreach (Collider hitObject in sphereHitObjects)
-			{
-				if (hitObject != null)
-				{
-					if (hitObject.CompareTag("Player") && player == null)
-					{
-						StartPlayerDetection(hitObject.transform.gameObject);
-					}
-				}
-			}
-		}
-
-		RaycastHit FoVHit;
-		if (ScanInDirection(transform.forward, viewDistance, out FoVHit))
-		{
-
 			if (FoVHit.transform.gameObject != null)
 			{
 				if (FoVHit.transform.CompareTag("Player"))
 				{
 					StartPlayerDetection(FoVHit.transform.gameObject);
 				}
+				StopDetection();
 			}
+		}*/
 
-			Debug.DrawLine(transform.position, transform.position + transform.forward * viewDistance);
-		}
 		float distance = 0.0f;
 
 		if (searchMethod == SearchType.Search_Horizontal)
@@ -170,28 +173,35 @@ public class AIMasterScript : MonoBehaviour
 
 			if (moveUpOrRight)
 			{
-				if (ScanInDirection(Vector3.right, 500, out hitRight))
+				if (ScanInDirection(Vector3.right, 500, out hitRight, true))
 				{
 					distance = Vector3.Distance(transform.position, hitRight.transform.position);
 					CheckNavAgent();
-					navAgent.SetDestination(hitRight.transform.position);
-					if (distance < wallHitDistance)
+
+					if (navAgent.isOnNavMesh)
 					{
-						moveUpOrRight = false;
+						navAgent.SetDestination(hitRight.transform.position);
+						if (distance < wallHitDistance)
+						{
+							moveUpOrRight = false;
+						}
 					}
 				}
 			}
 			else
 			{
-				if (ScanInDirection(Vector3.left, 500, out hitLeft))
+				if (ScanInDirection(Vector3.left, 500, out hitLeft, true))
 				{
 					distance = Vector3.Distance(transform.position, hitLeft.transform.position);
 					//Debug.Log(this.name);
 					CheckNavAgent();
-					navAgent.SetDestination(hitLeft.transform.position);
-					if (distance < wallHitDistance)
+					if (navAgent.isOnNavMesh)
 					{
-						moveUpOrRight = true;
+						navAgent.SetDestination(hitLeft.transform.position);
+						if (distance < wallHitDistance)
+						{
+							moveUpOrRight = true;
+						}
 					}
 				}
 			}
@@ -204,27 +214,34 @@ public class AIMasterScript : MonoBehaviour
 
 			if (moveUpOrRight)
 			{
-				if (ScanInDirection(Vector3.forward, 500, out hitFront))
+				if (ScanInDirection(Vector3.forward, 500, out hitFront, true))
 				{
 					distance = Vector3.Distance(transform.position, hitFront.transform.position);
 					CheckNavAgent();
-					navAgent.SetDestination(hitFront.transform.position);
-					if (distance < wallHitDistance)
+					if (navAgent.isOnNavMesh)
 					{
-						moveUpOrRight = false;
+						navAgent.SetDestination(hitFront.transform.position);
+
+						if (distance < wallHitDistance)
+						{
+							moveUpOrRight = false;
+						}
 					}
 				}
 			}
 			else
 			{
-				if (ScanInDirection(Vector3.back, 500, out hitBack))
+				if (ScanInDirection(Vector3.back, 500, out hitBack, true))
 				{
 					distance = Vector3.Distance(transform.position, hitBack.transform.position);
 					CheckNavAgent();
-					navAgent.SetDestination(hitBack.transform.position);
-					if (distance < wallHitDistance)
+					if (navAgent.isOnNavMesh)
 					{
-						moveUpOrRight = true;
+						navAgent.SetDestination(hitBack.transform.position);
+						if (distance < wallHitDistance)
+						{
+							moveUpOrRight = true;
+						}
 					}
 				}
 			}
@@ -233,8 +250,6 @@ public class AIMasterScript : MonoBehaviour
 
 	void StartPlayerDetection(GameObject detectedPlayer)
 	{
-		//Debug.Log(alertTime);
-
 		if(Vector3.Distance(transform.position, detectedPlayer.transform.position) < 2)
 		{
 			alertTime = timeUntilAlerted;
@@ -251,7 +266,22 @@ public class AIMasterScript : MonoBehaviour
 		}
 	}
 
-	bool ScanInDirection(Vector3 direction, float distance, out RaycastHit hitObj)
+	void StopDetection()
+	{
+		if (alertTime > 0)
+		{
+			alertTime -= Time.deltaTime / 2.5f;
+			navAgent.isStopped = false;
+		}
+		
+		if(alertTime <= 0)
+		{
+			player = null;
+			currentState = AIState.AI_Searching;
+		}
+	}
+
+	bool ScanInDirection(Vector3 direction, float distance, out RaycastHit hitObj, bool ignorePlayer = false)
 	{
 		RaycastHit hit = new RaycastHit();
 		hitObj = new RaycastHit();
@@ -259,6 +289,23 @@ public class AIMasterScript : MonoBehaviour
 		if (Physics.Raycast(this.transform.position, direction, out hit, distance))
 		{
 			distance = Vector3.Distance(transform.position, hit.transform.position);
+
+			if (!ignorePlayer)
+			{
+				if (hit.transform.CompareTag("Player"))
+				{
+					navAgent.Stop();
+					Debug.Log("Seen player");
+				}
+				else
+				{
+					if(navAgent.isStopped)
+					{
+						navAgent.isStopped = false;
+						Debug.Log("Cant see player");
+					}
+				}
+			}
 
 			hitObj = hit;
 			return true;
@@ -276,6 +323,7 @@ public class AIMasterScript : MonoBehaviour
         Destroy(player.GetComponent<BoxCollider>());
 		playerCont.enabled = false;
 		playerAnim.SetBool("isDead", true);
+
 		if (isHit == false)
 		{
 			if (playerHealthUI != null)
@@ -285,38 +333,50 @@ public class AIMasterScript : MonoBehaviour
 			playerHurt.Play();
 			isHit = true;
 		}
-		//playerAnim.SetBool("isDead", true);
+
 		yield return new WaitForSeconds(1.5f);
+
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		isHit = false;
 	}
 
 	void GetSOData()
 	{
-		viewDistance = aiLogic.viewDistance;
+		//viewDistance = aiLogic.viewDistance;
 		walkSpeed = aiLogic.speed;
 		attackDistance = aiLogic.attackDistance;
 		searchTime = aiLogic.searchTime;
 	}
 
+
 	private void OnTriggerStay(Collider other)
+	{
+		if (other.CompareTag("Player"))
+		{
+			Vector3 dir = other.transform.position - transform.position;
+			Debug.Log("Dir " + dir);
+			float angle = Vector3.Angle(dir, transform.forward);
+			Debug.Log("Angle: " + angle);
+
+			Debug.DrawLine(transform.position, other.transform.position, Color.red);
+
+			if (angle < fieldOfView * 0.5f)
+			{
+				Debug.DrawLine(transform.position, other.transform.position, Color.green);
+				StartPlayerDetection(other.gameObject);
+				navAgent.isStopped = true;
+				navAgent.speed = 0;
+			}
+		}
+	}
+
+	private void OnTriggerExit(Collider other)
 	{
 		if(other.CompareTag("Player"))
 		{
-			Vector3 dir = other.transform.position - transform.position;
-			float angle = Vector3.Angle(dir, transform.forward);
-
-			if(angle < fieldOfView * 0.5f)
-			{
-				RaycastHit hit;
-				if(Physics.Raycast(transform.position, other.transform.position, out hit))
-				{
-					if(hit.transform.CompareTag("Player"))
-						StartPlayerDetection(other.gameObject);
-				}
-				Debug.DrawLine(transform.position, other.transform.position);
-				//Debug.Log(angle);
-			}
+			StopDetection();
+			navAgent.isStopped = false;
+			navAgent.speed = 10.0f;
 		}
 	}
 
