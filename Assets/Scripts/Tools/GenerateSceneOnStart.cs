@@ -59,93 +59,93 @@ public class GenerateSceneOnStart : MonoBehaviour
 				switch (FileDataReader[y][x])
 				{
 					case '○':
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Floor"));
 						SetItemPosition(Item);
 						break;
 
 					case '▨':
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Wall"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Wall"));
 						SetItemPosition(Item);
 						break;
 
 					case '☆':
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Player"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Player"));
 						SetItemPosition(Item);
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Floor"));
 						SetItemPosition(Item);
 						break;
 
 					case '★':
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Exit"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Exit"));
 						SetItemPosition(Item);
 						break;
 
 					case '◎':
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Tile"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Tile"));
 						SetItemPosition(Item);
 						break;
 
 					case '※':
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("VPN"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("VPN"));
 						SetItemPosition(Item);
 						break;
 
 					case '◐':
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Switch"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Switch"));
 						SetItemPosition(Item);
 						break;
 
 					case '>':
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("AgentSpawn"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("AgentSpawn"));
 						SetItemPosition(Item);
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Floor"));
 						SetItemPosition(Item);
 						break;
 
 					case 'V':
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Virus"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Virus"));
 						SetItemPosition(Item);
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Floor"));
 						SetItemPosition(Item);
 						break;
 
 					case 'A':
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Antivirus"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Antivirus"));
 						SetItemPosition(Item);
 						break;
 
 					case '§':
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Key"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Key"));
 						SetItemPosition(Item);
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Floor"));
 						SetItemPosition(Item);
 						break;
 
 					case 'Ⅲ':
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Door"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Door"));
 						SetItemPosition(Item);
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Floor"));
 						SetItemPosition(Item);
 						break;
 
 					case '♥':
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Health"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Health"));
 						SetItemPosition(Item);
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Floor"));
 						SetItemPosition(Item);
 						break;
 
 					case '⇔':
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Counterhack"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Counterhack"));
 						SetItemPosition(Item);
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Floor"));
 						SetItemPosition(Item);
 						break;
 
 					case '֍':
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("FrozenVirus"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("FrozenVirus"));
 						SetItemPosition(Item);
-						Item = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("Floor"));
+						Item = (GameObject)Instantiate(Resources.Load<GameObject>("Floor"));
 						SetItemPosition(Item);
 						break;
 
@@ -159,7 +159,7 @@ public class GenerateSceneOnStart : MonoBehaviour
 
 			spawnOffset = new Vector3(0, 0, spawnOffset.z + tileOffset);
 
-			GameObject Nav = (GameObject)PrefabUtility.InstantiatePrefab(Resources.Load<GameObject>("NavmeshBuilder"));
+			GameObject Nav = (GameObject)Instantiate(Resources.Load<GameObject>("NavmeshBuilder"));
 			Nav.transform.position = Vector3.zero;
 			Nav.GetComponent<LocalNavMeshBuilder>().m_Size = Vector3.one * 100;
 		}

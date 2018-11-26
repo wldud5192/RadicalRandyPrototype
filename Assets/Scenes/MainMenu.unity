@@ -1691,7 +1691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 478, y: -77.50002}
+  m_AnchoredPosition: {x: -619, y: -377}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1905387651
@@ -1726,9 +1726,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Credits
+  m_Text: 'Tubular Studios
 
-'
+    Ji-Young Kim
+
+    Coby Jennings'
 --- !u!222 &1905387652
 CanvasRenderer:
   m_ObjectHideFlags: 0
