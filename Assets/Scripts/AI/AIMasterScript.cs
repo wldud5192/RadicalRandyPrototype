@@ -125,26 +125,32 @@ public class AIMasterScript : MonoBehaviour
 
 	void Chase()
 	{
+		wallHitDistance = 0;
+		navAgent.SetDestination(player.transform.position);
+
 		if (player == null)
 		{
 			currentState = AIState.AI_Searching;
 		}
 
 		playerCont.playerIsDetected = true;
-		navAgent.SetDestination(player.transform.position);
-		Debug.Log("ZERG RUSH PLAYER!");
+
+		Vector3 playerDirection = tempPlayer.transform.position - transform.position;
+		playerDirection.y = 0;
+		playerDirection.Normalize();
+
+		Debug.DrawRay(transform.position, playerDirection * 100);
 
 		RaycastHit playerScanHit;
-		if (player != null)
+
+		if (Physics.Raycast(transform.position, playerDirection, out playerScanHit, 1000))
 		{
-			if (Physics.Raycast(transform.position, player.transform.position, out playerScanHit, 1000))
+			if (!playerScanHit.transform.CompareTag("Player"))
 			{
-				if (!playerScanHit.transform.CompareTag("Player"))
-				{
-					StopPlayerDetection();
-				}
+				StopPlayerDetection();
 			}
 		}
+
 
 		if (player != null && Vector3.Distance(transform.position, player.transform.position) < attackDistance)
 		{
@@ -154,23 +160,37 @@ public class AIMasterScript : MonoBehaviour
 			}
 		}
 
-		Debug.Log("Chasing");
+		//Debug.Log("Chasing");
 	}
 
 	void Search()
 	{
-		Debug.Log("Searching");
+		//Debug.Log("Searching");
 		if (player != null)
 		{
 			currentState = AIState.AI_Chasing;
 		}
 
-		RaycastHit hitPlyr;
-		if (Physics.Raycast(this.transform.position, tempPlayer.transform.position, out hitPlyr, 5000))
+		if (alertTime == timeUntilAlerted)
 		{
+			navAgent.SetDestination(tempPlayer.transform.position);
+			currentState = AIState.AI_Chasing;
+		}
+
+		Vector3 playerDirection = tempPlayer.transform.position - transform.position;
+		playerDirection.y = 0;
+		playerDirection.Normalize();
+
+		Debug.DrawRay(transform.position, playerDirection * 100);
+
+		RaycastHit hitPlyr;
+		if (Physics.Raycast(this.transform.position, playerDirection, out hitPlyr, 5000))
+		{
+			//Debug.Log(hitPlyr.transform.name);
+			Debug.DrawLine(this.transform.position, hitPlyr.point, Color.blue);
+
 			if (hitPlyr.transform.CompareTag("Player"))
 			{
-				Debug.DrawLine(this.transform.position, hitPlyr.transform.position, Color.blue);
 				hitPlayer = true;
 			}
 		}
@@ -182,7 +202,7 @@ public class AIMasterScript : MonoBehaviour
 
 		if (searchMethod == SearchType.Search_Horizontal)
 		{
-			Debug.Log("Searching Horizontal");
+			//Debug.Log("Searching Horizontal");
 			RaycastHit hitRight;
 			RaycastHit hitLeft;
 
@@ -208,7 +228,7 @@ public class AIMasterScript : MonoBehaviour
 				if (ScanInDirection(Vector3.left, 500, out hitLeft))
 				{
 					distance = Vector3.Distance(transform.position, hitLeft.transform.position);
-					//Debug.Log(this.name);
+					////Debug.Log(this.name);
 					CheckNavAgent();
 					if (navAgent.isOnNavMesh)
 					{
@@ -227,7 +247,7 @@ public class AIMasterScript : MonoBehaviour
 			RaycastHit hitFront;
 			RaycastHit hitBack;
 
-			Debug.Log("Searching Vertical");
+			//Debug.Log("Searching Vertical");
 
 			if (moveUpOrRight)
 			{
@@ -267,15 +287,26 @@ public class AIMasterScript : MonoBehaviour
 
 	void StartPlayerDetection(GameObject detectedPlayer)
 	{
+		if (alertTime > 0 && alertTime < timeUntilAlerted - 0.05)
+		{
+			navAgent.isStopped = true;
+		}
+		else
+		{
+			navAgent.isStopped = false;
+		}
+
 		if (Vector3.Distance(transform.position, detectedPlayer.transform.position) < 2)
 		{
 			alertTime = timeUntilAlerted;
 			currentState = AIState.AI_Chasing;
 		}
 
+
 		if (alertTime <= timeUntilAlerted)
 		{
 			alertTime += Time.deltaTime;
+			//navAgent.isStopped = true;
 		}
 
 		if (alertTime >= timeUntilAlerted)
@@ -290,10 +321,10 @@ public class AIMasterScript : MonoBehaviour
 		if (alertTime > 0)
 		{
 			alertTime -= Time.deltaTime / 2.5f;
-			navAgent.isStopped = false;
+			//navAgent.isStopped = false;
 		}
 
-		if (alertTime <= 0)
+		if (alertTime <= 0.1)
 		{
 			currentState = AIState.AI_Searching;
 			playerCont.playerIsDetected = false;
@@ -329,7 +360,7 @@ public class AIMasterScript : MonoBehaviour
 		if (Physics.Raycast(transform.position, tempPlayer.transform.position, out playerHitCast))
 		{
 			Debug.DrawLine(transform.position, playerHitCast.transform.position, Color.yellow);
-			Debug.Log(playerHitCast.transform.name);
+			//Debug.Log(playerHitCast.transform.name);
 
 			if (playerHitCast.transform.CompareTag("Player"))
 			{
@@ -388,14 +419,13 @@ public class AIMasterScript : MonoBehaviour
 					if (angle < fieldOfView * 0.5f)
 					{
 						StartPlayerDetection(other.gameObject);
-						navAgent.isStopped = true;
 					}
 				}
 			}
 			else
 			{
 				StopPlayerDetection();
-				navAgent.isStopped = false;
+				//navAgent.isStopped = false;
 			}
 		}
 	}
@@ -405,7 +435,7 @@ public class AIMasterScript : MonoBehaviour
 		if (other.CompareTag("Player"))
 		{
 			StopPlayerDetection();
-			navAgent.isStopped = false;
+			//navAgent.isStopped = false;
 			navAgent.speed = 10.0f;
 		}
 	}
