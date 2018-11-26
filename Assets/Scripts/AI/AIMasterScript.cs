@@ -287,7 +287,7 @@ public class AIMasterScript : MonoBehaviour
 
 	void StartPlayerDetection(GameObject detectedPlayer)
 	{
-		if (alertTime > 0 && alertTime < timeUntilAlerted - 0.05)
+		if (alertTime > 0.1 || alertTime < timeUntilAlerted - 0.1)
 		{
 			navAgent.isStopped = true;
 		}
@@ -425,7 +425,7 @@ public class AIMasterScript : MonoBehaviour
 			else
 			{
 				StopPlayerDetection();
-				//navAgent.isStopped = false;
+				navAgent.isStopped = false;
 			}
 		}
 	}
@@ -435,7 +435,7 @@ public class AIMasterScript : MonoBehaviour
 		if (other.CompareTag("Player"))
 		{
 			StopPlayerDetection();
-			//navAgent.isStopped = false;
+			navAgent.isStopped = false;
 			navAgent.speed = 10.0f;
 		}
 	}

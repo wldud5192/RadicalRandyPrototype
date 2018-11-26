@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
 	GameObject canvas;
 
-	GameObject alertedUI;
+	//GameObject alertedUI;
 	public bool playerIsDetected;
 	Animator anim;
 	[HideInInspector]
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 		if (canvas != null)
 		{
 			bgm = canvas.GetComponent<AudioSource>();
-			alertedUI = canvas.transform.Find("AlertedUI").gameObject;
+			//alertedUI = canvas.transform.Find("AlertedUI").gameObject;
 			ChangeBGM();
 		}
 
@@ -97,10 +97,10 @@ public class PlayerController : MonoBehaviour
 			playerRB.velocity = Vector3.ClampMagnitude(playerRB.velocity, 3);
 			if (!played)
 			{
-				if (bgm != null && alertedUI != null)
+				if (bgm != null /*&& alertedUI != null*/)
 				{
 					ChangeBGM();
-					alertedUI.SetActive(true);
+					//alertedUI.SetActive(true);
 				}
 				played = true;
 			}
@@ -112,10 +112,10 @@ public class PlayerController : MonoBehaviour
 			playerRB.velocity = Vector3.ClampMagnitude(playerRB.velocity, 1);
 			if (played)
 			{
-				if (bgm != null && alertedUI != null)
+				if (bgm != null /*&& alertedUI != null*/)
 				{
 					ChangeBGM();
-					alertedUI.SetActive(false);
+					//alertedUI.SetActive(false);
 				}
 				played = false;
 			}
